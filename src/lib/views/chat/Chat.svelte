@@ -1,17 +1,18 @@
 <script lang="ts">
   import { onMount } from 'svelte';
+  import { ChatStore } from '$lib/views/chat/chat.store.js';
   import { Button, Input } from 'flowbite-svelte';
 
   import { ChatService, isLoading } from './chat.service';
-  import { ChatStore } from './chat.store';
 
   let prompt: string;
-  let messages = [];
+
+  let innerHeight: number;
+
+  $: chatHeight = innerHeight - 60;
 
   onMount(async () => {
-    await ChatService.initialPrompt();
-
-    ChatStore.subscribe((res) => (messages = res));
+    // await ChatService.initialPrompt();
   });
 
   const send = async () => {
@@ -23,12 +24,14 @@
   };
 </script>
 
-<main class="h-screen flex flex-col max-w-screen-sm mx-auto gap-4">
+<svelte:window bind:innerHeight />
+
+<main style="height: {chatHeight}px;" class="flex flex-col max-w-screen-sm mx-auto gap-4 px-2">
   <section class="mx-auto w-full mt-auto">
     <ul>
-      {#each messages as message}
+      {#each $ChatStore as message}
         <li
-          class="p-3 rounded-md max-w-[300px]"
+          class="p-3 rounded-md max-w-[300px] mb-4"
           class:bot={message.author === 'bot'}
           class:user={message.author === 'user'}
         >
@@ -43,7 +46,7 @@
       <span class="text-gray-400 text-sm">MovieMate is typing...</span>
     {/if}
 
-    <span class="text-sm text-gray-500 ml-auto">Quick Answers</span>
+    <!--    <span class="text-sm text-gray-500 ml-auto">Quick Answers</span>-->
   </div>
 
   <form class="flex w-full mx-auto gap-3 mb-2">
@@ -53,6 +56,8 @@
 </main>
 
 <style lang="scss">
+  .chat {
+  }
   .bot {
     @apply bg-blue-500 text-white;
   }
