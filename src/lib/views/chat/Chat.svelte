@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { onMount } from 'svelte';
   import { ChatStore } from '$lib/views/chat/chat.store.js';
   import { Button, Input } from 'flowbite-svelte';
+  import { onMount } from 'svelte';
 
   import { ChatService, isLoading } from './chat.service';
 

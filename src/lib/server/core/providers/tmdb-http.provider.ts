@@ -1,5 +1,6 @@
-import { TMDB_API_KEY } from '$env/static/private';
 import axios from 'axios';
+
+import { TMDB_API_KEY } from '$env/static/private';
 
 export const TmdbHttpProvider = axios.create({
   baseURL: 'https://api.themoviedb.org/4',

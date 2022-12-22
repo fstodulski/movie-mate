@@ -1,7 +1,7 @@
-import type { CompletionsBodyReq } from '$lib/core/repositories/openai.repository';
-import { error } from '@sveltejs/kit';
 import type { RequestHandler } from '@sveltejs/kit';
+import { error } from '@sveltejs/kit';
 import { API_ENDPOINTS } from '$lib/core/constants/api-endpoints.const';
+import type { CompletionsBodyReq } from '$lib/core/repositories/openai.repository';
 import { OpenaiHttpProvider } from '$lib/server/core/providers/openai-http.provider';
 import { StatusCodes } from 'http-status-codes';
 

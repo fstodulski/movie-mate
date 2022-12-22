@@ -11,12 +11,10 @@ module.exports = {
   ignorePatterns: ['*.cjs'],
   overrides: [
     {
-      files: ['*.svelte'],
-      processor: 'svelte3/svelte3',
+      files: ['*.ts'],
       rules: {
         '@typescript-eslint/consistent-type-imports': 'warn',
         '@typescript-eslint/no-unused-vars': 'off',
-        '@typescript-eslint/explicit-module-boundary-types': ['error'],
         'no-use-before-define': 'off',
         '@typescript-eslint/no-use-before-define': ['error'],
         'unused-imports/no-unused-imports': 'error',
@@ -24,7 +22,25 @@ module.exports = {
         'simple-import-sort/imports': [
           'error',
           {
-            groups: [['^svelte', '^\\$app/*', '^\\$lib/*', '^@?\\w'], ['^\\.']]
+            groups: [['^@svelte', '^\\$app/*', '^\\$lib/*', '^@?\\w'], ['^\\.']]
+          }
+        ]
+      }
+    },
+    {
+      files: ['*.svelte'],
+      processor: 'svelte3/svelte3',
+      rules: {
+        '@typescript-eslint/consistent-type-imports': 'warn',
+        '@typescript-eslint/no-unused-vars': 'off',
+        'no-use-before-define': 'off',
+        '@typescript-eslint/no-use-before-define': ['error'],
+        'unused-imports/no-unused-imports': 'error',
+        'simple-import-sort/exports': 'error',
+        'simple-import-sort/imports': [
+          'error',
+          {
+            groups: [['^@svelte', '^\\$app/*', '^\\$lib/*', '^@?\\w'], ['^\\.']]
           }
         ],
         'import/no-unresolved': ['error'],

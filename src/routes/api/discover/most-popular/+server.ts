@@ -1,6 +1,6 @@
-import { TmdbHttpProvider } from '$lib/server/core/providers/tmdb-http.provider';
-import { error } from '@sveltejs/kit';
 import type { RequestHandler } from '@sveltejs/kit';
+import { error } from '@sveltejs/kit';
+import { TmdbHttpProvider } from '$lib/server/core/providers/tmdb-http.provider';
 import { StatusCodes } from 'http-status-codes';
 
 export const GET: RequestHandler = async () => {

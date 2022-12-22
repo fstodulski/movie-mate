@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { onMount } from 'svelte';
   import { DiscoverStore } from '$lib/views/discover/discover.store.js';
   import { Button } from 'flowbite-svelte';
+  import { onMount } from 'svelte';
 
   import { DiscoverService } from './discover.service';
 

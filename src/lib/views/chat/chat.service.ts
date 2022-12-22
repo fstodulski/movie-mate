@@ -1,5 +1,5 @@
-import { OpenaiRepository } from '$lib/core/repositories/openai.repository';
 import type { CompletionsBodyReq } from '$lib/core/repositories/openai.repository';
+import { OpenaiRepository } from '$lib/core/repositories/openai.repository';
 import { ChatStore } from '$lib/views/chat/chat.store';
 import { get, writable } from 'svelte/store';
 
