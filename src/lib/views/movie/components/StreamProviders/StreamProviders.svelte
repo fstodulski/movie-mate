@@ -10,8 +10,6 @@
     { value: 'ca', name: 'Canada' },
     { value: 'fr', name: 'France' }
   ];
-
-  console.log($page.data.providers);
 </script>
 
 <div class="flex w-full items-start justify-between">
@@ -27,9 +25,9 @@
 
 <ul class="flex w-full gap-4">
   {#each $page.data.providers as provider}
-    <li class="w-16 h-16 bg-gray-200 rounded-md">
-      <a href={provider.provider} target="_blank" rel="noreferrer">
-        <img src={provider.img} alt="" />
+    <li class="w-16 h-16 bg-gray-200 rounded-md overflow-hidden">
+      <a href={provider.provider_url} target="_blank" rel="noreferrer">
+        <img src={provider.image_url} alt="" />
       </a>
     </li>
   {/each}

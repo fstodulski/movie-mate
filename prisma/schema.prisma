@@ -28,42 +28,17 @@ model ChatHistory {
 }
 
 model Movie {
-  id              String            @id @default(uuid())
-  original_title  String
-  poster_path     String
-  tmdb_id         Int               @unique
-  imdb_id         String            @unique
-  title           String
-  MovieToProvider MovieToProvider[]
-  MovieToGenre    MovieToGenre[]
-}
-
-model MovieProvider {
-  id              String            @id @default(uuid())
-  name            String?           @unique
-  provider_img    String
-  provider_url    String
-  MovieToProvider MovieToProvider[]
-}
-
-model Genre {
-  id           String         @id @default(uuid())
-  name         String
-  MovieToGenre MovieToGenre[]
-}
-
-model MovieToGenre {
-  id      String @id @default(uuid())
-  genre   Genre  @relation(fields: [genreId], references: [id])
-  movie   Movie  @relation(fields: [movieId], references: [id])
-  genreId String
-  movieId String
+  id             String @id @default(uuid())
+  original_title String
+  poster_path    String
+  tmdb_id        Int    @unique
+  imdb_id        String @unique
+  title          String
 }
 
 model MovieToProvider {
-  id                String        @id @default(uuid())
-  movie             Movie         @relation(fields: [movie_id], references: [id])
-  provider          MovieProvider @relation(fields: [movie_provider_id], references: [id])
-  movie_id          String
-  movie_provider_id String
+  id           String @id @default(uuid())
+  movie_id     String
+  image_url    String
+  provider_url String
 }
