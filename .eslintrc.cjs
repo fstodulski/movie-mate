@@ -22,7 +22,7 @@ module.exports = {
         'simple-import-sort/imports': [
           'error',
           {
-            groups: [['^@svelte', '^\\$app/*', '^\\$lib/*', '^@?\\w'], ['^\\.']]
+            groups: [['^@svelte', '^\\$app/*', '^@?\\w' ],['^\\$lib/*'], ['^\\.']]
           }
         ]
       }
@@ -40,7 +40,7 @@ module.exports = {
         'simple-import-sort/imports': [
           'error',
           {
-            groups: [['^@svelte', '^\\$app/*', '^\\$lib/*', '^@?\\w'], ['^\\.']]
+            groups: [['^svelte', '^@svelte', '^\\$app/*'], ['^\\$lib/*', '^@?\\w'], ['^\\.']]
           }
         ],
         'import/no-unresolved': ['error'],

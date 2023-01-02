@@ -7,6 +7,9 @@ const mostPopular = async () => {
   DiscoverStore.set(res.results);
 };
 
+const genres = async () => {};
+
 export const DiscoverService = {
-  mostPopular
+  mostPopular,
+  genres
 };

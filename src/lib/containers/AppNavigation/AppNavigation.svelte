@@ -3,7 +3,9 @@
   import { Icon } from '@steeze-ui/svelte-icon';
 </script>
 
-<nav class="flex w-full pt-2 items-start justify-around border-t border-t-gray-200">
+<nav
+  class="fixed bottom-0 left-0 flex bg-white w-full pt-2 items-start justify-around border-t border-t-gray-200"
+>
   {#each AppNavigationConst as link}
     <a href={link.link}>
       <div class="flex flex-col items-center">

@@ -1,7 +1,8 @@
 <script lang="ts">
+  import { onDestroy, onMount } from 'svelte';
+
   import { ChatStore } from '$lib/views/chat/chat.store.js';
   import { Button, Input } from 'flowbite-svelte';
-  import { onMount } from 'svelte';
 
   import { ChatService, isLoading } from './chat.service';
 
@@ -12,7 +13,11 @@
   $: chatHeight = innerHeight - 60;
 
   onMount(async () => {
-    // await ChatService.initialPrompt();
+    await ChatService.initialPrompt();
+  });
+
+  onDestroy(() => {
+    ChatStore.set([]);
   });
 
   const send = async () => {

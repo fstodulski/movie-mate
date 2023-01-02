@@ -3,7 +3,8 @@ export const APP_ROUTES = {
     index: '/chat'
   },
   discover: {
-    index: '/discover'
+    index: '/discover',
+    movie: '/discover/:id'
   },
   watchlist: {
     index: '/watchlist'

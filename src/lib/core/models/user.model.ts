@@ -1,5 +1,6 @@
-import type { ChatHistory } from '$lib/core/models/chat-history.model';
 import { z } from 'zod';
+
+import type { ChatHistory } from '$lib/core/models/chat-history.model';
 
 const User = z.object({
   id: z.string(),

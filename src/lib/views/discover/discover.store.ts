@@ -1,4 +1,6 @@
 import { writable } from 'svelte/store';
 
-type DiscoverStore = Array<any>;
+import type { RichGenreModel } from '$lib/core/models/genre.model';
+
+type DiscoverStore = Array<RichGenreModel>;
 export const DiscoverStore = writable<DiscoverStore>([]);
