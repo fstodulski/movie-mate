@@ -1,22 +1,20 @@
 <script lang="ts">
-  import { onDestroy, onMount } from 'svelte';
-  import { page } from '$app/stores';
-
-  import { parsePoster } from '$lib/core/utils/poster.js';
-  import { MovieService } from '$lib/views/movie/movie.service';
-  import { MovieStore } from '$lib/views/movie/movie.store.js';
-
-  onMount(async () => {
-    await MovieService.single($page.params.id);
-  });
-
-  onDestroy(() => {
-    MovieStore.set({});
-  });
+  import Actions from '$lib/views/movie/components/Actions/Actions.svelte';
+  import Backdrop from '$lib/views/movie/components/Backdrop/Backdrop.svelte';
+  import Metadata from '$lib/views/movie/components/Metadata/Metadata.svelte';
+  import Review from '$lib/views/movie/components/Review/Review.svelte';
+  import StreamProviders from '$lib/views/movie/components/StreamProviders/StreamProviders.svelte';
+  import Trailer from '$lib/views/movie/components/Trailer/Trailer.svelte';
 </script>
 
-<section class="w-full flex flex-col">
-  <figure class="w-full">
-    <img src={parsePoster($MovieStore.backdrop_path, 'original')} alt="" />
-  </figure>
-</section>
+<div class="w-full flex flex-col">
+  <Backdrop />
+
+  <div class="px-3 flex flex-col w-full py-4 gap-6">
+    <Metadata />
+    <Actions />
+    <Trailer />
+    <Review />
+    <StreamProviders />
+  </div>
+</div>

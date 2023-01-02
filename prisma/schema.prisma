@@ -11,18 +11,59 @@ datasource db {
 }
 
 model User {
-  id            String        @id @default(uuid())
-  email         String
-  chatHistories ChatHistory[]
-  createdAt     DateTime
-  modifiedAt    DateTime
+  id             String        @id @default(uuid())
+  email          String
+  chat_histories ChatHistory[]
+  created_at     DateTime
+  modified_at    DateTime
 }
 
 model ChatHistory {
-  id         String   @id @default(uuid())
-  user       User     @relation(fields: [userId], references: [id])
-  content    String
-  userId     String
-  createdAt  DateTime
-  modifiedAt DateTime
+  id          String   @id @default(uuid())
+  user        User     @relation(fields: [user_id], references: [id])
+  content     String
+  user_id     String
+  created_at  DateTime
+  modified_at DateTime
+}
+
+model Movie {
+  id              String            @id @default(uuid())
+  original_title  String
+  poster_path     String
+  tmdb_id         Int               @unique
+  imdb_id         String            @unique
+  title           String
+  MovieToProvider MovieToProvider[]
+  MovieToGenre    MovieToGenre[]
+}
+
+model MovieProvider {
+  id              String            @id @default(uuid())
+  name            String?           @unique
+  provider_img    String
+  provider_url    String
+  MovieToProvider MovieToProvider[]
+}
+
+model Genre {
+  id           String         @id @default(uuid())
+  name         String
+  MovieToGenre MovieToGenre[]
+}
+
+model MovieToGenre {
+  id      String @id @default(uuid())
+  genre   Genre  @relation(fields: [genreId], references: [id])
+  movie   Movie  @relation(fields: [movieId], references: [id])
+  genreId String
+  movieId String
+}
+
+model MovieToProvider {
+  id                String        @id @default(uuid())
+  movie             Movie         @relation(fields: [movie_id], references: [id])
+  provider          MovieProvider @relation(fields: [movie_provider_id], references: [id])
+  movie_id          String
+  movie_provider_id String
 }
