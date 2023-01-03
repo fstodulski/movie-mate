@@ -53,7 +53,6 @@
 
       <div class="grid grid-cols-1 gap-4">
         <!--    Here goes the results-->
-
         {#if $MovieSearchStore.length > 0}
           {#each $MovieSearchStore as movie}
             <MovieCard data={movie} />
