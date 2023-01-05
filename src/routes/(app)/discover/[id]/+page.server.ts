@@ -6,12 +6,15 @@ import { ApiServerProvider } from '$lib/server/core/providers/api-server.provide
 
 import type { PageServerLoad } from './$types';
 
-export const load = (async ({ params }) => {
-  console.log(ApiServerProvider.defaults.baseURL);
-  const movieUrl = `/api${API_ENDPOINTS.api.movie.replace(':id', params.id)}`;
-  console.log(movieUrl);
+export const load = (async ({ params, request, url }) => {
+  const host = url.origin;
 
-  const providersUrl = '/api/scrap';
+  console.log(host);
+
+  const movieUrl = `${host}/api${API_ENDPOINTS.api.movie.replace(':id', params.id)}`;
+
+  console.log(movieUrl);
+  const providersUrl = `${host}/api/scrap`;
 
   const res = await ApiServerProvider.get(movieUrl);
 

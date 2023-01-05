@@ -17,6 +17,7 @@ export const GET: RequestHandler = async ({ url }) => {
       movie_id: movieId
     }
   });
+
   if (isEmpty(movieToProviders)) {
     const pw = await chromium.launch({
       headless: true

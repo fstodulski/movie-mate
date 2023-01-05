@@ -3,6 +3,8 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
+    "local": "cp .env_dev .env",
+    "prod": "cp .env_prod .env",
     "dev": "vite dev",
     "build": "vite build",
     "preview": "vite preview",
