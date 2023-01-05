@@ -1,7 +1,9 @@
 import axios from 'axios';
 
+import { HOST_URL } from '$env/static/private';
+
 export const ApiServerProvider = axios.create({
-  baseURL: 'http://localhost:5173/api',
+  baseURL: HOST_URL,
   headers: {
     'Content-type': 'application/json'
   }
