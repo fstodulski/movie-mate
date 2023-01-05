@@ -6,7 +6,10 @@ export const API_ENDPOINTS = {
       genres: '/discover/genres',
       search: '/movie/search'
     },
-    movie: '/movie/:id'
+    movie: {
+      byId: '/movie/:id',
+      providers: '/movie/providers'
+    }
   },
   openai: {
     completions: '/v1/completions'

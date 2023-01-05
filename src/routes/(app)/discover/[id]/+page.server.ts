@@ -7,13 +7,9 @@ import { ApiServerProvider } from '$lib/server/core/providers/api-server.provide
 import type { PageServerLoad } from './$types';
 
 export const load = (async ({ params, request, url }) => {
-  const movieUrl = `/api${API_ENDPOINTS.api.movie.replace(':id', params.id)}`;
+  const res = await ApiServerProvider.get(API_ENDPOINTS.api.movie.byId.replace(':id', params.id));
 
-  const providersUrl = `/api/scrap`;
-
-  const res = await ApiServerProvider.get(movieUrl);
-
-  const providers = await ApiServerProvider.get(providersUrl, {
+  const providers = await ApiServerProvider.get(API_ENDPOINTS.api.movie.providers, {
     params: {
       movieId: params.id
     }

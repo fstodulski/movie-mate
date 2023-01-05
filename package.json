@@ -57,6 +57,7 @@
     "axios": "^1.2.1",
     "http-status-codes": "^2.2.0",
     "ramda": "^0.28.0",
+    "tailwind-scrollbar-hide": "^1.1.7",
     "zod": "^3.20.2"
   }
 }
