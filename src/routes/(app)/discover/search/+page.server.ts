@@ -8,7 +8,9 @@ export const load = (async ({ url }) => {
 
   if (!query)
     return {
-      movies: []
+      movies: {
+        results: []
+      }
     };
 
   const res = await ApiServerProvider.get(API_ENDPOINTS.api.discovery.search, {
@@ -18,6 +20,6 @@ export const load = (async ({ url }) => {
   });
 
   return {
-    movies: res.data || []
+    movies: res.data || { results: [] }
   };
 }) satisfies PageServerLoad;
