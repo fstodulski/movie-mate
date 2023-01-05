@@ -1,6 +1,7 @@
 import type { RequestHandler } from '@sveltejs/kit';
 import { error } from '@sveltejs/kit';
-import { chromium } from '@playwright/test';
+import axios from 'axios';
+import { load } from 'cheerio';
 import { StatusCodes } from 'http-status-codes';
 import { isEmpty } from 'ramda';
 
@@ -19,32 +20,31 @@ export const GET: RequestHandler = async ({ url }) => {
   });
 
   if (isEmpty(movieToProviders)) {
-    const pw = await chromium.launch({
-      headless: true
-    });
-
-    const page = await pw.newPage();
-    await page.goto(`https://www.themoviedb.org/movie/${movieId}/watch?translate=false&locale=PL`);
-
-    const providers = await page.locator('ul.providers');
-    const count = await providers.count();
+    const html = await axios.get(
+      `https://www.themoviedb.org/movie/${movieId}/watch?translate=false&locale=PL`
+    );
 
     const prov: Array<any> = [];
     const images: Array<any> = [];
     const fullResponse: Array<any> = [];
 
-    for (let i = 0; i < count; i++) {
-      const ul = await providers.nth(i);
+    const $ = load(html.data);
+    const providers = $('ul.providers');
+    const count = providers.length;
 
-      const li = await ul.locator('li');
-      const liCount = await li.count();
+    for (let i = 0; i < count; i++) {
+      const ul = await providers[i];
+
+      const li = await $(ul).find('li');
+      const liCount = li.length;
 
       for (let z = 0; z < liCount; z++) {
-        const isHidden = await li.nth(z).isVisible();
-        const child = await li.nth(z).locator('div>a').getAttribute('href');
-        const img = await li.nth(z).locator('div>a>img').getAttribute('src');
+        const isVisible = li[z].attributes.filter((el) => !el.value.includes('hide'));
 
-        if (isHidden) {
+        if (isVisible) {
+          const child = await $(li[z]).find('div>a').attr('href');
+          const img = $(li[z]).find('div>a>img').attr('src');
+
           prov.push(child);
           images.push(img);
         }
@@ -57,8 +57,6 @@ export const GET: RequestHandler = async ({ url }) => {
         provider: prov[index]
       });
     });
-
-    await pw.close();
 
     const res = await Promise.all(
       fullResponse.map(async ({ img, provider }, index) => {
