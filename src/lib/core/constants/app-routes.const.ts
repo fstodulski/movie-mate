@@ -4,7 +4,8 @@ export const APP_ROUTES = {
   },
   discover: {
     index: '/discover',
-    movie: '/discover/:id'
+    movie: '/discover/:id',
+    search: '/discover/search'
   },
   feed: {
     mostPopular: '/feed/most-popular',

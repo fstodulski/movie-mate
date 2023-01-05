@@ -7,7 +7,7 @@
   import Trailer from '$lib/views/movie/components/Trailer/Trailer.svelte';
 </script>
 
-<div class="w-full flex flex-col">
+<div class="w-full flex flex-col pb-20">
   <Backdrop />
 
   <div class="px-3 flex flex-col w-full py-4 gap-6">

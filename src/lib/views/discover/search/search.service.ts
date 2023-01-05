@@ -1,11 +1,11 @@
 import { MovieRepository } from '$lib/core/repositories/movie.repository';
-import { MovieSearchStore } from '$lib/views/discover/containers/MovieSearch/movie-search.store';
+import { SearchStore } from '$lib/views/discover/search/search.store';
 
 const queryName = async (name: string) => {
   const res = await MovieRepository.byName(name);
 
-  MovieSearchStore.set(res.results);
+  SearchStore.set(res.results);
 };
-export const MovieSearchService = {
+export const SearchService = {
   queryName
 };
