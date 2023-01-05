@@ -2,6 +2,8 @@
   import { onDestroy, onMount } from 'svelte';
   import { fly } from 'svelte/transition';
   import { browser } from '$app/environment';
+  import { goto } from '$app/navigation';
+  import { page } from '$app/stores';
 
   import MovieCard from '$lib/components/MovieCard/MovieCard.svelte';
   import { APP_ROUTES } from '$lib/core/constants/app-routes.const';
@@ -26,6 +28,10 @@
 
       localStorage.setItem('search_queries', JSON.stringify([...new Set([...history, name])]));
     }
+
+    await goto(`?query=${encodeURIComponent(name.trim())}`, {
+      keepFocus: true
+    });
   };
 
   const select = async (query: string) => {
@@ -35,6 +41,11 @@
 
   onMount(() => {
     searchInput.focus();
+
+    if ($page.data.movies.length > 0) {
+      SearchStore.set($page.data.movies.results);
+      name = $page.url.searchParams.get('query');
+    }
 
     if (browser) {
       history = JSON.parse(localStorage.getItem('search_queries')) || [];
@@ -82,7 +93,7 @@
   {/if}
 
   {#if !name}
-    <div class="flex flex-col w-full mt-2">
+    <div class="flex flex-col w-full mt-2 gap-3">
       {#each history as query}
         <span class="py-2 bg-gray-300 px-1 rounded-md" on:click={() => select(query)}>{query}</span>
       {/each}
