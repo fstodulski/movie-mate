@@ -87,7 +87,7 @@
           {#each $SearchStore as movie}
             <MovieCard data={movie} />
           {/each}
-        {:else}{/if}
+        {/if}
       </div>
     </div>
   {/if}
