@@ -45,8 +45,8 @@ export const GET: RequestHandler = async ({ url }) => {
           const child = await $(li[z]).find('div>a').attr('href');
           const img = $(li[z]).find('div>a>img').attr('src');
 
-          prov.push(child);
-          images.push(img);
+          prov[i] = child;
+          images[i] = img;
         }
       }
     }

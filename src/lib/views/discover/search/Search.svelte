@@ -42,7 +42,7 @@
   onMount(() => {
     searchInput.focus();
 
-    if ($page.data.movies.length > 0) {
+    if ($page.data.movies.results.length > 0) {
       SearchStore.set($page.data.movies.results);
       name = $page.url.searchParams.get('query');
     }
