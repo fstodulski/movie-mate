@@ -22,12 +22,7 @@
   const handleSubmit = async () => {
     await SearchService.queryName(name);
 
-    if (browser) {
-      const historyRaw = localStorage.getItem('search_queries');
-      const history = JSON.parse(historyRaw) || [];
-
-      localStorage.setItem('search_queries', JSON.stringify([...new Set([...history, name])]));
-    }
+    SearchService.saveToHistory(name);
 
     await goto(`?query=${encodeURIComponent(name.trim())}`, {
       keepFocus: true
@@ -48,7 +43,7 @@
     }
 
     if (browser) {
-      history = JSON.parse(localStorage.getItem('search_queries')) || [];
+      history = SearchService.getHistory();
     }
   });
 
@@ -76,7 +71,7 @@
   </form>
 
   {#if $SearchStore.length > 0}
-    <div class="flex flex-col gap-3 overflow-auto" style="height: {clientHeight}px">
+    <div class="flex flex-col gap-3 overflow-auto mt-4" style="height: {clientHeight}px">
       <div class="flex flex-col">
         <span class="text-2xl">Search results for: {name}</span>
       </div>
