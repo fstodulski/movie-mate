@@ -3,6 +3,8 @@
 
   import { APP_ROUTES } from '$lib/core/constants/app-routes.const';
   import { BACKDROP_SIZES, parsePoster } from '$lib/core/utils/poster';
+
+  console.log($page.data);
 </script>
 
 <div class="flex flex-col w-full px-2 gap-5 pb-10">
