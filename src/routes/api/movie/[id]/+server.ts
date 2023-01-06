@@ -13,10 +13,7 @@ export const GET: RequestHandler = async ({ params }) => {
   const res = await TmdbHttpProviderv3.get(`/movie/${id}`);
   const videos = await TmdbHttpProviderv3.get(`/movie/${id}/videos`);
 
-  console.log(videos);
   if (!res.data) return new Response(JSON.stringify([]));
-
-  console.log(res.data.video);
 
   return createResponse({
     ...res.data,

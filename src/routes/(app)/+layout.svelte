@@ -8,6 +8,3 @@
   <slot />
 </main>
 <AppNavigation />
-
-<style lang="scss">
-</style>
