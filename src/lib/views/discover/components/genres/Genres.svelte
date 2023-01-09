@@ -9,7 +9,7 @@
 
   <div class="grid grid-cols-2 gap-3 pb-20">
     {#each $page.data.genres as genre}
-      <a href={APP_ROUTES.discover.movie.replace(':id', genre.id)}>
+      <a href={APP_ROUTES.discover.genre.everyoneWatch.replace(':id', genre.id)}>
         <div class="relative h-36">
           <figure class="overflow-hidden rounded-md absolute w-full h-full z-0">
             <div class="bg-black/30 absolute w-full h-full top-0 left-0" />

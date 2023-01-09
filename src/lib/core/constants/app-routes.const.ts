@@ -4,7 +4,12 @@ export const APP_ROUTES = {
   },
   discover: {
     index: '/discover',
-    movie: '/discover/:id',
+    movie: '/discover/movie/:id',
+    genre: {
+      everyoneWatch: '/discover/genre/:id/everyone-watch',
+      topTen: '/discover/genre/:id/top-10-movies',
+      upcoming: '/discover/genre/:id/upcoming'
+    },
     search: '/discover/search'
   },
   feed: {
