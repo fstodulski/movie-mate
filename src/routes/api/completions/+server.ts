@@ -1,9 +1,13 @@
 import type { RequestHandler } from '@sveltejs/kit';
 import { error } from '@sveltejs/kit';
+import { StatusCodes } from 'http-status-codes';
+import { length } from 'ramda';
+import { z } from 'zod';
+
 import { API_ENDPOINTS } from '$lib/core/constants/api-endpoints.const';
 import type { CompletionsBodyReq } from '$lib/core/repositories/openai.repository';
 import { OpenaiHttpProvider } from '$lib/server/core/providers/openai-http.provider';
-import { StatusCodes } from 'http-status-codes';
+import { createResponse } from '$lib/server/utils/create-response';
 
 const DEFAULTS = {
   model: 'text-davinci-003',
@@ -14,15 +18,36 @@ const DEFAULTS = {
   presence_penalty: 0.6
 };
 
+const _openAiResponse = z.object({
+  choices: z.array(
+    z.object({
+      text: z.string()
+    })
+  )
+});
+
+type OpenAIResponse = z.infer<typeof _openAiResponse>;
+
 export const POST: RequestHandler = async ({ request }) => {
   const { prompt }: CompletionsBodyReq = await request.json();
 
-  const res = await OpenaiHttpProvider.post(API_ENDPOINTS.openai.completions, {
+  if (!prompt || length(prompt) === 0) {
+    return createResponse(
+      {
+        error: 'Missing prompt'
+      },
+      {
+        status: StatusCodes.BAD_REQUEST
+      }
+    );
+  }
+
+  const res = await OpenaiHttpProvider.post<OpenAIResponse>(API_ENDPOINTS.openai.completions, {
     ...DEFAULTS,
     prompt
   });
 
   if (!res.data) throw error(StatusCodes.CONFLICT);
 
-  return new Response(JSON.stringify(res.data.choices[0].text));
+  return createResponse(res.data.choices[0].text);
 };
