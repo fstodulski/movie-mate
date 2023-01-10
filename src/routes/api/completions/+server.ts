@@ -7,6 +7,7 @@ import { z } from 'zod';
 import { API_ENDPOINTS } from '$lib/core/constants/api-endpoints.const';
 import type { CompletionsBodyReq } from '$lib/core/repositories/openai.repository';
 import { OpenaiHttpProvider } from '$lib/server/core/providers/openai-http.provider';
+import { identifier, ratelimit } from '$lib/server/core/providers/redis.provider';
 import { createResponse } from '$lib/server/utils/create-response';
 
 const DEFAULTS = {
@@ -29,6 +30,10 @@ const _openAiResponse = z.object({
 type OpenAIResponse = z.infer<typeof _openAiResponse>;
 
 export const POST: RequestHandler = async ({ request }) => {
+  const { success } = await ratelimit.limit(identifier);
+
+  if (!success) throw error(StatusCodes.FORBIDDEN, 'Too many requests');
+
   const { prompt }: CompletionsBodyReq = await request.json();
 
   if (!prompt || length(prompt) === 0) {

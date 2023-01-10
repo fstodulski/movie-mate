@@ -7,10 +7,8 @@ import { GenreToPoster } from '$lib/core/utils/genre-to-poster';
 import { TmdbHttpProviderv3 } from '$lib/server/core/providers/tmdb-http.provider';
 import { createResponse } from '$lib/server/utils/create-response';
 
-export const GET: RequestHandler = async ({ request, getClientAddress }) => {
+export const GET: RequestHandler = async ({ request }) => {
   const genres = await TmdbHttpProviderv3.get<{ genres: Array<GenreModel> }>('/genre/movie/list');
-
-  const ip = getClientAddress();
 
   try {
     if (!genres.data)
