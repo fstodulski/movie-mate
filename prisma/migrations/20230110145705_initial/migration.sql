@@ -41,6 +41,16 @@ CREATE TABLE "MovieToProvider" (
     CONSTRAINT "MovieToProvider_pkey" PRIMARY KEY ("id")
 );
 
+-- CreateTable
+CREATE TABLE "WatchList" (
+    "id" TEXT NOT NULL,
+    "name" TEXT NOT NULL,
+    "move_id" TEXT NOT NULL,
+    "user_id" TEXT NOT NULL,
+
+    CONSTRAINT "WatchList_pkey" PRIMARY KEY ("id")
+);
+
 -- CreateIndex
 CREATE UNIQUE INDEX "Movie_tmdb_id_key" ON "Movie"("tmdb_id");
 

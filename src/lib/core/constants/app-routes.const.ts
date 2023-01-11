@@ -20,4 +20,4 @@ export const APP_ROUTES = {
   watchlist: {
     index: '/watchlist'
   }
-};
+} as const;

@@ -43,3 +43,10 @@ model MovieToProvider {
   image_url    String
   provider_url String
 }
+
+model WatchList {
+  id      String @id @default(uuid())
+  name    String
+  move_id String
+  user_id String
+}
