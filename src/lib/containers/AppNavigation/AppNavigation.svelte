@@ -12,7 +12,7 @@
   {#each AppNavigationConst as link}
     <a href={link.link}>
       <div class="flex flex-col items-center">
-        <Icon src={link.icon} size="24px" theme="solid" />
+        <Icon src={link.icon} size="24px" />
         <span class="text-xs">{link.label}</span>
       </div>
     </a>

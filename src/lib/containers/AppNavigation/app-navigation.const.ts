@@ -1,6 +1,7 @@
+import { CompassDiscover, Movie, Robot, Search, User } from '@steeze-ui/remix-icons';
+import type { IconSource } from '@steeze-ui/remix-icons/types';
+
 import { APP_ROUTES } from '$lib/core/constants/app-routes.const';
-import type { IconSource } from '@steeze-ui/heroicons/types';
-import { CompassDiscover, Movie, Robot } from '@steeze-ui/remix-icons';
 
 type Link = {
   icon: IconSource;
@@ -10,9 +11,14 @@ type Link = {
 
 export const AppNavigationConst: Array<Link> = [
   {
+    icon: Search,
+    label: 'Search',
+    link: APP_ROUTES.discover.index
+  },
+  {
     icon: CompassDiscover,
     label: 'Discover',
-    link: APP_ROUTES.discover.index
+    link: APP_ROUTES.feed.mostPopular
   },
   {
     icon: Robot,
@@ -22,6 +28,11 @@ export const AppNavigationConst: Array<Link> = [
   {
     icon: Movie,
     label: 'Watchlist',
-    link: APP_ROUTES.watchlist.index
+    link: APP_ROUTES.watchlist.toWatch
+  },
+  {
+    icon: User,
+    label: 'Profile',
+    link: APP_ROUTES.profile.index
   }
 ];

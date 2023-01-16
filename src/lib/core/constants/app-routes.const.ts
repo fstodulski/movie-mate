@@ -18,6 +18,10 @@ export const APP_ROUTES = {
     bestReviews: '/feed/best-reviews'
   },
   watchlist: {
-    index: '/watchlist'
+    toWatch: '/watchlist/to-watch',
+    watched: '/watchlist/watched'
+  },
+  profile: {
+    index: '/profile'
   }
 } as const;
