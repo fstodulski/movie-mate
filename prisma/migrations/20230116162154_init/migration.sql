@@ -2,6 +2,8 @@
 CREATE TABLE "User" (
     "id" TEXT NOT NULL,
     "email" TEXT NOT NULL,
+    "google_user_id" TEXT NOT NULL DEFAULT '',
+    "phone" TEXT NOT NULL DEFAULT '',
     "created_at" TIMESTAMP(3) NOT NULL,
     "modified_at" TIMESTAMP(3) NOT NULL,
 
@@ -27,6 +29,8 @@ CREATE TABLE "Movie" (
     "tmdb_id" INTEGER NOT NULL,
     "imdb_id" TEXT NOT NULL,
     "title" TEXT NOT NULL,
+    "created_at" TIMESTAMP(3) NOT NULL,
+    "modified_at" TIMESTAMP(3) NOT NULL,
 
     CONSTRAINT "Movie_pkey" PRIMARY KEY ("id")
 );
@@ -37,6 +41,8 @@ CREATE TABLE "MovieToProvider" (
     "movie_id" TEXT NOT NULL,
     "image_url" TEXT NOT NULL,
     "provider_url" TEXT NOT NULL,
+    "created_at" TIMESTAMP(3) NOT NULL,
+    "modified_at" TIMESTAMP(3) NOT NULL,
 
     CONSTRAINT "MovieToProvider_pkey" PRIMARY KEY ("id")
 );
@@ -47,9 +53,17 @@ CREATE TABLE "WatchList" (
     "name" TEXT NOT NULL,
     "move_id" TEXT NOT NULL,
     "user_id" TEXT NOT NULL,
+    "created_at" TIMESTAMP(3) NOT NULL,
+    "modified_at" TIMESTAMP(3) NOT NULL,
 
     CONSTRAINT "WatchList_pkey" PRIMARY KEY ("id")
 );
+
+-- CreateIndex
+CREATE UNIQUE INDEX "User_google_user_id_key" ON "User"("google_user_id");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "User_phone_key" ON "User"("phone");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "Movie_tmdb_id_key" ON "Movie"("tmdb_id");

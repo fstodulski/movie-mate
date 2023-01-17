@@ -1,5 +1,6 @@
 export const API_ENDPOINTS = {
   api: {
+    auth: '/auth',
     completions: '/completions',
     discovery: {
       mostPopular: '/discover/most-popular',
