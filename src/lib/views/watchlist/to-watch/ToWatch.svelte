@@ -1,5 +1,8 @@
 <script lang="ts">
+  import { page } from '$app/stores';
+
   import EmptyState from '$lib/views/watchlist/components/EmptyState/EmptyState.svelte';
+  console.log($page.data);
 </script>
 
 <EmptyState>

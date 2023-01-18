@@ -1,4 +1,7 @@
 export const APP_ROUTES = {
+  auth: {
+    index: '/auth'
+  },
   chat: {
     index: '/chat'
   },

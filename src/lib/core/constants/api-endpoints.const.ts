@@ -10,6 +10,9 @@ export const API_ENDPOINTS = {
     movie: {
       byId: '/movie/:id',
       providers: '/movie/providers'
+    },
+    watchList: {
+      forUser: '/watchlist/for-user/:userId'
     }
   },
   openai: {

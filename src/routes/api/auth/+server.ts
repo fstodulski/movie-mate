@@ -17,18 +17,21 @@ export const POST: RequestHandler = async ({ request }) => {
   });
 
   if (isNil(user)) {
-    const newUser = await db.user.create({
-      data: {
-        google_user_id: body.user.id,
-        phone: body.user.phone,
-        email: body.user.email || ''
-      }
-    });
+    await db.$transaction(async (tx) => {
+      const newUser = await tx.user.create({
+        data: {
+          google_user_id: body.user.id,
+          phone: body.user.phone || '',
+          email: body.user.email || ''
+        }
+      });
 
-    const newWatchlist = await db.watchList.create({
-      data: {
-        name: 'All'
-      }
+      const newWatchlist = await tx.watchList.create({
+        data: {
+          name: 'All',
+          userId: newUser.id
+        }
+      });
     });
 
     return createResponse(body, { status: StatusCodes.OK });
