@@ -1,6 +1,5 @@
 <script lang="ts">
   import { page } from '$app/stores';
-
   import { Select } from 'flowbite-svelte';
 
   let selected: any;

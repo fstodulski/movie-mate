@@ -1,0 +1,118 @@
+// Headings
+@mixin t-h900 {
+  @apply leading-tight md:text-5xl md:font-extrabold;
+  @apply text-3xl;
+}
+
+@mixin t-h800 {
+  @apply leading-tight md:text-4xl md:font-extrabold;
+  @apply text-2xl font-bold;
+}
+
+@mixin t-h700 {
+  @apply md:leading-tight md:text-3xl md:font-extrabold;
+}
+
+@mixin t-h600 {
+  @apply leading-tight md:text-2xl md:font-extrabold;
+  @apply text-xl font-bold;
+}
+
+@mixin t-h500 {
+  @apply leading-tight md:text-xl md:font-extrabold;
+  @apply text-lg font-bold;
+}
+
+@mixin t-h400 {
+  @apply leading-tight md:text-lg md:font-extrabold;
+  @apply text-base font-bold;
+}
+
+@mixin t-h300 {
+  @apply leading-tight md:text-base font-bold;
+  @apply text-sm;
+}
+
+@mixin t-h200 {
+  @apply leading-tight md:font-sm font-bold;
+  @apply text-xs;
+}
+
+@mixin t-h100 {
+  @apply uppercase text-xs font-bold tracking-[10%];
+}
+
+// TEXT
+@mixin t-t400 {
+  @apply leading-normal md:text-2xl font-normal;
+  @apply text-xl;
+}
+
+@mixin t-t300 {
+  @apply leading-normal md:text-lg font-normal;
+  @apply text-base;
+}
+
+@mixin t-t200 {
+  @apply leading-normal md:text-base font-normal;
+  @apply text-sm;
+}
+
+@mixin t-t100 {
+  @apply leading-normal md:text-sm md:font-semibold;
+  @apply text-xs;
+}
+
+// HEADINGS
+
+.text-900 {
+  @include t-h900;
+}
+
+.text-h800 {
+  @include t-h800;
+}
+.text-h700 {
+  @include t-h700;
+}
+
+.text-h600 {
+  @include t-h600;
+}
+
+.text-h500 {
+  @include t-h500;
+}
+
+.text-h400 {
+  @include t-h400;
+}
+
+.text-h300 {
+  @include t-h300;
+}
+
+.text-h200 {
+  @include t-h200;
+}
+
+.text-h100 {
+  @include t-h100;
+}
+
+// TEXT
+.text-t400 {
+  @include t-t400;
+}
+
+.text-t300 {
+  @include t-t300;
+}
+
+.text-t200 {
+  @include t-t200;
+}
+
+.text-t100 {
+  @include t-t100;
+}

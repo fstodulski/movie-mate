@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { page } from '$app/stores';
+
   import Actions from '$lib/views/movie/components/Actions/Actions.svelte';
   import Backdrop from '$lib/views/movie/components/Backdrop/Backdrop.svelte';
   import Metadata from '$lib/views/movie/components/Metadata/Metadata.svelte';
@@ -15,6 +17,9 @@
     <Actions />
     <Trailer />
     <Review />
-    <StreamProviders />
+
+    {#if $page.data.providers.length > 0}
+      <StreamProviders />
+    {/if}
   </div>
 </div>
