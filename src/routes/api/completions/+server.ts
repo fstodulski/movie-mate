@@ -16,8 +16,7 @@ const DEFAULTS = {
   max_tokens: 300,
   top_p: 1,
   frequency_penalty: 0,
-  presence_penalty: 0.6,
-  stop: ['\n']
+  presence_penalty: 0.6
 };
 
 const _openAiResponse = z.object({
@@ -33,7 +32,7 @@ type OpenAIResponse = z.infer<typeof _openAiResponse>;
 export const POST: RequestHandler = async ({ request }) => {
   const { success } = await ratelimit.limit(identifier);
 
-  if (!success) throw error(StatusCodes.FORBIDDEN, 'Too many requests');
+  // if (!success) throw error(StatusCodes.FORBIDDEN, 'Too many requests');
 
   const { prompt }: CompletionsBodyReq = await request.json();
 

@@ -3,7 +3,7 @@
   import { Button, Input } from 'flowbite-svelte';
 
   import { SIZES } from '$lib/core/constants/sizes.const';
-  import ChatStore from '$lib/views/chat/chat.store';
+  import { ChatStore } from '$lib/views/chat/chat.store';
 
   let prompt: string;
 
@@ -31,32 +31,43 @@
 <svelte:window bind:innerHeight />
 
 <main style="height: {chatHeight}px;" class="flex flex-col max-w-screen-sm mx-auto gap-4 px-2">
-  <section class="mx-auto w-full mt-auto">
+  <section class="mx-auto w-full">
     <ul>
       {#each $ChatStore.data as message}
         <li
-          class="p-3 rounded-md max-w-[300px] mb-4"
+          class="p-3 rounded-md max-w-[300px] mb-4 text-base"
           class:bot={message.author === 'bot'}
           class:user={message.author === 'user'}
         >
           {message.content.replace('User: ', '')}
         </li>
       {/each}
+
+      {#if $ChatStore.suggestedMovies.length > 0}
+        {#each $ChatStore.suggestedMovies as suggestedMovie}
+          <li class="p-3 rounded-md max-w-[300px] mb-4 text-base bot flex flex-col">
+            <a href={suggestedMovie.tmdb}>
+              {suggestedMovie.title}
+            </a>
+          </li>
+        {/each}
+      {/if}
     </ul>
   </section>
 
-  <div class="flex">
+  <div class="flex flex-col mt-auto">
     {#if $ChatStore.isLoading}
-      <span class="text-gray-400 text-sm">MovieMate is typing...</span>
+      <div class="flex mt-auto">
+        <span class="text-gray-400 text-sm">MovieMate is typing...</span>
+        <!--    <span class="text-sm text-gray-500 ml-auto">Quick Answers</span>-->
+      </div>
     {/if}
 
-    <!--    <span class="text-sm text-gray-500 ml-auto">Quick Answers</span>-->
+    <form class="flex w-full self-end mx-auto gap-3 mb-2">
+      <Input bind:value={prompt} />
+      <Button on:click={send}>Send</Button>
+    </form>
   </div>
-
-  <form class="flex w-full mx-auto gap-3 mb-2">
-    <Input bind:value={prompt} />
-    <Button on:click={send}>Send</Button>
-  </form>
 </main>
 
 <style lang="scss">

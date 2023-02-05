@@ -4,6 +4,8 @@ import { z } from 'zod';
 import type { CompletionsBodyReq } from '$lib/core/repositories/openai.repository';
 import { OpenaiRepository } from '$lib/core/repositories/openai.repository';
 
+const _noSuggestions = `\n\n[]`;
+
 const ChatStoreModel = z.object({
   isLoading: z.boolean().optional(),
   data: z.array(
@@ -11,17 +13,31 @@ const ChatStoreModel = z.object({
       content: z.string(),
       author: z.enum(['bot', 'user'] as const)
     })
+  ),
+  suggestedMovies: z.array(
+    z.object({
+      tmdb: z.string(),
+      title: z.string()
+    })
   )
 });
 
+const SuggestedMoviesModel = z.array(
+  z.object({
+    tmdb: z.string(),
+    title: z.string()
+  })
+);
+
 type ChatStore = z.infer<typeof ChatStoreModel>;
-const ChatStore = writable<ChatStore>({
+export const _chatStore = writable<ChatStore>({
   isLoading: false,
-  data: []
+  data: [],
+  suggestedMovies: []
 });
 
 const setLoading = (isLoading: boolean) => {
-  ChatStore.update((store) => ({
+  _chatStore.update((store) => ({
     ...store,
     isLoading
   }));
@@ -37,28 +53,38 @@ const initialPrompt = async () => {
   });
 
   if (res) {
-    ChatStore.update((store) => ({
+    _chatStore.update((store) => ({
       ...store,
       data: [...store.data, { author: 'bot', content: res }]
     }));
-
-    setLoading(false);
   }
+
+  setLoading(false);
 };
 
 const destroy = () => {
-  ChatStore.set({
+  _chatStore.set({
     isLoading: false,
-    data: []
+    data: [],
+    suggestedMovies: []
+  });
+};
+
+const checkForMovies = async (botPrompt: string) => {
+  const _prompt = `Detect if there are any movie titles in given prompt, then extract movie titles from the string, and list them as JSON Array of objects with Title(use "title" key) of the film and link to TMDB (use "tmdb" key). Else, return an empty JSON Array.`;
+
+  return await OpenaiRepository.completions({
+    prompt: `${_prompt}: '${botPrompt.trimStart().trimEnd()}'`
   });
 };
 
 const send = async ({ prompt }: CompletionsBodyReq) => {
-  ChatStore.update((store) => ({
-    data: [...store.data, { author: 'user', content: `\n\nUser: ${prompt}` }]
+  _chatStore.update((store) => ({
+    data: [...store.data, { author: 'user', content: `\n\nUser: ${prompt}` }],
+    suggestedMovies: []
   }));
 
-  const newPrompt = get(ChatStore).data.reduce((prev, next) => {
+  const newPrompt = get(_chatStore).data.reduce((prev, next) => {
     return prev + next.content;
   }, '');
 
@@ -68,20 +94,25 @@ const send = async ({ prompt }: CompletionsBodyReq) => {
     prompt: newPrompt
   });
 
+  const movies = (await checkForMovies(res)).trimStart().trimEnd();
+
   if (!res) throw Error('');
 
-  ChatStore.update((store) => ({
-    data: [...store.data, { author: 'bot', content: res }]
+  console.log('movies', typeof movies);
+
+  const suggestedMovies = JSON.parse(movies);
+
+  _chatStore.update((store) => ({
+    data: [...store.data, { author: 'bot', content: res }],
+    suggestedMovies: suggestedMovies
   }));
 
   setLoading(false);
 };
 
-export default {
-  subscribe: ChatStore.subscribe,
+export const ChatStore = {
   initialPrompt,
-  data: ChatStore.subscribe((res) => res.data),
-  isLoading: ChatStore.subscribe((res) => res.isLoading),
+  destroy,
   send,
-  destroy
+  subscribe: _chatStore.subscribe
 };
