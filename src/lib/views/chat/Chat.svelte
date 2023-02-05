@@ -3,9 +3,7 @@
   import { Button, Input } from 'flowbite-svelte';
 
   import { SIZES } from '$lib/core/constants/sizes.const';
-  import { ChatStore } from '$lib/views/chat/chat.store.js';
-
-  import { ChatService, isLoading } from './chat.service';
+  import ChatStore from '$lib/views/chat/chat.store';
 
   let prompt: string;
 
@@ -14,17 +12,17 @@
   $: chatHeight = innerHeight - (SIZES.bottomBar + SIZES.topBar);
 
   onMount(async () => {
-    await ChatService.initialPrompt();
+    await ChatStore.initialPrompt();
   });
 
   onDestroy(() => {
-    ChatStore.set([]);
+    ChatStore.destroy();
   });
 
   const send = async () => {
     const val = prompt;
     prompt = '';
-    await ChatService.send({
+    await ChatStore.send({
       prompt: val
     });
   };
@@ -35,7 +33,7 @@
 <main style="height: {chatHeight}px;" class="flex flex-col max-w-screen-sm mx-auto gap-4 px-2">
   <section class="mx-auto w-full mt-auto">
     <ul>
-      {#each $ChatStore as message}
+      {#each $ChatStore.data as message}
         <li
           class="p-3 rounded-md max-w-[300px] mb-4"
           class:bot={message.author === 'bot'}
@@ -48,7 +46,7 @@
   </section>
 
   <div class="flex">
-    {#if $isLoading}
+    {#if $ChatStore.isLoading}
       <span class="text-gray-400 text-sm">MovieMate is typing...</span>
     {/if}
 

@@ -16,7 +16,8 @@ const DEFAULTS = {
   max_tokens: 300,
   top_p: 1,
   frequency_penalty: 0,
-  presence_penalty: 0.6
+  presence_penalty: 0.6,
+  stop: ['\n']
 };
 
 const _openAiResponse = z.object({
