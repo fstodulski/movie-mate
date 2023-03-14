@@ -1,4 +1,4 @@
-import { CompassDiscover, Movie, Robot, Search, User } from '@steeze-ui/remix-icons';
+import { AccountCircle, Bookmark, Fire, Robot, Search2 } from '@steeze-ui/remix-icons';
 import type { IconSource } from '@steeze-ui/remix-icons/types';
 
 import { APP_ROUTES } from '$lib/core/constants/app-routes.const';
@@ -11,13 +11,13 @@ type Link = {
 
 export const AppNavigationConst: Array<Link> = [
   {
-    icon: Search,
+    icon: Search2,
     label: 'Search',
     link: APP_ROUTES.discover.index
   },
   {
-    icon: CompassDiscover,
-    label: 'Discover',
+    icon: Fire,
+    label: 'Popular',
     link: APP_ROUTES.feed.mostPopular
   },
   {
@@ -26,12 +26,12 @@ export const AppNavigationConst: Array<Link> = [
     link: APP_ROUTES.chat.index
   },
   {
-    icon: Movie,
+    icon: Bookmark,
     label: 'Watchlist',
     link: APP_ROUTES.watchlist.toWatch
   },
   {
-    icon: User,
+    icon: AccountCircle,
     label: 'Profile',
     link: APP_ROUTES.profile.index
   }

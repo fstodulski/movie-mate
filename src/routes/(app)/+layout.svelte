@@ -4,7 +4,7 @@
 </script>
 
 <TopBar />
-<main class="pt-[50px]">
+<main>
   <slot />
 </main>
 <AppNavigation />

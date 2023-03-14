@@ -2,6 +2,9 @@ export const API_ENDPOINTS = {
   api: {
     auth: '/auth',
     completions: '/completions',
+    genres: {
+      findAll: '/genres'
+    },
     discovery: {
       mostPopular: '/discover/most-popular',
       genres: '/discover/genres',

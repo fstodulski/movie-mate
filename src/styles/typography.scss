@@ -34,7 +34,7 @@
 }
 
 @mixin t-h200 {
-  @apply leading-tight md:font-sm font-bold;
+  @apply leading-tight md:text-sm font-bold;
   @apply text-xs;
 }
 
@@ -59,11 +59,8 @@
 }
 
 @mixin t-t100 {
-  @apply leading-normal md:text-sm md:font-semibold;
-  @apply text-xs;
+  @apply text-xs leading-normal md:text-sm md:font-semibold;
 }
-
-// HEADINGS
 
 .text-900 {
   @include t-h900;

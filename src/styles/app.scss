@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import 'typography.scss';
+
 body,
 html {
   @apply bg-bg-default-muted-default;

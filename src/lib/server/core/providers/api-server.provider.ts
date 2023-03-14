@@ -1,10 +1,11 @@
 import { dev } from '$app/environment';
 import axios from 'axios';
 
-import { PUBLIC_HOST_URL } from '$env/static/public';
+import { API_ENDPOINT } from "$env/static/private";
+
 
 export const ApiServerProvider = axios.create({
-  baseURL: dev ? `${PUBLIC_HOST_URL}/api` : `${process.env.PUBLIC_HOST_URL}/api`,
+  baseURL: dev ? `${API_ENDPOINT}` : `${process.env.PUBLIC_HOST_URL}`,
   headers: {
     'Content-type': 'application/json'
   }
