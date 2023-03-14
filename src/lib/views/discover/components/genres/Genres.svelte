@@ -10,8 +10,8 @@
 
   <div class="grid grid-cols-2 gap-3 pb-20">
     {#each $page.data.genres as genre}
-      <a href={APP_ROUTES.discover.genre.everyoneWatch.replace(':id', genre.id)} class="drop-shadow-2xl">
-        <div class="relative overflow-hidden h-[100px] rounded-lg " style="background-color: {genre.color}">
+      <a href={APP_ROUTES.discover.genre.everyoneWatch.replace(':id', genre.id)} c>
+        <div class="relative overflow-hidden h-[100px] rounded-lg border-bg-default-muted-alpha" style="background-color: {genre.color}">
           <figure class="overflow-hidden rounded-md absolute top-4 right-0 z-0 h-[96px] w-[64px] rotate-[20deg]">
             <img class="w-full h-full object-cover" src={parsePoster(genre.backdrop_path,POSTER_SIZES.enum.w500) } alt="" />
           </figure>

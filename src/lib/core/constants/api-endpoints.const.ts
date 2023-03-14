@@ -10,8 +10,9 @@ export const API_ENDPOINTS = {
       genres: '/discover/genres',
       search: '/movie/search'
     },
-    movie: {
-      byId: '/movie/:id',
+    movies: {
+      byId: '/movies/:id',
+      byName: '/movies/by-name',
       providers: '/movie/providers'
     },
     watchList: {

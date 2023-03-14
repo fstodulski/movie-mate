@@ -18,7 +18,7 @@
     <Input
       size="sm"
       readonly
-      class="bg-bg-default-muted-alpha border-bg-default-muted-alpha text-bg-default-muted-default"
+      class="!bg-bg-default-muted-alpha !border-bg-default-muted-alpha !text-bg-default-muted-default"
     />
   </a>
 </section>

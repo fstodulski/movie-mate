@@ -9,10 +9,7 @@
   import { Icon } from '@steeze-ui/svelte-icon';
   import { Button, Input } from 'flowbite-svelte';
 
-  import MovieCard from '$lib/components/MovieCard/MovieCard.svelte';
   import { APP_ROUTES } from '$lib/core/constants/app-routes.const';
-  import { SearchService } from '$lib/views/discover/search/search.service';
-  import { SearchStore } from '$lib/views/discover/search/search.store';
 
   let innerHeight: number;
   let clientHeight: number;
@@ -24,10 +21,6 @@
 
   let name: string;
   const handleSubmit = async () => {
-    await SearchService.queryName(name);
-
-    SearchService.saveToHistory(name);
-
     await goto(`?query=${encodeURIComponent(name.trim())}`, {
       keepFocus: true
     });
@@ -42,18 +35,14 @@
     searchInput.focus();
 
     if ($page.data.movies.results.length > 0) {
-      SearchStore.set($page.data.movies.results);
       name = $page.url.searchParams.get('query');
     }
 
     if (browser) {
-      history = SearchService.getHistory();
     }
   });
 
-  onDestroy(() => {
-    SearchStore.set([]);
-  });
+  onDestroy(() => {});
 </script>
 
 <svelte:window bind:innerHeight />
@@ -71,30 +60,13 @@
       bind:this={searchInput}
       type="text"
       name="query"
-      class="bg-bg-default-muted-alpha border-bg-default-muted-alpha text-bg-default-muted-default grow"
+      class="!bg-bg-default-muted-alpha !border-bg-default-muted-alpha !text-bg-default-muted-default grow"
       placeholder="Movie name"
     >
       <Icon slot="left" src={Search2} size="20px" />
     </Input>
     <Button color="light" type="button" class="" href={APP_ROUTES.discover.index}>Cancel</Button>
   </form>
-
-  {#if $SearchStore.length > 0}
-    <div class="flex flex-col gap-3 overflow-auto mt-4" style="height: {clientHeight}px">
-      <div class="flex flex-col">
-        <span class="text-2xl">Search results for: {name}</span>
-      </div>
-
-      <div class="grid grid-cols-1 gap-4">
-        <!--    Here goes the results-->
-        {#if $SearchStore.length > 0}
-          {#each $SearchStore as movie}
-            <MovieCard data={movie} />
-          {/each}
-        {/if}
-      </div>
-    </div>
-  {/if}
 
   {#if !name}
     <div class="flex flex-col w-full mt-2 gap-3">
