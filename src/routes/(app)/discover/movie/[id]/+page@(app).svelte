@@ -1,12 +1,12 @@
 <script lang="ts">
   import { page } from '$app/stores';
 
-  import Actions from '$lib/views/movie/components/Actions/Actions.svelte';
-  import Backdrop from '$lib/views/movie/components/Backdrop/Backdrop.svelte';
-  import Metadata from '$lib/views/movie/components/Metadata/Metadata.svelte';
-  import Review from '$lib/views/movie/components/Review/Review.svelte';
-  import StreamProviders from '$lib/views/movie/components/StreamProviders/StreamProviders.svelte';
-  import Trailer from '$lib/views/movie/components/Trailer/Trailer.svelte';
+  import Actions from './components/Actions/Actions.svelte';
+  import Backdrop from './components/Backdrop/Backdrop.svelte';
+  import Metadata from './components/Metadata/Metadata.svelte';
+  import Review from './components/Review/Review.svelte';
+  import StreamProviders from './components/StreamProviders/StreamProviders.svelte';
+  import Trailer from './components/Trailer/Trailer.svelte';
 </script>
 
 <div class="w-full flex flex-col pb-20">

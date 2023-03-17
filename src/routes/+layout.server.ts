@@ -1,7 +1,7 @@
 import { getServerSession } from '@supabase/auth-helpers-sveltekit';
 
 import { API_ENDPOINTS } from '$lib/core/constants/api-endpoints.const';
-import { ApiServerProvider } from '$lib/server/core/providers/api-server.provider';
+import { ApiServerProvider } from '$lib/server/providers/api-server.provider';
 
 import type { LayoutServerLoad } from '../../.svelte-kit/types/src/routes/$types';
 

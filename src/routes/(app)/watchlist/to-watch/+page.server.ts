@@ -4,7 +4,7 @@ import { isNil } from 'ramda';
 
 import { API_ENDPOINTS } from '$lib/core/constants/api-endpoints.const';
 import { APP_ROUTES } from '$lib/core/constants/app-routes.const';
-import { ApiServerProvider } from '$lib/server/core/providers/api-server.provider';
+import { ApiServerProvider } from '$lib/server/providers/api-server.provider';
 
 import type { PageServerLoad } from './$types';
 

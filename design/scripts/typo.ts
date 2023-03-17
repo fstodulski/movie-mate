@@ -32,15 +32,11 @@ async function typToTailwind(): Promise<{ fontSize: FontSizeConfig }> {
     })
   );
 
-  console.log(types);
-
   return {
     fontSize: {}
   };
 }
 
 typToTailwind()
-  .then((res) => {
-    console.log(res);
-  })
+  .then((res) => {})
   .catch((e) => console.log(e));

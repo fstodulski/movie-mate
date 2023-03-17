@@ -30,7 +30,6 @@ export async function colorsToTailwind() {
           const dotPath = extractCurlyBracesColor(v.$value);
           const value = getPath(dotPath).$value;
 
-          console.log(k, value);
           return [k, value];
         }
 

@@ -29,8 +29,6 @@ export const GET: RequestHandler = async ({ url, params }) => {
     })
   );
 
-  console.log(movies);
-
   return createResponse(user.watchlists, {
     status: StatusCodes.OK
   });

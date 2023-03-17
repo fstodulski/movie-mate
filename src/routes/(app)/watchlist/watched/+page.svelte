@@ -1,5 +1,8 @@
 <script lang="ts">
-  import Watched from '$lib/views/watchlist/watched/Watched.svelte';
+  import EmptyState from '../components/EmptyState/EmptyState.svelte';
 </script>
 
-<Watched />
+<EmptyState>
+  <span slot="title">You haven’t marked anything as watched yet</span>
+  <span slot="span">Talk with MovieMate or use search to find movies that you saw</span>
+</EmptyState>

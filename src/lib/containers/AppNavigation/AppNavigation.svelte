@@ -9,8 +9,6 @@
   let path: string;
 
   $: path = $page.url.pathname;
-
-  console.log($page.url.pathname);
 </script>
 
 <nav
