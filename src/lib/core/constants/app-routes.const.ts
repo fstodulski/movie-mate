@@ -9,16 +9,12 @@ export const APP_ROUTES = {
     index: '/discover',
     movie: '/discover/movie/:id',
     genre: {
-      everyoneWatch: '/discover/genre/:id/everyone-watch',
-      topTen: '/discover/genre/:id/top-10-movies',
-      upcoming: '/discover/genre/:id/upcoming'
+      single: '/discover/genre/:id'
     },
     search: '/discover/search'
   },
   feed: {
-    mostPopular: '/feed/most-popular',
-    newestReleases: '/feed/newest-releases',
-    bestReviews: '/feed/best-reviews'
+    index: '/feed'
   },
   watchlist: {
     toWatch: '/watchlist/to-watch',

@@ -13,6 +13,10 @@ module.exports = {
       }
     }
   },
-  plugins: [require('flowbite/plugin'), require('tailwind-scrollbar-hide')],
+  plugins: [
+    require('flowbite/plugin'),
+    require('tailwind-scrollbar-hide'),
+    require('@tailwindcss/line-clamp')
+  ],
   darkMode: 'class'
 };

@@ -18,7 +18,7 @@ export const AppNavigationConst: Array<Link> = [
   {
     icon: Fire,
     label: 'Popular',
-    link: APP_ROUTES.feed.mostPopular
+    link: APP_ROUTES.feed.index
   },
   {
     icon: Robot,

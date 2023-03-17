@@ -7,4 +7,10 @@
 body,
 html {
   @apply bg-bg-default-muted-default;
+  scroll-behavior: auto;
+}
+
+@media screen and (prefers-reduced-motion: reduce) {
+  html {
+  }
 }

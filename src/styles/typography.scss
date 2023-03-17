@@ -10,7 +10,7 @@
 }
 
 @mixin t-h700 {
-  @apply md:leading-tight md:text-3xl md:font-extrabold;
+  @apply text-2xl md:leading-tight md:text-3xl md:font-extrabold;
 }
 
 @mixin t-h600 {

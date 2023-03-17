@@ -517,6 +517,11 @@
     svelte-hmr "^0.15.1"
     vitefu "^0.2.3"
 
+"@tailwindcss/line-clamp@^0.4.2":
+  version "0.4.2"
+  resolved "https://registry.yarnpkg.com/@tailwindcss/line-clamp/-/line-clamp-0.4.2.tgz#f353c5a8ab2c939c6267ac5b907f012e5ee130f9"
+  integrity sha512-HFzAQuqYCjyy/SX9sLGB1lroPzmcnWv1FHkIpmypte10hptf4oPUfucryMKovZh2u0uiS9U5Ty3GghWfEJGwVw==
+
 "@tokencss/core@0.1.0":
   version "0.1.0"
   resolved "https://registry.npmjs.org/@tokencss/core/-/core-0.1.0.tgz"
@@ -554,7 +559,7 @@
 
 "@types/date-fns@^2.6.0":
   version "2.6.0"
-  resolved "https://registry.npmjs.org/@types/date-fns/-/date-fns-2.6.0.tgz"
+  resolved "https://registry.yarnpkg.com/@types/date-fns/-/date-fns-2.6.0.tgz#b062ca46562002909be0c63a6467ed173136acc1"
   integrity sha512-9DSw2ZRzV0Tmpa6PHHJbMcZn79HHus+BBBohcOaDzkK/G3zMjDUDYjJIWBFLbkh+1+/IOS0A59BpQfdr37hASg==
   dependencies:
     date-fns "*"
@@ -1091,7 +1096,7 @@ d@1, d@^1.0.1:
 
 date-fns@*, date-fns@^2.29.3:
   version "2.29.3"
-  resolved "https://registry.npmjs.org/date-fns/-/date-fns-2.29.3.tgz"
+  resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-2.29.3.tgz#27402d2fc67eb442b511b70bbdf98e6411cd68a8"
   integrity sha512-dDCnyH2WnnKusqvZZ6+jA1O51Ibt8ZMRNkDZdyAyK4YfbDwa/cEmuztzG5pk6hqlp9aSBPYcjOlktquahGwGeA==
 
 debug@^2.2.0, debug@^2.6.9:
@@ -2881,6 +2886,11 @@ svelte-hmr@^0.15.1:
   version "0.15.1"
   resolved "https://registry.npmjs.org/svelte-hmr/-/svelte-hmr-0.15.1.tgz"
   integrity sha512-BiKB4RZ8YSwRKCNVdNxK/GfY+r4Kjgp9jCLEy0DuqAKfmQtpL38cQK3afdpjw4sqSs4PLi3jIPJIFp259NkZtA==
+
+svelte-intersection-observer@^0.10.0:
+  version "0.10.0"
+  resolved "https://registry.yarnpkg.com/svelte-intersection-observer/-/svelte-intersection-observer-0.10.0.tgz#6f9ff6c235ee80b761c169406e389ff15d1e8f3a"
+  integrity sha512-GdOTMSrRpoBciMe+NbocsHOBvqKJ5OiL5H8Jz4mBoDGHba9VOI4oGeXAmMOmh8mi5gq95+0b0DVI+6alcQ7TCA==
 
 svelte-preprocess@^4.0.0:
   version "4.10.7"
