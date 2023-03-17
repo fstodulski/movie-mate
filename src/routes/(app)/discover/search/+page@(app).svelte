@@ -2,8 +2,6 @@
   import { onDestroy, onMount } from 'svelte';
   import { fly } from 'svelte/transition';
   import { browser } from '$app/environment';
-  import { enhance } from '$app/forms';
-  import { goto } from '$app/navigation';
   import { page } from '$app/stores';
   import { Search2 } from '@steeze-ui/remix-icons';
   import { Icon } from '@steeze-ui/svelte-icon';
@@ -15,27 +13,18 @@
 
   let innerHeight: number;
   let clientHeight: number;
-  let searchInput: HTMLInputElement;
 
   $: clientHeight = innerHeight - 100;
 
   let history: Array<any> = [];
 
   let name: string;
-  const handleSubmit = async () => {
-    await goto(`?query=${encodeURIComponent(name.trim())}`, {
-      keepFocus: true
-    });
-  };
 
   const select = async (query: string) => {
     name = query;
-    await handleSubmit();
   };
 
   onMount(() => {
-    searchInput.focus();
-
     if ($page.data.movies.results.length > 0) {
       name = $page.url.searchParams.get('query');
     }
@@ -51,18 +40,17 @@
 
 <aside class="fixed top-0 left-0 w-full h-screen bg-bg-default-muted-default z-50 px-4 py-4">
   <form
-    use:enhance
     method="GET"
     action="?/search"
     in:fly={{ y: 50, duration: 400 }}
     class="flex w-full gap-2 items-center pb-4"
-    on:submit={handleSubmit}
   >
     <Input
-      bind:this={searchInput}
+      id="search"
       type="text"
       name="query"
-      class="!bg-bg-default-muted-alpha !border-bg-default-muted-alpha !text-bg-default-muted-default grow"
+      bind:value={name}
+      class="!bg-bg-default-muted-alpha !border-bg-default-muted-alpha !text-text-default-strong grow"
       placeholder="Movie name"
     >
       <Icon slot="left" src={Search2} size="20px" />
