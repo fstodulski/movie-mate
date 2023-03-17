@@ -8,7 +8,6 @@
   let query: string;
 
   $: query = $page.url.searchParams.get('query');
-  console.log($page.data.movies.results);
 </script>
 
 <section class="scroll-area pb-4">

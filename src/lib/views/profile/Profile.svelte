@@ -10,8 +10,6 @@
 
   $: authUrl = $page.data.session ? '' : APP_ROUTES.auth.index;
 
-  console.log($page.data.session);
-
   let userName: string;
 
   $: userName = $page.data.session?.user.email.split('@')[0];
