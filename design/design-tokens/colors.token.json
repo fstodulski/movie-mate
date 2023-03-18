@@ -375,8 +375,31 @@
             },
             "light":{
                 "default":{
-                    "$description":"All background for light elements",
-                    "$value":"{color.core.neutral.default.50}"
+                    "default":{
+                        "$description":"All background for light elements",
+                        "$value":"{color.core.neutral.default.50}"
+                    },
+                    "alpha":{
+                        "$value":"{color.core.neutral.darken.50}"
+                    }
+                },
+                "muted":{
+                    "default":{
+                        "$description":"Deeper background for light elements",
+                        "$value":"{color.core.neutral.default.300}"
+                    },
+                    "alpha":{
+                        "$value":"{color.core.neutral.darken.300}"
+                    }
+                },
+                "faded":{
+                    "default":{
+                        "$description":"Background for disabled light elements",
+                        "$value":"{color.core.neutral.default.400}"
+                    },
+                    "alpha":{
+                        "$value":"{color.core.neutral.darken.400}"
+                    }
                 }
             },
             "overlay":{
