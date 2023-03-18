@@ -240,17 +240,31 @@
         },
         "text":{
             "$description": "Colors for text & icons",
-            "default":{
+            "dark":{
                 "muted":{
-                    "$description": "Disabled text, placeholders, etc.",
+                    "$description": "On light bg:Disabled text, placeholders, etc.",
                     "$value": "{color.core.neutral.default.400}"
                 },
                 "default":{
-                    "$description": "Paragraphs, captions, etc.",
+                    "$description": "On light bg:Paragraphs, captions, etc.",
+                    "$value": "{color.core.neutral.default.500}"
+                },
+                "strong":{
+                    "$description": "On light bg:Headlines, active component labels, etc.",
+                    "$value": "{color.core.neutral.default.900}"
+                }
+            },
+            "light":{
+                "muted":{
+                    "$description": "On dark bg:Disabled text, placeholders, etc.",
+                    "$value": "{color.core.neutral.default.400}"
+                },
+                "default":{
+                    "$description": "On dark bg:Paragraphs, captions, etc.",
                     "$value": "{color.core.neutral.default.300}"
                 },
                 "strong":{
-                    "$description": "Headlines, component labels, etc.",
+                    "$description": "On dark bg:Headlines, active component labels, etc.",
                     "$value": "{color.core.neutral.default.50}"
                 }
             },
@@ -317,7 +331,7 @@
         },
         "background":{
             "$description": "Colors for component backgrounds",
-            "default":{
+            "dark":{
                 "muted":{
                     "default":{
                         "$description":"Base level section, cards, etc.",
@@ -357,8 +371,16 @@
                         "$description":"Component backgrounds on hover states",
                         "$value":"{color.core.neutral.lighten.600}"
                     }
-                },
-                "overlay":{
+                }
+            },
+            "light":{
+                "default":{
+                    "$description":"All background for light elements",
+                    "$value":"{color.core.neutral.default.50}"
+                }
+            },
+            "overlay":{
+                "default":{
                     "$description":"Overlay behind dialogs, side sheets, etc.",
                     "$value": "{color.core.neutral.darken.700}"
                 }
