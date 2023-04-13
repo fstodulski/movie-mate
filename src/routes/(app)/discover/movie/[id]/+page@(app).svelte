@@ -6,7 +6,6 @@
   import Metadata from './components/Metadata/Metadata.svelte';
   import Review from './components/Review/Review.svelte';
   import StreamProviders from './components/StreamProviders/StreamProviders.svelte';
-  import Trailer from './components/Trailer/Trailer.svelte';
 </script>
 
 <div class="w-full flex flex-col pb-20">
@@ -15,9 +14,6 @@
   <div class="px-3 flex flex-col w-full py-4 gap-6">
     <Metadata />
     <Actions />
-    {#if $page.data.movie.video}
-      <Trailer />
-    {/if}
     <Review />
 
     {#if $page.data.providers.length > 0}

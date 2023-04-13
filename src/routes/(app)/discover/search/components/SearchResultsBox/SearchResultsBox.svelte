@@ -3,10 +3,17 @@
 
   import ReleasedDateAndRating from '$lib/components/Movie/ReleasedDateAndRating.svelte';
   import { APP_ROUTES } from '$lib/core/constants/app-routes.const';
+  import { _pastSearches } from '$lib/core/constants/keys.const';
+  import { saveToLocalStorage } from '$lib/core/utils/localstore';
   import { parsePoster, POSTER_SIZES } from '$lib/core/utils/poster';
+  import { serializeLocalstorage } from '$lib/core/utils/serialize-localstorage';
+
+  const addMovieToPastSearch = async (movie: any) => {
+    const movies = serializeLocalstorage(_pastSearches, []);
+    saveToLocalStorage(_pastSearches, [...new Set([...movies, movie])]);
+  };
 
   let query: string;
-
   $: query = $page.url.searchParams.get('query');
 </script>
 
@@ -19,7 +26,10 @@
 
   <div class="flex flex-col gap-4">
     {#each $page.data.movies.results as movie}
-      <a href={APP_ROUTES.discover.movie.replace(':id', movie.id)}>
+      <a
+        href={APP_ROUTES.discover.movie.replace(':id', movie.id)}
+        on:click={() => addMovieToPastSearch(movie)}
+      >
         <div
           class="flex w-full bg-bg-default-default-default rounded-xl overflow-hidden border border-bg-default-muted-alpha"
         >

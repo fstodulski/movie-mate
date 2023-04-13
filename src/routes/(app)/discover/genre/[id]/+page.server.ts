@@ -7,6 +7,7 @@ export const load: ServerLoad = async ({ params }) => {
   const req = await ApiServerProvider.get(
     API_ENDPOINTS.api.discovery.moviesInGenre.replace(':id', params.id)
   );
+  console.log(req.results.top);
 
   return {
     feed: req

@@ -1,16 +1,10 @@
 <script lang="ts">
   import { page } from '$app/stores';
 
-  import { take } from 'ramda';
+  import ReleasedDateAndRating from '$lib/components/Movie/ReleasedDateAndRating.svelte';
   let movie: any;
 
   $: movie = $page.data.movie;
 </script>
 
-<div class="flex w-full gap-4">
-  <span>
-    {take(4, movie.release_date)}
-  </span>
-
-  <span>IMBD: {movie.vote_average}</span>
-</div>
+<ReleasedDateAndRating {movie} />

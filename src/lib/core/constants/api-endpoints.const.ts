@@ -15,6 +15,7 @@ export const API_ENDPOINTS = {
     },
     movies: {
       byId: '/movies/:id',
+      videos: '/movies/:id/videos',
       byName: '/movies/by-name'
     },
     movieToProvider: {

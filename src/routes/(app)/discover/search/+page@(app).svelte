@@ -6,9 +6,11 @@
   import { Search2 } from '@steeze-ui/remix-icons';
   import { Icon } from '@steeze-ui/svelte-icon';
   import { Button, Input } from 'flowbite-svelte';
+  import { isEmpty } from 'ramda';
 
   import { APP_ROUTES } from '$lib/core/constants/app-routes.const';
 
+  import PastSearches from './components/PastSearches/PastSearches.svelte';
   import SearchResultsBox from './components/SearchResultsBox/SearchResultsBox.svelte';
 
   let innerHeight: number;
@@ -18,7 +20,7 @@
 
   let history: Array<any> = [];
 
-  let name: string;
+  let name = '';
 
   const select = async (query: string) => {
     name = query;
@@ -57,6 +59,10 @@
     </Input>
     <Button color="light" type="button" class="" href={APP_ROUTES.discover.index}>Cancel</Button>
   </form>
+
+  {#if isEmpty(name)}
+    <PastSearches />
+  {/if}
 
   {#if $page.data.movies.results.length > 0}
     <SearchResultsBox />

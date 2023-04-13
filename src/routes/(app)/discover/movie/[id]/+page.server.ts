@@ -3,9 +3,13 @@ import { ApiServerProvider } from '$lib/server/providers/api-server.provider';
 
 import type { PageServerLoad } from './$types';
 
-export const load = (async ({ params, request, url }) => {
+export const load = (async ({ params, request, url, cookies }) => {
   const movie = await ApiServerProvider.get(
     API_ENDPOINTS.api.movies.byId.replace(':id', params.id)
+  );
+
+  const videos = await ApiServerProvider.get(
+    API_ENDPOINTS.api.movies.videos.replace(':id', params.id)
   );
   const providers = await ApiServerProvider.get(
     API_ENDPOINTS.api.movieToProvider.byId.replace(':id', params.id)
@@ -13,6 +17,7 @@ export const load = (async ({ params, request, url }) => {
 
   return {
     movie,
-    providers
+    providers,
+    videos
   };
 }) satisfies PageServerLoad;

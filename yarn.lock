@@ -613,6 +613,16 @@
   resolved "https://registry.npmjs.org/@types/semver/-/semver-7.3.13.tgz"
   integrity sha512-21cFJr9z3g5dW8B0CVI9g2O9beqaThGQ6ZFBqHfwhzLDKUxaqTIy3vnfah/UPkfOiF2pLq+tGz+W8RyCskuslw==
 
+"@types/youtube-player@^5.5.7":
+  version "5.5.7"
+  resolved "https://registry.yarnpkg.com/@types/youtube-player/-/youtube-player-5.5.7.tgz#9679aa54f6b314877b7b482705224983d6161971"
+  integrity sha512-W8F4eoTIvzXeNrT3JroQPimZLXnlJA8smYygHZUKFPVoYwgs/OhJkA1VBhL3iSs57OQkuINqHlY4SmMT5wtnJg==
+
+"@types/yt-player@^3.5.1":
+  version "3.5.1"
+  resolved "https://registry.yarnpkg.com/@types/yt-player/-/yt-player-3.5.1.tgz#7e392c4d0e331f4c60eadd3cef011c846a5d1a7d"
+  integrity sha512-OvcbE+ageSYE5Mnw3j062mIQb0ducQWaJYFZUlTRgsAa8PygzgKwfxFlbMQafkAzYaSNi93H4r9Z3KBAXEGqEw==
+
 "@typescript-eslint/eslint-plugin@^5.45.0":
   version "5.48.0"
   resolved "https://registry.npmjs.org/@typescript-eslint/eslint-plugin/-/eslint-plugin-5.48.0.tgz"
@@ -2146,6 +2156,16 @@ lilconfig@^2.0.5, lilconfig@^2.0.6:
   resolved "https://registry.npmjs.org/lilconfig/-/lilconfig-2.0.6.tgz"
   integrity sha512-9JROoBW7pobfsx+Sq2JsASvCo6Pfo6WWoUW79HuB1BCoBXD4PLWJPqDF6fNj67pqBYTbAHkE57M1kS/+L1neOg==
 
+load-script2@^2.0.1:
+  version "2.0.6"
+  resolved "https://registry.yarnpkg.com/load-script2/-/load-script2-2.0.6.tgz#eb32093e4ec3ce58e4621c85c00e4e839fcaf010"
+  integrity sha512-pyuw/AR+ycZkRKgkMyXOIf/o2OnRQPc9grjZ04wVOeoJ7SqX97WlcZahl+3/r5qi09L/5d0iCVZ0q4OqNT/v0Q==
+
+load-script@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/load-script/-/load-script-1.0.0.tgz#0491939e0bee5643ee494a7e3da3d2bac70c6ca4"
+  integrity sha512-kPEjMFtZvwL9TaZo0uZ2ml+Ye9HUMmPwbYRJ324qF9tqMejwykJ5ggTyvzmrbBeapCAbk98BSbTeovHEEP1uCA==
+
 local-pkg@^0.4.2:
   version "0.4.2"
   resolved "https://registry.npmjs.org/local-pkg/-/local-pkg-0.4.2.tgz"
@@ -2763,6 +2783,11 @@ sirv@^2.0.2:
     mrmime "^1.0.0"
     totalist "^3.0.0"
 
+sister@^3.0.0:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/sister/-/sister-3.0.2.tgz#bb3e39f07b1f75bbe1945f29a27ff1e5a2f26be4"
+  integrity sha512-p19rtTs+NksBRKW9qn0UhZ8/TUI9BPw9lmtHny+Y3TinWlOa9jWh9xB0AtPSdmOy49NJJJSSe0Ey4C7h0TrcYA==
+
 slash@^3.0.0:
   version "3.0.0"
   resolved "https://registry.npmjs.org/slash/-/slash-3.0.0.tgz"
@@ -3302,6 +3327,22 @@ yocto-queue@^0.1.0:
   version "0.1.0"
   resolved "https://registry.npmjs.org/yocto-queue/-/yocto-queue-0.1.0.tgz"
   integrity sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==
+
+youtube-player@^5.6.0:
+  version "5.6.0"
+  resolved "https://registry.yarnpkg.com/youtube-player/-/youtube-player-5.6.0.tgz#71699ca093d8ae65e87091898cf812b354e261ea"
+  integrity sha512-x95fBbxV7eZ1ZsFtMLMcSGX0Jb/GPPj69RsooyEDVa9bzvvNZ4d5VjnBVBYoY85008VefkLvtaV+b+l38R/LMQ==
+  dependencies:
+    debug "^4.3.4"
+    load-script "^1.0.0"
+    sister "^3.0.0"
+
+yt-player@^3.6.1:
+  version "3.6.1"
+  resolved "https://registry.yarnpkg.com/yt-player/-/yt-player-3.6.1.tgz#1ba9a15b60a0768e0a3049a2e3a19e42e5a5bb8b"
+  integrity sha512-JzpR/rlB73QCSq1V7YmE0rNceuThbJhDrjb0dNSk+2QJsdFWuU6quMofUkuiiXu71P3wgzyhLuNl/Q0ZgQlbwA==
+  dependencies:
+    load-script2 "^2.0.1"
 
 zod@^3.20.2:
   version "3.20.2"
