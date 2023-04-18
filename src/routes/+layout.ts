@@ -1,8 +1,11 @@
-import type { Load } from '@sveltejs/kit';
 import { dev } from '$app/environment';
 import { init } from '@sentry/svelte';
 import { BrowserTracing } from '@sentry/tracing';
-import { getSupabase } from '@supabase/auth-helpers-sveltekit';
+import { createSupabaseLoadClient } from '@supabase/auth-helpers-sveltekit';
+
+import type { LayoutLoad } from './$types';
+
+import { PUBLIC_SUPABASE_ANON_KEY, PUBLIC_SUPABASE_URI } from '$env/static/public';
 
 !dev &&
   init({
@@ -15,10 +18,22 @@ import { getSupabase } from '@supabase/auth-helpers-sveltekit';
     tracesSampleRate: 1.0
   });
 
-export const load: Load = async (event) => {
-  const { session } = await getSupabase(event);
+export const load: LayoutLoad = async ({ fetch, data, depends }) => {
+  depends('supabase:auth');
+
+  const supabase = createSupabaseLoadClient({
+    supabaseUrl: PUBLIC_SUPABASE_URI,
+    supabaseKey: PUBLIC_SUPABASE_ANON_KEY,
+    event: { fetch },
+    serverSession: data.session
+  });
+
+  const {
+    data: { session }
+  } = await supabase.auth.getSession();
 
   return {
+    supabase,
     session
   };
 };

@@ -16,11 +16,7 @@
       <Icon src={Search2} size="20px" class="text-text-default-muted" />
       <span class="text-text-default-muted text-t300">What you want to watch?</span>
     </div>
-    <Input
-      size="sm"
-      readonly
-      class="!bg-bg-default-muted-alpha !border-bg-default-muted-alpha !text-bg-default-muted-default"
-    />
+    <Input size="sm" readonly class="!text-bg-default-muted-default" />
   </a>
 </section>
 <main class="flex flex-col max-w-screen-sm mx-auto gap-4 px-4 overflow-auto">

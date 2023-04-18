@@ -1,11 +1,18 @@
-import { getServerSession } from '@supabase/auth-helpers-sveltekit';
+import { redirect } from '@sveltejs/kit';
+import { isNil } from 'ramda';
 
-import type { PageServerLoad } from '../../../.svelte-kit/types/src/routes/$types';
+import { APP_ROUTES } from '$lib/core/constants/app-routes.const';
 
-export const load = (async (event) => {
-  const session = await getServerSession(event);
+import type { LayoutServerLoad } from './$types';
+
+export const load: LayoutServerLoad = async ({ locals }) => {
+  const session = await locals.getSession();
+
+  if (!isNil(session)) {
+    throw redirect(303, APP_ROUTES.profile.index);
+  }
 
   return {
-    session
+    data: ''
   };
-}) satisfies PageServerLoad;
+};

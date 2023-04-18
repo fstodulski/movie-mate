@@ -30,9 +30,7 @@
         href={APP_ROUTES.discover.movie.replace(':id', movie.id)}
         on:click={() => addMovieToPastSearch(movie)}
       >
-        <div
-          class="flex w-full bg-bg-default-default-default rounded-xl overflow-hidden border border-bg-default-muted-alpha"
-        >
+        <div class="flex w-full bg-bg-default-default-default rounded-xl overflow-hidden border">
           <figure class="basis-[88px]">
             <img
               class="w-full"

@@ -10,7 +10,9 @@
 
 <div class="sticky top-0 z-50">
   <TopBarNav>
-    {$page.data.feed.results.genre.name}
+    {#if $page.data.feed.results?.genre}
+      {$page.data.feed.results?.genre.name}
+    {/if}
   </TopBarNav>
   <FeedNavigation />
 </div>

@@ -1,8 +1,8 @@
 import { existsSync, mkdirSync, writeFileSync } from 'fs';
 import { path } from 'ramda';
 
-import type { Color } from '../design-tokens/colors.models';
 import tokens from '../design-tokens/colors.token.json';
+import type { Color } from './colors.models';
 
 const extractCurlyBracesColor = (value: string) => {
   return value.replace('{', '').replace('}', '').split('.');
@@ -80,6 +80,11 @@ export async function colorsToTailwind() {
         },
         caution: {
           ...getObjectKeys(background.action.caution)
+        }
+      },
+      light: {
+        default: {
+          ...getObjectKeys(background.light.default)
         }
       },
       default: {

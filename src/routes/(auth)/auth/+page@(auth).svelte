@@ -1,18 +1,10 @@
 <script lang="ts">
-  import { supabaseClientProvider } from '$lib/core/providers/supabase-client.provider';
-
-  import { PUBLIC_HOST_URL } from '$env/static/public';
-
-  const signWithGoogle = async () => {
-    const redirectTo = `${PUBLIC_HOST_URL}/feed/most-popular`;
-
-    const { data, error } = await supabaseClientProvider.auth.signInWithOAuth({
-      provider: 'google',
-      options: {
-        redirectTo
-      }
-    });
-  };
+  import { enhance } from '$app/forms';
+  import { Button } from 'flowbite-svelte';
 </script>
 
-<button on:click={signWithGoogle}> Sign With Google</button>
+<div class="w-full min-h-screen flex justify-center items-center">
+  <form action="?/googleSignIn" method="POST" use:enhance>
+    <Button type="submit">Sign With Google</Button>
+  </form>
+</div>

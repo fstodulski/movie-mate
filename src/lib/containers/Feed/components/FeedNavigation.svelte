@@ -18,9 +18,7 @@
   };
 </script>
 
-<div
-  class="flex items-center bg-bg-default-muted-default overflow-x-auto gap-2 mb-4 scrollbar-hide py-2 pl-4"
->
+<div class="flex items-center overflow-x-auto gap-2 mb-4 scrollbar-hide py-2 pl-4">
   {#each LINKS as link}
     <a href={link.href} class="badge flex items-center" on:click={handleAnchorClick}>
       <div class="flex items-center gap-2">
@@ -40,6 +38,6 @@
 
 <style lang="scss">
   .badge {
-    @apply flex items-center flex-1 h-[40px] border-bg-default-muted-alpha px-3  bg-bg-default-muted-alpha border rounded-md w-full flex items-center last-of-type:mr-4;
+    @apply flex items-center flex-1 h-[40px] px-3  border rounded-md w-full flex items-center last-of-type:mr-4;
   }
 </style>

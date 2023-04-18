@@ -1,17 +1,14 @@
-import { error } from '@sveltejs/kit';
-import { StatusCodes } from 'http-status-codes';
-
-import { API_ENDPOINTS } from '$lib/core/constants/api-endpoints.const';
-import { ApiServerProvider } from '$lib/server/providers/api-server.provider';
+import { FeedRepository } from '$lib/core/repositories/feed.repository';
+import { handleError } from '$lib/server/utils/handle-error';
 
 import type { PageServerLoad } from './$types';
 
-export const load: PageServerLoad = async () => {
-  const res = await ApiServerProvider.get(API_ENDPOINTS.api.feed.index);
+export const load: PageServerLoad = async (event) => {
+  const { data, error } = await FeedRepository.getFeed();
 
-  if (!res) throw error(StatusCodes.NO_CONTENT);
+  if (error) await handleError(error, event);
 
   return {
-    feed: res
+    feed: data || []
   };
 };

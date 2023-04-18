@@ -12,12 +12,12 @@
 </script>
 
 <nav
-  class="fixed bottom-0 left-0 flex w-full items-center justify-around bg-bg-default-muted-default z-[51]"
+  class="fixed bottom-0 left-0 flex w-full items-center justify-around bg-background-dark-muted-default z-[51]"
   style="height: {SIZES.bottomBar}px"
 >
   {#each AppNavigationConst as link}
     <a href={link.link} class:active={includes(link.link, path)} class="rounded-[12px]">
-      <div class="flex flex-col items-center text-text-default-default py-2 px-3 ">
+      <div class="flex flex-col items-center text-text-light-default py-2 px-3">
         <Icon src={link.icon} size="20px" theme={includes(link.link, path) ? 'solid' : ''} />
         <span class="text-t100">{link.label}</span>
       </div>
@@ -27,6 +27,5 @@
 
 <style lang="scss">
   .active {
-    @apply bg-bg-default-muted-alpha;
   }
 </style>

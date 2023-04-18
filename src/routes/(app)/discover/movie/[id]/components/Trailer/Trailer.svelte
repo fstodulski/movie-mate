@@ -1,28 +1,43 @@
 <script lang="ts">
-  import { onMount } from 'svelte';
+  import { createEventDispatcher, onMount } from 'svelte';
   import { page } from '$app/stores';
-  import { filter } from 'ramda';
   import YouTubePlayer from 'youtube-player';
 
-  const trailerSrs = filter(
-    (video) => video.name.toLowerCase().includes('trailer'),
-    $page.data.videos.results
-  );
+  const dispatch = createEventDispatcher();
 
-  let trailerKey = trailerSrs[0].key || $page.data.videos.results[0].key;
+  let windowWidth: number;
+
+  const trailerSrs = $page.data.videos.data.results.filter((video) =>
+    video.name.toLowerCase().includes('trailer')
+  );
+  let player;
 
   onMount(async () => {
-    const player = YouTubePlayer('player', {
-      videoId: trailerKey,
+    player = YouTubePlayer('player', {
+      videoId: trailerSrs[0].key,
+      width: windowWidth,
+      height: 240,
       playerVars: {
         autoplay: 1,
         controls: 0,
-        modestbranding: undefined
+        fs: 0,
+        iv_load_policy: 3,
+        modestbranding: 1
       }
     });
-    await player.mute();
-    await player.playVideo();
+
+    player
+      .playVideo()
+      .then(() => {
+        dispatch('play');
+        player.mute();
+      })
+      .catch(() => {
+        player.unMute();
+      });
   });
 </script>
+
+<svelte:window bind:innerWidth={windowWidth} />
 
 <div class="flex flex-col pointer-events-none" id="player" />

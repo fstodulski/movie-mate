@@ -1,6 +1,7 @@
-import { API_ENDPOINTS } from '$lib/core/constants/api-endpoints.const';
-import { ApiClientProvider } from '$lib/core/providers/api-client.provider';
 import { z } from 'zod';
+
+import { API_ENDPOINTS } from '$lib/core/constants/api-endpoints.const';
+import { apiClient } from '$lib/core/providers/api-client.provider';
 
 const CompletionsBodyReq = z
   .object({
@@ -11,9 +12,9 @@ export type CompletionsBodyReq = z.infer<typeof CompletionsBodyReq>;
 
 const completions = async (body: CompletionsBodyReq) => {
   try {
-    const res = await ApiClientProvider.post(API_ENDPOINTS.api.completions, body);
+    const res = await apiClient.post(API_ENDPOINTS.api.completions, body).json();
 
-    if (!res.data) return null;
+    if (res.data) return null;
 
     return res.data;
   } catch (e) {

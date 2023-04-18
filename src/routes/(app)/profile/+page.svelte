@@ -1,10 +1,11 @@
 <script lang="ts">
+  import { enhance } from '$app/forms';
   import { page } from '$app/stores';
   import { User } from '@steeze-ui/remix-icons';
   import { Icon } from '@steeze-ui/svelte-icon';
+  import { Button } from 'flowbite-svelte';
 
   import { APP_ROUTES } from '$lib/core/constants/app-routes.const';
-  import { AuthService } from '$lib/core/services/auth/auth.service';
 
   let authUrl: string;
 
@@ -12,7 +13,9 @@
 
   let userName: string;
 
-  $: userName = $page.data.session?.user.email.split('@')[0];
+  $: userName = $page.data.user.email.split('@')[0];
+
+  console.log();
 </script>
 
 <div class="flex flex-col w-full px-2 gap-8">
@@ -24,7 +27,9 @@
         <Icon src={User} size="20px" />
         <span class="text-xl">{userName || 'Account MovieMate'}</span>
 
-        <span class="ml-auto" on:click={AuthService.signOut}>Log Out</span>
+        <form action="?/signOut" method="POST" use:enhance>
+          <Button type="submit" class="ml-auto">Log Out</Button>
+        </form>
       </div>
     </a>
     <a href="">

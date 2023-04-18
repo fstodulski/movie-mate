@@ -1,4 +1,15 @@
 export const API_ENDPOINTS = {
+  auth: {
+    signInWithGoogle: '/auth/sign-in-with-google'
+  },
+  users: {
+    me: '/users/me'
+  },
+  movies: {
+    byId: '/movies/:id',
+    videos: '/movies/:id/videos',
+    byName: '/movies/by-name'
+  },
   api: {
     auth: '/auth',
     completions: '/completions',
@@ -13,11 +24,7 @@ export const API_ENDPOINTS = {
       genres: '/discover/genres',
       search: '/movie/search'
     },
-    movies: {
-      byId: '/movies/:id',
-      videos: '/movies/:id/videos',
-      byName: '/movies/by-name'
-    },
+
     movieToProvider: {
       byId: '/movie-to-provider/by-movie-id/:id'
     },

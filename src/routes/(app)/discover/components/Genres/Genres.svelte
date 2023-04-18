@@ -12,7 +12,7 @@
     {#each $page.data.genres as genre}
       <a href={APP_ROUTES.discover.genre.single.replace(':id', genre.tmdb_id)} c>
         <div
-          class="relative overflow-hidden h-[100px] rounded-lg border-bg-default-muted-alpha"
+          class="relative overflow-hidden h-[100px] rounded-lg"
           style="background-color: {genre.color}"
         >
           <figure
