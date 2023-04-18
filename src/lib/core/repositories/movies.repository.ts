@@ -21,8 +21,15 @@ const movieProviders = async (id: string) => {
     .json(responseHandler<any>);
 };
 
+const movieCredits = async (id: string) => {
+  return await apiClient
+    .get(parseUrl(API_ENDPOINTS.movies.credits, { id }))
+    .json(responseHandler<any>);
+};
+
 export const MoviesRepository = {
   findMyId,
   movies,
-  movieProviders
+  movieProviders,
+  movieCredits
 };

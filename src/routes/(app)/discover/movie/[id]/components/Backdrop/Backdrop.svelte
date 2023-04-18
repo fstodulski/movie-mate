@@ -12,7 +12,7 @@
 </script>
 
 <figure class="w-full relative">
-  <Trailer on:play={() => (isMoviePlaying = true)} />
+  <Trailer on:end={() => (isMoviePlaying = false)} on:play={() => (isMoviePlaying = true)} />
   <img
     class:opacity-0={isMoviePlaying}
     class="absolute top-0 left-0 duration-300 h-full"
@@ -21,6 +21,8 @@
   />
 
   <div
-    class="absolute top-0 left-0 w-full h-full z-0 bg-gradient-to-bl from-black via-black to-sky-900 opacity-60 pointer-events-none"
+    class:opacity-0={isMoviePlaying}
+    class:opacity-60={!isMoviePlaying}
+    class="absolute top-0 left-0 w-full h-full z-0 bg-gradient-to-bl from-black via-black to-sky-900 pointer-events-none"
   />
 </figure>
