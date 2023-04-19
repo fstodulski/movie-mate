@@ -9,7 +9,7 @@ export const actions: Actions = {
       provider: 'google',
       options: {
         scopes: 'openid profile email',
-        redirectTo: `https://127.0.0.1:5173${APP_ROUTES.profile.index}`
+        redirectTo: `${import.meta.env.VITE_PUBLIC_HOST_URL}${APP_ROUTES.profile.index}`
       }
     });
 
