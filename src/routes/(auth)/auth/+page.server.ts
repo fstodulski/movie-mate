@@ -8,8 +8,7 @@ export const actions: Actions = {
     const { data, error } = await event.locals.supabase.auth.signInWithOAuth({
       provider: 'google',
       options: {
-        scopes: 'openid profile email',
-        redirectTo: `${import.meta.env.VITE_PUBLIC_HOST_URL}${APP_ROUTES.profile.index}`
+        redirectTo: `${import.meta.env.VITE_PUBLIC_HOST_URL}${APP_ROUTES.feed.index}`
       }
     });
 

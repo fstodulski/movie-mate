@@ -8,11 +8,12 @@ import type { LayoutServerLoad } from './$types';
 export const load: LayoutServerLoad = async ({ locals }) => {
   const session = await locals.getSession();
 
+  console.log('auth', session);
   if (!isNil(session)) {
     throw redirect(303, APP_ROUTES.profile.index);
   }
 
   return {
-    data: ''
+    session
   };
 };

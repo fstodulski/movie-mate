@@ -10,25 +10,27 @@ import { AuthStore } from '$lib/store/auth.store';
 export const load: ServerLoad = async ({ locals }) => {
   const session = await locals.getSession();
 
-  if (!isNil(session)) {
-    const { data, error } = await AuthRepository.login(session);
+  if (isNil(session)) {
+    throw redirect(303, APP_ROUTES.auth.index);
+  }
 
-    if (!error) {
-      AuthStore.setTokens(data);
+  const { data, error } = await AuthRepository.login(session);
 
-      const { data: userData, error: userError } = await UsersRepository.me(data.access_token);
+  if (!error) {
+    AuthStore.setTokens(data);
 
-      if (!userError) {
-        return {
-          user: userData
-        };
-      }
+    const { data: userData, error: userError } = await UsersRepository.me(data.access_token);
 
-      throw redirect(303, APP_ROUTES.auth.index);
+    if (!userError) {
+      return {
+        user: userData
+      };
     }
 
     throw redirect(303, APP_ROUTES.auth.index);
   }
 
-  throw redirect(301, APP_ROUTES.auth.index);
+  if (error) {
+    throw redirect(303, APP_ROUTES.auth.index);
+  }
 };
