@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { enhance } from '$app/forms';
   import { page } from '$app/stores';
   import { User } from '@steeze-ui/remix-icons';
   import { Icon } from '@steeze-ui/svelte-icon';
@@ -22,16 +21,14 @@
   <h3 class="text-3xl font-bold">Profile</h3>
 
   <nav class="flex flex-col gap-4">
-    <a href={authUrl}>
-      <div class="flex items-center p-4 rounded-md gap-2 border border-gray-300">
-        <Icon src={User} size="20px" />
-        <span class="text-xl">{userName || 'Account MovieMate'}</span>
+    <div class="flex items-center p-4 rounded-md gap-2 border border-gray-300">
+      <Icon src={User} size="20px" />
+      <span class="text-xl">{userName || 'Account MovieMate'}</span>
 
-        <form action="?/signOut" method="POST" use:enhance>
-          <Button type="submit" class="ml-auto">Log Out</Button>
-        </form>
-      </div>
-    </a>
+      <form method="POST" action="?/signOut">
+        <Button type="submit" class="ml-auto">Log Out</Button>
+      </form>
+    </div>
     <a href="">
       <div class="flex items-center p-4 rounded-md gap-2 border border-gray-300">
         <Icon src={User} size="20px" />

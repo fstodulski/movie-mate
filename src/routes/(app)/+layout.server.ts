@@ -30,7 +30,5 @@ export const load: ServerLoad = async ({ locals }) => {
     throw redirect(303, APP_ROUTES.auth.index);
   }
 
-  return {
-    data: ''
-  };
+  throw redirect(301, APP_ROUTES.auth.index);
 };

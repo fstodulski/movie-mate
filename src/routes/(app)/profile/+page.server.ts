@@ -5,6 +5,7 @@ export const actions: Actions = {
     console.log('dupa');
     const { error, data } = await locals.supabase.auth.signOut();
 
+    console.log(data, error);
     console.log(error);
     if (error) {
       throw new Error(error.message);
