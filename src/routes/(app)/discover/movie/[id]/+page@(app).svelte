@@ -8,17 +8,14 @@
   import MovieDetails from './components/MovieDetails/MovieDetails.svelte';
   import Review from './components/Review/Review.svelte';
   import StreamProviders from './components/StreamProviders/StreamProviders.svelte';
-  console.log($page.data.movie);
 </script>
 
 <div class="w-full flex flex-col pb-20">
   <Backdrop />
-
   <div class="flex flex-col w-full py-3">
     <Metadata />
     <Actions />
     <Review />
-
     {#if $page.data.providers.length > 0}
       <StreamProviders />
     {/if}
