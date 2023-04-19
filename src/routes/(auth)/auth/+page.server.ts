@@ -5,10 +5,13 @@ import { APP_ROUTES } from '$lib/core/constants/app-routes.const';
 
 export const actions: Actions = {
   googleSignIn: async (event) => {
+    const redirectTo = `${import.meta.env.VITE_PUBLIC_HOST_URL}${APP_ROUTES.feed.index}`;
+
+    console.log('redirectTo', redirectTo);
     const { data, error } = await event.locals.supabase.auth.signInWithOAuth({
       provider: 'google',
       options: {
-        redirectTo: `${import.meta.env.VITE_PUBLIC_HOST_URL}${APP_ROUTES.feed.index}`
+        redirectTo
       }
     });
 
