@@ -5,6 +5,8 @@ import { APP_ROUTES } from '$lib/core/constants/app-routes.const';
 
 export const actions: Actions = {
   googleSignIn: async (event) => {
+    console.log(import.meta.env.VITE_PUBLIC_HOST_URL);
+
     const { data, error } = await event.locals.supabase.auth.signInWithOAuth({
       provider: 'google',
       options: {
