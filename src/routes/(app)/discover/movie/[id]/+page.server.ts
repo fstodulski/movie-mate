@@ -10,8 +10,6 @@ export const load: PageServerLoad = async ({ params, request, url, cookies }) =>
     MoviesRepository.movieCredits(params.id)
   ]);
 
-  console.log(credits);
-
   return {
     movie,
     providers,
