@@ -27,8 +27,15 @@ const movieCredits = async (id: string) => {
     .json(responseHandler<any>);
 };
 
+const findByName = async (name: string) => {
+  return await apiClient
+    .get(parseUrl(API_ENDPOINTS.movies.byName, { name }))
+    .json(responseHandler<any>);
+};
+
 export const MoviesRepository = {
   findMyId,
+  findByName,
   movies,
   movieProviders,
   movieCredits

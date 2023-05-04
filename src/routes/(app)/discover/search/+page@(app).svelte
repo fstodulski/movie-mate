@@ -52,7 +52,7 @@
       type="text"
       name="query"
       bind:value={name}
-      class="!text-text-default-strong grow"
+      class="grow"
       placeholder="Movie name"
     >
       <Icon slot="left" src={Search2} size="20px" />
