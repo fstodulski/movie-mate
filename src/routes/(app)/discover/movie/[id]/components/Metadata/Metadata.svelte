@@ -6,8 +6,6 @@
   let movie: any;
 
   $: movie = $page.data.movie.data;
-
-  console.log($page.data.movie.data);
 </script>
 
 <div class="flex flex-col mb-2 px-3">

@@ -13,8 +13,6 @@
   let userName: string;
 
   $: userName = $page.data.user.email.split('@')[0];
-
-  console.log();
 </script>
 
 <div class="flex flex-col w-full px-2 gap-8">

@@ -27,5 +27,6 @@
 
 <style lang="scss">
   .active {
+    @apply bg-background-dark-muted-alpha/[0.16];
   }
 </style>

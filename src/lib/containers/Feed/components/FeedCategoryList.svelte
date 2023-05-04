@@ -24,14 +24,14 @@
 <IntersectionObserver {element} on:intersect={onIntersect}>
   <div class="flex items-center gap-2 px-4 pb-6" bind:this={element}>
     <Icon src={icon} size="20px" theme="solid" class={iconCSS} />
-    <span id={titleId} class="whitespace-nowrap text-text-default-strong text-h400">{title} </span>
+    <span id={titleId} class="whitespace-nowrap text-text-light-strong text-h400">{title} </span>
   </div>
 
   <div class="flex flex-col w-full px-4 gap-5 pb-10">
     {#each movies as movie, index}
       <a class="flex items-start gap-4" href={APP_ROUTES.discover.movie.replace(':id', movie.id)}>
-        <div class="flex flex-col ">
-          <span class="font-bold text-h700 text-text-default-strong"
+        <div class="flex flex-col">
+          <span class="font-bold text-h700 text-text-light-strong"
             >{index + 1 < 10 ? 0 : ''}{index + 1}</span
           >
         </div>
@@ -46,18 +46,18 @@
 
           <div class="flex w-full justify-between">
             <div class="flex">
-              <span class="text-t100 text-text-default-muted">Watch on </span>
+              <span class="text-t100 text-text-light-muted">Watch on</span>
             </div>
 
-            <button class="flex items-center text-t100 text-text-default-strong gap-2"
+            <button class="flex items-center text-t100 text-text-light-strong gap-2"
               ><Icon src={Bookmark} size="16px" />Add to watchlist</button
             >
           </div>
 
           <article class="flex flex-col">
-            <h3 class="text-h300 text-text-default-strong">{movie.original_title}</h3>
+            <h3 class="text-h300 text-text-light-strong">{movie.original_title}</h3>
             <ReleasedDateAndRating {movie} />
-            <p class="text-t100 text-text-default-default line-clamp-2">{movie.overview}</p>
+            <p class="text-t100 text-text-light-default line-clamp-2">{movie.overview}</p>
           </article>
         </div>
       </a>

@@ -12,7 +12,7 @@
     const anchor = document.getElementById(anchorId);
 
     window.scrollTo({
-      top: anchor.offsetTop,
+      top: anchor.offsetTop - 110,
       behavior: 'smooth'
     });
   };
@@ -20,7 +20,11 @@
 
 <div class="flex items-center overflow-x-auto gap-2 mb-4 scrollbar-hide py-2 pl-4">
   {#each LINKS as link}
-    <a href={link.href} class="badge flex items-center" on:click={handleAnchorClick}>
+    <a
+      href={link.href}
+      class="badge flex items-center bg-background-dark-default-alpha/[0.2] border-border-default-muted-alpha/[0.32]"
+      on:click={handleAnchorClick}
+    >
       <div class="flex items-center gap-2">
         <Icon
           src={link.icon}
@@ -28,7 +32,7 @@
           class={link.css}
           theme={includes($page.url.hash, link.href) ? 'solid' : ''}
         />
-        <span class="whitespace-nowrap text-text-default-strong text-t200">
+        <span class="whitespace-nowrap text-text-light-strong text-t200">
           {link.label}
         </span>
       </div>

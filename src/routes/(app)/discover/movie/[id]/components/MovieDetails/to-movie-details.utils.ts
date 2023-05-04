@@ -1,5 +1,4 @@
 export const toMovieDetailsUtils = (movie) => {
-  console.log(movie);
   return {
     rating: `TMDB ${movie.vote_average} (${movie.vote_count} votes)`,
     genres: movie.genres.map((genre) => genre.name).join(', '),

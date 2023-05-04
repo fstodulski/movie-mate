@@ -4,7 +4,6 @@
 
   import { toMovieDetailsUtils } from './to-movie-details.utils';
 
-  console.log($page.data.credits.data);
   let movieData = toMovieDetailsUtils({ ...$page.data.movie.data, ...$page.data.credits.data });
 </script>
 
