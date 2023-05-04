@@ -14,3 +14,7 @@ html {
   html {
   }
 }
+
+input {
+  @apply bg-background-dark-muted-alpha/[0.16] border-border-default-muted-alpha/[0.32] #{!important};
+}

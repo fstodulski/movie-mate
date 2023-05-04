@@ -11,6 +11,9 @@ export const API_ENDPOINTS = {
     byName: '/movies/by-name',
     credits: '/movies/:id/credits'
   },
+  genres: {
+    findAll: '/genres'
+  },
   api: {
     auth: '/auth',
     completions: '/completions',
