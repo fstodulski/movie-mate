@@ -21,6 +21,6 @@
         @kubu
       </Button>
     </div>
-    <a class="text-white text-t200" href={APP_ROUTES.auth.index}>Log in</a>
+    <a class="text-white text-t200" href={APP_ROUTES.feed.index}>See it</a>
   </div>
 </div>

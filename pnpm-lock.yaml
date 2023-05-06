@@ -14,11 +14,11 @@ dependencies:
     specifier: ^1.3.2
     version: 1.3.2
   '@supabase/auth-helpers-sveltekit':
-    specifier: ^0.9.3
-    version: 0.9.3(@supabase/supabase-js@2.20.0)(@sveltejs/kit@1.15.5)
+    specifier: ^0.9.4
+    version: 0.9.4(@supabase/supabase-js@2.21.0)(@sveltejs/kit@1.15.5)
   '@supabase/supabase-js':
-    specifier: ^2.20.0
-    version: 2.20.0
+    specifier: ^2.21.0
+    version: 2.21.0
   '@tokencss/postcss':
     specifier: ^0.0.5
     version: 0.0.5(postcss@8.4.21)
@@ -75,9 +75,6 @@ devDependencies:
   '@types/youtube-player':
     specifier: ^5.5.7
     version: 5.5.7
-  '@types/yt-player':
-    specifier: ^3.5.1
-    version: 3.5.1
   '@typescript-eslint/eslint-plugin':
     specifier: ^5.58.0
     version: 5.58.0(@typescript-eslint/parser@5.58.0)(eslint@8.38.0)(typescript@4.9.5)
@@ -927,23 +924,23 @@ packages:
     resolution: {integrity: sha512-Y7tH9UKeDYLfBicWLw4n4mhgfuSwgEdtq9wog7H+DjvfpTvea5SEqjHI8onoKZonJqAaUBGVjH02LAiqRWu+cw==}
     dev: false
 
-  /@supabase/auth-helpers-shared@0.3.3(@supabase/supabase-js@2.20.0):
-    resolution: {integrity: sha512-ZwZGffApfyz9MiT3knnZoF1DMWE56H/Q0Mrsn22J9ubhss7/+e7TP3dChxxwlUYqtDmjmLV6OV8W0BANENfUew==}
+  /@supabase/auth-helpers-shared@0.3.4(@supabase/supabase-js@2.21.0):
+    resolution: {integrity: sha512-8I3D0SPHHexkFTSfPg0nZgJSVazWoB3tZDpT6IjRv6w89vDMUzO99Lit4H9anVLF4teW8c/nJJxawDNbDlgbgg==}
     peerDependencies:
       '@supabase/supabase-js': ^2.0.4
     dependencies:
-      '@supabase/supabase-js': 2.20.0
-      js-base64: 3.7.5
+      '@supabase/supabase-js': 2.21.0
+      jose: 4.14.4
     dev: false
 
-  /@supabase/auth-helpers-sveltekit@0.9.3(@supabase/supabase-js@2.20.0)(@sveltejs/kit@1.15.5):
-    resolution: {integrity: sha512-F9ePQK6hi/4P9OKLUVfaCZ0ZLaGkyx4AZG2S/tyBmrEHEIDssbOaX3QDcOB6QFqsVx0MsWWbAkl2DOQNVJTK7g==}
+  /@supabase/auth-helpers-sveltekit@0.9.4(@supabase/supabase-js@2.21.0)(@sveltejs/kit@1.15.5):
+    resolution: {integrity: sha512-Z/ooQZqoT4SefwpZrqYr57Ynt1k8dND0T/8/buYhkZXV5OGf8v1R5zrZI1pzyBOCF7FzOIBuo+hmMZhytZnjag==}
     peerDependencies:
-      '@supabase/supabase-js': ^2.7.1
-      '@sveltejs/kit': ^1.1.0
+      '@supabase/supabase-js': ^2.15.0
+      '@sveltejs/kit': ^1.15.2
     dependencies:
-      '@supabase/auth-helpers-shared': 0.3.3(@supabase/supabase-js@2.20.0)
-      '@supabase/supabase-js': 2.20.0
+      '@supabase/auth-helpers-shared': 0.3.4(@supabase/supabase-js@2.21.0)
+      '@supabase/supabase-js': 2.21.0
       '@sveltejs/kit': 1.15.5(svelte@3.58.0)(vite@4.2.1)
     dev: false
 
@@ -955,8 +952,8 @@ packages:
       - encoding
     dev: false
 
-  /@supabase/gotrue-js@2.22.3:
-    resolution: {integrity: sha512-GBu+YT7jaWgmmVRNPZnT2YmO7TjscjoBVMzMDnr2yPL6C2ImzRmOKIbHnGliDeI5EaEsPPljWoYR4xB+WJb98w==}
+  /@supabase/gotrue-js@2.24.0:
+    resolution: {integrity: sha512-ZsH4K5cbMTjfMytXaDYVYs9l9igmlZFxiwXn7J2IP/CklWR5qmLCma+dvat5rccPLITVkN6oAZbKxDzW+pEgCg==}
     dependencies:
       cross-fetch: 3.1.5
     transitivePeerDependencies:
@@ -989,11 +986,11 @@ packages:
       - encoding
     dev: false
 
-  /@supabase/supabase-js@2.20.0:
-    resolution: {integrity: sha512-6sNX4WEaVBbmOS1K2U3PcpAhp0FcjVo1FRSEoj4N+NZ6DIokX+yut8IBhF176pg5kFCdFIL2wyNhf3SltREmWw==}
+  /@supabase/supabase-js@2.21.0:
+    resolution: {integrity: sha512-FW3ZzBoc4orSgfX0dXrmJoXAcI/hiekmqXTkN64vjtUF2Urp3UjyAf71UTtV9Jl6ejHoe3K++e0+Rg9zKUJh5w==}
     dependencies:
       '@supabase/functions-js': 2.1.1
-      '@supabase/gotrue-js': 2.22.3
+      '@supabase/gotrue-js': 2.24.0
       '@supabase/postgrest-js': 1.5.0
       '@supabase/realtime-js': 2.7.2
       '@supabase/storage-js': 2.5.1
@@ -1146,10 +1143,6 @@ packages:
 
   /@types/youtube-player@5.5.7:
     resolution: {integrity: sha512-W8F4eoTIvzXeNrT3JroQPimZLXnlJA8smYygHZUKFPVoYwgs/OhJkA1VBhL3iSs57OQkuINqHlY4SmMT5wtnJg==}
-    dev: true
-
-  /@types/yt-player@3.5.1:
-    resolution: {integrity: sha512-OvcbE+ageSYE5Mnw3j062mIQb0ducQWaJYFZUlTRgsAa8PygzgKwfxFlbMQafkAzYaSNi93H4r9Z3KBAXEGqEw==}
     dev: true
 
   /@typescript-eslint/eslint-plugin@5.58.0(@typescript-eslint/parser@5.58.0)(eslint@8.38.0)(typescript@4.9.5):
@@ -2718,8 +2711,8 @@ packages:
     hasBin: true
     dev: true
 
-  /js-base64@3.7.5:
-    resolution: {integrity: sha512-3MEt5DTINKqfScXKfJFrRbxkrnk2AxPWGBL/ycjz4dK8iqiSJ06UxD8jh8xuh6p10TX4t2+7FsBYVxxQbMg+qA==}
+  /jose@4.14.4:
+    resolution: {integrity: sha512-j8GhLiKmUAh+dsFXlX1aJCbt5KMibuKb+d7j1JaOJG6s2UjX1PQlW+OKB/sD4a/5ZYF4RcmYmLSndOoU3Lt/3g==}
     dev: false
 
   /js-sdsl@4.4.0:
