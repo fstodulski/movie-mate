@@ -1,4 +1,6 @@
 import { API_ENDPOINTS } from '$lib/core/constants/api-endpoints.const';
+import type { ByNameResponse } from '$lib/core/models/api/tmdb-response.model';
+import type { PaginatedResponse } from '$lib/core/models/paginated-response.model';
 import { apiClient } from '$lib/core/providers/api-client.provider';
 import { responseHandler } from '$lib/core/utils/response-handler';
 import { parseUrl } from '$lib/server/utils/parse-url';
@@ -29,7 +31,14 @@ const movieCredits = async (id: string) => {
 
 const findByName = async (name: string) => {
   return await apiClient
-    .get(parseUrl(API_ENDPOINTS.movies.byName, { name }))
+    .query({ name })
+    .get(API_ENDPOINTS.movies.byName)
+    .json(responseHandler<PaginatedResponse<ByNameResponse>>);
+};
+
+const moviesByGenre = async (id: string) => {
+  return await apiClient
+    .get(parseUrl(API_ENDPOINTS.movies.byGenre, { id }))
     .json(responseHandler<any>);
 };
 
@@ -38,5 +47,6 @@ export const MoviesRepository = {
   findByName,
   movies,
   movieProviders,
-  movieCredits
+  movieCredits,
+  moviesByGenre
 };

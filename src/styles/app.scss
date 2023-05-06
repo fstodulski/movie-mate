@@ -2,7 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-@import 'typography.scss';
+@import 'typography';
+@import 'border';
 
 body,
 html {

@@ -3,7 +3,7 @@
   import { fly } from 'svelte/transition';
   import { browser } from '$app/environment';
   import { page } from '$app/stores';
-  import { Search2 } from '@steeze-ui/remix-icons';
+  import { Close, Search2 } from '@steeze-ui/remix-icons';
   import { Icon } from '@steeze-ui/svelte-icon';
   import { Button, Input } from 'flowbite-svelte';
   import { isEmpty } from 'ramda';
@@ -21,6 +21,10 @@
   let history: Array<any> = [];
 
   let name = '';
+
+  const clearInput = () => {
+    name = '';
+  };
 
   const select = async (query: string) => {
     name = query;
@@ -56,6 +60,12 @@
       placeholder="Movie name"
     >
       <Icon slot="left" src={Search2} size="20px" />
+
+      <button slot="right" on:click={clearInput}>
+        {#if !isEmpty(name)}
+          <Icon src={Close} size="20px" />
+        {/if}
+      </button>
     </Input>
     <Button color="light" type="button" class="" href={APP_ROUTES.discover.index}>Cancel</Button>
   </form>

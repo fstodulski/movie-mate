@@ -1,9 +1,10 @@
 import { browser } from '$app/environment';
 
 export const saveToLocalStorage = (key: string, value: any) => {
-  if (browser) {
-    localStorage.setItem(key, JSON.stringify(value));
+  if (!browser) {
+    console.warn('Not a browser ENV');
+    return;
   }
-  console.warn('Not a browser ENV');
-  return;
+
+  localStorage.setItem(key, JSON.stringify(value));
 };

@@ -8,7 +8,7 @@
 
 <div class="flex w-full min-h-screen justify-center items-center">
   <div class="flex flex-col items-center gap-4">
-    <h1 class="text-h800 font-bold text-white">Something cool is building here</h1>
+    <h1 class="text-h800 font-bold text-white">We build Something cool here</h1>
 
     <span class="text-t200 text-text-light-muted">Follow Us!</span>
     <div class="flex gap-2">

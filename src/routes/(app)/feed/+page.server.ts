@@ -9,6 +9,6 @@ export const load: PageServerLoad = async (event) => {
   if (error) await handleError(error, event);
 
   return {
-    feed: data || []
+    feed: data
   };
 };

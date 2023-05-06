@@ -1,4 +1,5 @@
 import wretch from 'wretch';
+import QueryStringAddon from 'wretch/addons/queryString';
 
 import { parseError } from '../utils/parse-error';
 
@@ -10,6 +11,7 @@ export const apiClient = wretch(BASE_URL)
     'Content-Type': 'application/json',
     Accept: 'application/json'
   })
+  .addon(QueryStringAddon)
   .resolve((_) =>
     _.forbidden(parseError)
       .unauthorized(parseError)

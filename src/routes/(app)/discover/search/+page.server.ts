@@ -2,9 +2,7 @@ import type { Actions } from '@sveltejs/kit';
 import { superValidate } from 'sveltekit-superforms/server';
 import { z } from 'zod';
 
-import { API_ENDPOINTS } from '$lib/core/constants/api-endpoints.const';
 import { MoviesRepository } from '$lib/core/repositories/movies.repository';
-import { ApiServerProvider } from '$lib/server/providers/api-server.provider';
 import { handleError } from '$lib/server/utils/handle-error';
 
 import type { PageServerLoad } from './$types';
@@ -22,7 +20,10 @@ export const load: PageServerLoad = async (event) => {
     return {
       form,
       movies: {
-        results: []
+        page: 1,
+        results: [],
+        total_pages: 1,
+        total_results: 0
       }
     };
 
@@ -30,21 +31,10 @@ export const load: PageServerLoad = async (event) => {
 
   if (error) return handleError(error, event);
 
-  console.log(data);
   return {
     form,
-    movies: data || { results: [] }
+    movies: data
   };
 };
 
-export const actions: Actions = {
-  search: async ({ request }) => {
-    const { query } = Object.fromEntries(await request.formData());
-
-    const res = await ApiServerProvider.query({ name: query }).get(API_ENDPOINTS.api.movies.byName);
-
-    return {
-      movies: res.results || []
-    };
-  }
-};
+export const actions: Actions = {};
