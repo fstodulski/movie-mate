@@ -4,7 +4,7 @@
 
   import { toMovieDetailsUtils } from './to-movie-details.utils';
 
-  let movieData = toMovieDetailsUtils({ ...$page.data.movie.data, ...$page.data.credits.data });
+  let movieData = toMovieDetailsUtils({ ...$page.data.movie, ...$page.data.credits });
 </script>
 
 <section class="px-4 flex flex-col pt-8 gap-4">

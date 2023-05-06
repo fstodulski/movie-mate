@@ -7,10 +7,11 @@ export const API_ENDPOINTS = {
   },
   movies: {
     byId: '/movies/:id',
-    videos: '/movies/:id/videos',
+    videos: '/movies/:id/trailers',
     byName: '/movies/by-name',
     credits: '/movies/:id/credits',
-    byGenre: '/movies/by-genre/:id'
+    byGenre: '/movies/by-genre/:id',
+    providers: '/movies/:id/providers'
   },
   genres: {
     findAll: '/genres',
@@ -25,13 +26,11 @@ export const API_ENDPOINTS = {
     genres: {
       findAll: '/genres'
     },
-
     discovery: {
       moviesInGenre: '/discover/movies-in-genre/:id',
       genres: '/discover/genres',
       search: '/movie/search'
     },
-
     movieToProvider: {
       byId: '/movie-to-provider/by-movie-id/:id'
     },

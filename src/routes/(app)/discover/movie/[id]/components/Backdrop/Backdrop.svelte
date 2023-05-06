@@ -8,7 +8,7 @@
   let movie: any;
   let isMoviePlaying = false;
 
-  $: movie = $page.data.movie.data;
+  $: movie = $page.data.movie;
 </script>
 
 <figure class="w-full relative">

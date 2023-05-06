@@ -19,7 +19,7 @@
   let progress = 0;
   let isVideoMuted = true;
 
-  const trailerSrs = $page.data.videos.data.results.filter((video) =>
+  const trailerSrs = $page.data.trailers.results.filter((video) =>
     video.name.toLowerCase().includes('trailer')
   );
 
@@ -78,7 +78,9 @@
 
 <svelte:window bind:innerWidth={windowWidth} />
 
-<div class="flex flex-col pointer-events-none" id="player" />
+<div class="flex h-[240px] w-full bg-background-dark-default-default">
+  <div class="flex flex-col pointer-events-none" id="player" />
+</div>
 
 <BackButton />
 <ShareButton />

@@ -15,14 +15,14 @@
     {#await $page.data.credits}
       Loading
     {:then}
-      {#if !isEmpty($page.data.credits.data.cast)}
-        {#each $page.data.credits.data.cast as cast}
+      {#if !isEmpty($page.data.credits.cast)}
+        {#each $page.data.credits.cast as cast}
           <figure
             class="h-[225px] ml-4 w-[138px] bg-background-dark-default-default rounded-md flex-1 grow flex-none overflow-hidden"
           >
             <img
               class="h-[175px] w-full object-cover"
-              src={parsePoster(cast.profile_path, PROFILE_SIZES.enum.original)}
+              src={parsePoster(cast.profile_path, PROFILE_SIZES.enum.w185)}
               alt=""
             />
             <figcaption class="flex flex-col p-2 gap-1/2">

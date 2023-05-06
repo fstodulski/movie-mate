@@ -26,7 +26,7 @@
   <div class="flex flex-col gap-4">
     {#each $page.data.movies.results as movie}
       <a
-        href={APP_ROUTES.discover.movie.replace(':id', movie.id)}
+        href={APP_ROUTES.discover.movie.replace(':id', movie.tmdb_id)}
         on:click={() => addMovieToPastSearch(movie)}
       >
         <MovieBubble {movie} />

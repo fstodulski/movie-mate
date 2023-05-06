@@ -1,5 +1,6 @@
 <script lang="ts">
   import { page } from '$app/stores';
+  import { isEmpty } from 'ramda';
 
   import Actions from './components/Actions/Actions.svelte';
   import Backdrop from './components/Backdrop/Backdrop.svelte';
@@ -8,6 +9,7 @@
   import MovieDetails from './components/MovieDetails/MovieDetails.svelte';
   import Review from './components/Review/Review.svelte';
   import StreamProviders from './components/StreamProviders/StreamProviders.svelte';
+  console.log($page.data);
 </script>
 
 <div class="w-full flex flex-col pb-20">
@@ -16,7 +18,7 @@
     <Metadata />
     <Actions />
     <Review />
-    {#if $page.data.providers.length > 0}
+    {#if isEmpty($page.data.providers)}
       <StreamProviders />
     {/if}
     <Credits />

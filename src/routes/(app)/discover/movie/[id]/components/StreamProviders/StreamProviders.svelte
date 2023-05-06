@@ -23,7 +23,7 @@
 </div>
 
 <ul class="flex w-full gap-4">
-  {#each $page.data.providers as provider}
+  {#each $page.data.movie.providers as provider}
     <li class="w-16 h-16 bg-gray-200 rounded-md overflow-hidden">
       <a href={provider.provider_url} target="_blank" rel="noreferrer">
         <img src={provider.image_url} alt="" />

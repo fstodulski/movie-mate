@@ -61,11 +61,11 @@
     >
       <Icon slot="left" src={Search2} size="20px" />
 
-      <button slot="right" on:click={clearInput}>
+      <a slot="right" on:click={clearInput} type="reset" href={APP_ROUTES.discover.search}>
         {#if !isEmpty(name)}
           <Icon src={Close} size="20px" />
         {/if}
-      </button>
+      </a>
     </Input>
     <Button color="light" type="button" class="" href={APP_ROUTES.discover.index}>Cancel</Button>
   </form>
@@ -74,7 +74,7 @@
     <PastSearches />
   {/if}
 
-  {#if $page.data.movies.results.length > 0}
+  {#if !isEmpty($page.data.movies.results)}
     <SearchResultsBox />
   {/if}
 

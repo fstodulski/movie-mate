@@ -5,7 +5,7 @@
 
   let movie: any;
 
-  $: movie = $page.data.movie.data;
+  $: movie = $page.data.movie;
 </script>
 
 <div class="flex flex-col mb-2 px-3">

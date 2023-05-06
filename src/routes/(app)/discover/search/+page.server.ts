@@ -31,6 +31,8 @@ export const load: PageServerLoad = async (event) => {
 
   if (error) return handleError(error, event);
 
+  console.log(data);
+
   return {
     form,
     movies: data
