@@ -1,8 +1,19 @@
-<section class="w-full h-full flex flex-col justify-center items-center px-4">
+<script lang="ts">
+  export let size: 'sm' | 'md' | 'lg' = 'sm';
+  export let css: string;
+
+  const sizes = {
+    sm: 'w-[128px] h-[128px]',
+    md: 'w-[256px] h-[256px]',
+    lg: 'w-[512px] h-[512px]'
+  };
+</script>
+
+<section class="w-full h-full flex flex-col justify-center items-center {css}">
   <div class="flex flex-col items-center gap-4">
-    <figure class="w-[128px] h-[128px] bg-[#7B61FF]/10 border border-dotted border-[#7B61FF]" />
+    <figure class="{sizes[size]} bg-[#7B61FF]/10 border border-dotted border-[#7B61FF]" />
     <div class="flex flex-col items-center gap-2">
-      <span class="text-h600 text-text-light-strong">
+      <span class="text-h600 text-center text-text-light-strong">
         <slot name="title" />
       </span>
       <span class="text-text-light-default text-center text-t300">

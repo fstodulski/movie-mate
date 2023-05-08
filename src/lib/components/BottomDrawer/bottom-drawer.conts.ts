@@ -1,0 +1,1 @@
+export const _BOTTOM_DRAWER_CLOSE = 'BOTTOM_DRAWER_CLOSE';
