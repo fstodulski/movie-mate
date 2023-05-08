@@ -6,10 +6,16 @@
   import { _pastSearches } from '$lib/core/constants/keys.const';
   import { saveToLocalStorage } from '$lib/core/utils/localstore';
   import { serializeLocalstorage } from '$lib/core/utils/serialize-localstorage';
+  import { uniqArray } from '$lib/core/utils/uniq-array';
 
   const addMovieToPastSearch = async (movie: any) => {
     const movies = serializeLocalstorage(_pastSearches, []);
-    saveToLocalStorage(_pastSearches, [...new Set([...movies, movie])]);
+    const newMovies = uniqArray(
+      [...movies, { ...movie, queryDate: new Date().getUTCDate() }],
+      'id'
+    );
+    console.log(newMovies);
+    saveToLocalStorage(_pastSearches, newMovies);
   };
 
   let query: string;

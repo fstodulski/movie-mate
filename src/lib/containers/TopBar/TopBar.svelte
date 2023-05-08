@@ -11,13 +11,9 @@
   const historyBack = () => {
     if (browser) window.history.back();
   };
-
-  let routeId: string | null;
-
-  $: routeId = $page.route.id;
 </script>
 
-{#if includes(routeId, ALLOWED_PAGES)}
+{#if includes($page.route.id, ALLOWED_PAGES)}
   <header
     class="fixed top-0 left-0 flex w-full p-2 py-3 z-50 justify-between"
     style="height: {SIZES.topBar}px"
