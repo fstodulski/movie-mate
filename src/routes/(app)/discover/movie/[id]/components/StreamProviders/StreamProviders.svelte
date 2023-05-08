@@ -1,8 +1,11 @@
 <script lang="ts">
   import { page } from '$app/stores';
+  import { Notification3 } from '@steeze-ui/remix-icons';
+  import { Icon } from '@steeze-ui/svelte-icon';
   import { Select } from 'flowbite-svelte';
   import { isEmpty } from 'ramda';
 
+  import EmptyStatePlaceholder from '$lib/components/EmptyStatePlaceholder/EmptyStatePlaceholder.svelte';
   import { groupBy } from '$lib/core/utils/group-by';
   import { LOGO_SIZES, parsePoster } from '$lib/core/utils/poster';
 
@@ -17,7 +20,9 @@
 
   const keys = ['Stream', 'Rent', 'Buy'];
 
-  $: providers = groupBy($page.data.providers, 'type');
+  $: providers = $page.data.providers && groupBy($page.data.providers, 'type');
+
+  console.log($page.data.movie);
 </script>
 
 <div class="flex w-full items-start justify-between px-4 pt-8 mb-4">
@@ -35,7 +40,7 @@
   {#each keys as key, index}
     {#if providers[key]}
       {#if !isEmpty(providers[key])}
-        <div class="flex w-full px-4 overflow-x-auto scrollbar-hide">
+        <div class="flex w-full px-4 relative z-10">
           <div
             class="provider-label flex justify-center py-3 px-1 rounded-md {index === 0
               ? 'bg-background-dark-strong-alpha/[0.32]'
@@ -44,7 +49,7 @@
             <span class="text-text-light-strong text-center text-h100 uppercase">{key}</span>
           </div>
 
-          <ul class="flex pl-4">
+          <ul class="flex pl-4 overflow-x-auto scrollbar-hide relative z-[5]">
             {#each providers[key] as stream}
               <li
                 class="flex px-4 pt-2 pb-2 border-b border-border-default-muted-alpha/[0.32] justify-center items-center flex-col gap-1"
@@ -71,6 +76,25 @@
     {/if}
   {/each}
 </div>
+
+{#if isEmpty($page.data.providers)}
+  <EmptyStatePlaceholder>
+    <svelte:fragment slot="title">Is it possible no one is streaming it?</svelte:fragment>
+    <svelte:fragment slot="subtitle"
+      >Get notified when
+      <span class="font-bold">
+        {$page.data.movie.original_title}
+      </span>
+      becomes available on any platform.
+    </svelte:fragment>
+    <svelte:fragment slot="cta">
+      <button class="btn secondary md w-full">
+        <Icon size="20px" src={Notification3} />
+        Notify me
+      </button>
+    </svelte:fragment>
+  </EmptyStatePlaceholder>
+{/if}
 
 <style lang="scss">
   .provider-label {

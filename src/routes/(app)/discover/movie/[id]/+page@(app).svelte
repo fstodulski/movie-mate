@@ -1,7 +1,4 @@
 <script lang="ts">
-  import { page } from '$app/stores';
-  import { isEmpty } from 'ramda';
-
   import DownloadTheApp from '$lib/components/DownloadTheApp/DownloadTheApp.svelte';
 
   import Actions from './components/Actions/Actions.svelte';
@@ -19,9 +16,7 @@
     <Metadata />
     <Actions />
     <Review />
-    {#if !isEmpty($page.data.providers)}
-      <StreamProviders />
-    {/if}
+    <StreamProviders />
     <Credits />
     <MovieDetails />
     <DownloadTheApp />

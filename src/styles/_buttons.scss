@@ -1,7 +1,7 @@
 @import 'typography';
 
 @mixin btn {
-  @apply rounded-md flex items-center gap-2 justify-center;
+  @apply rounded-md flex items-center gap-2 justify-center duration-300;
 
   &.xl {
     @apply py-[14px] px-5;
@@ -14,20 +14,56 @@
   &.xs {
     @apply py-[6px] px-3;
   }
-}
-
-.btn {
-  @include btn;
 
   &.primary {
     @apply bg-background-light-default-default text-text-dark-strong;
+
+    &:hover:not(:disabled) {
+      @apply bg-background-light-muted-default;
+    }
+
+    &:focus {
+      @apply bg-background-light-faded-default;
+    }
+
+    &:disabled {
+      @apply bg-background-light-faded-default;
+    }
   }
 
   &.secondary {
-    @apply bg-background-dark-default-default/[0.22] text-text-light-strong;
+    @apply bg-background-dark-default-alpha/[0.22] border border-border-default-muted-alpha/[0.32] text-text-light-strong;
+
+    &:hover:not(:disabled) {
+      @apply bg-background-dark-strong-default/[0.32];
+    }
+
+    &:focus {
+      @apply bg-background-dark-muted-default/[0.16];
+    }
+
+    &:disabled {
+      @apply bg-background-dark-muted-default/[0.16];
+    }
   }
 
   &.tertiary {
     @apply bg-transparent text-text-light-strong;
+
+    &:hover:not(:disabled) {
+      @apply bg-background-dark-default-alpha/[0.22];
+    }
+
+    &:focus {
+      @apply bg-background-dark-muted-alpha/[0.16];
+    }
+
+    &:disabled {
+      @apply opacity-50 cursor-not-allowed;
+    }
   }
+}
+
+.btn {
+  @include btn();
 }
