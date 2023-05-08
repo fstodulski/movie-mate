@@ -14,7 +14,6 @@
       [...movies, { ...movie, queryDate: new Date().getUTCDate() }],
       'id'
     );
-    console.log(newMovies);
     saveToLocalStorage(_pastSearches, newMovies);
   };
 

@@ -13,10 +13,12 @@ export const load: PageServerLoad = async (event) => {
   const movie = await MoviesRepository.findOne(params.id);
   const trailers = await MoviesRepository.trailers(params.id);
   const credits = await MoviesRepository.movieCredits(params.id);
+  const providers = await MoviesRepository.movieProviders(params.id);
 
   return {
     movie: movie.data,
     trailers: trailers.data,
-    credits: credits.data
+    credits: credits.data,
+    providers: providers.data
   };
 };

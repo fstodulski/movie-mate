@@ -29,10 +29,13 @@ self.addEventListener('activate', (event) => {
 
 self.addEventListener('fetch', (event) => {
   // ignore POST requests etc
-  if (event.request.method !== 'GET') return;
+  if (event.request.method !== 'GET' || event.request.headers.has('range')) return;
 
   async function respond() {
     const url = new URL(event.request.url);
+    url.hostname === self.location.hostname && url.port !== self.location.port;
+    const isStaticAsset = url.host === self.location.host && ASSETS.includes(url.pathname);
+
     const cache = await caches.open(CACHE);
 
     // `build`/`files` can always be served from the cache
