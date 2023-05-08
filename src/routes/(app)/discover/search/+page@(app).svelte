@@ -5,7 +5,7 @@
   import { page } from '$app/stores';
   import { Close, Search2 } from '@steeze-ui/remix-icons';
   import { Icon } from '@steeze-ui/svelte-icon';
-  import { Button, Input } from 'flowbite-svelte';
+  import { Input } from 'flowbite-svelte';
   import { isEmpty } from 'ramda';
 
   import { APP_ROUTES } from '$lib/core/constants/app-routes.const';
@@ -67,7 +67,7 @@
         {/if}
       </a>
     </Input>
-    <Button color="light" type="button" class="" href={APP_ROUTES.discover.index}>Cancel</Button>
+    <button class="btn tertiary xl" type="button" href={APP_ROUTES.discover.index}>Cancel</button>
   </form>
 
   {#if isEmpty(name)}

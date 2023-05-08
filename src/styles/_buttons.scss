@@ -1,0 +1,33 @@
+@import 'typography';
+
+@mixin btn {
+  @apply rounded-md flex items-center gap-2 justify-center;
+
+  &.xl {
+    @apply py-[14px] px-5;
+  }
+
+  &.md {
+    @apply py-2 px-4;
+  }
+
+  &.xs {
+    @apply py-[6px] px-3;
+  }
+}
+
+.btn {
+  @include btn;
+
+  &.primary {
+    @apply bg-background-light-default-default text-text-dark-strong;
+  }
+
+  &.secondary {
+    @apply bg-background-dark-default-default/[0.22] text-text-light-strong;
+  }
+
+  &.tertiary {
+    @apply bg-transparent text-text-light-strong;
+  }
+}

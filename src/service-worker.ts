@@ -33,8 +33,6 @@ self.addEventListener('fetch', (event) => {
 
   async function respond() {
     const url = new URL(event.request.url);
-    url.hostname === self.location.hostname && url.port !== self.location.port;
-    const isStaticAsset = url.host === self.location.host && ASSETS.includes(url.pathname);
 
     const cache = await caches.open(CACHE);
 
