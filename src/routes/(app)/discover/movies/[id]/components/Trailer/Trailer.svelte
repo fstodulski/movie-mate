@@ -3,7 +3,6 @@
   import { page } from '$app/stores';
   import { VolumeMute, VolumeUp } from '@steeze-ui/remix-icons';
   import { Icon } from '@steeze-ui/svelte-icon';
-  import { Button } from 'flowbite-svelte';
   import YouTubePlayer from 'youtube-player';
 
   import BackButton from './components/BackButton.svelte';
@@ -92,9 +91,9 @@
     <!--    <Button size="sm" class="!p-2" color="light">-->
     <!--      <Icon src={Fullscreen} size="16px" />-->
     <!--    </Button>-->
-    <Button size="sm" class="!p-2" color="light" on:click={toggleMute}>
+    <button class="btn xs secondary icon" on:click={toggleMute}>
       <Icon src={isVideoMuted ? VolumeMute : VolumeUp} size="16px" />
-    </Button>
+    </button>
   </div>
 </div>
 

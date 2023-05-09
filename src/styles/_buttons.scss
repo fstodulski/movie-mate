@@ -7,17 +7,29 @@
     @apply py-[14px] px-5;
     @apply leading-normal md:text-lg font-normal;
     @apply text-base;
+
+    &.icon {
+      @apply p-4 #{!important};
+    }
   }
 
   &.md {
     @apply py-2 px-4;
     @apply leading-normal md:text-base font-normal;
     @apply text-sm;
+
+    &.icon {
+      @apply p-[10px] #{!important};
+    }
   }
 
   &.xs {
     @apply py-[6px] px-3;
     @apply text-xs leading-normal md:text-sm md:font-semibold;
+
+    &.icon {
+      @apply p-2 #{!important};
+    }
   }
 
   &.primary {

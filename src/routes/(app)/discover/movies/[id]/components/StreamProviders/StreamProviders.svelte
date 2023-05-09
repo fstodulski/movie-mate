@@ -32,7 +32,14 @@
 
   const keys = ['Stream', 'Rent', 'Buy'];
 
-  $: providers = $page.data.providers && groupBy($page.data.providers, 'type');
+  const _getProviders = () => {
+    if ($page.data.providers && !isEmpty($page.data.providers)) {
+      return groupBy($page.data.providers as Array<any>, 'type');
+    }
+    return keys.map((key) => ({ [key]: [] }));
+  };
+
+  $: providers = _getProviders();
 </script>
 
 <div class="flex w-full items-start justify-between px-4 pt-8 mb-4">

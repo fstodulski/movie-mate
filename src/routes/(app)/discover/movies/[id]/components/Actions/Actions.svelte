@@ -1,16 +1,15 @@
 <script lang="ts">
   import { Bookmark, CheckboxCircle } from '@steeze-ui/remix-icons';
   import { Icon } from '@steeze-ui/svelte-icon';
-  import { Button } from 'flowbite-svelte';
 </script>
 
 <div class="flex flex-col gap-2 px-3 w-full justify-between">
-  <Button class="w-full gap-2" color="alternative">
-    <Icon size="20px" src={Bookmark} />
+  <button class="btn primary md w-full">
+    <Icon size="20px" src={Bookmark} class="text-text-action-caution" theme="solid" />
     Add to watchlist
-  </Button>
-  <Button class="w-full gap-2">
+  </button>
+  <button class="btn secondary md w-full">
     <Icon size="20px" src={CheckboxCircle} />
-    Mark as Watched
-  </Button>
+    Mark as watched
+  </button>
 </div>
