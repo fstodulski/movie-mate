@@ -101,6 +101,7 @@
 
         if (event.data === 0) {
           dispatch('end');
+          areButtonsVisible = true;
         }
       }, 100);
     });
