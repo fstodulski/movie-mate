@@ -12,6 +12,7 @@
   import StopButton from './components/StopButton.svelte';
 
   const dispatch = createEventDispatcher();
+  const _buttonsTimeout = 3000;
 
   let windowWidth: number;
   let player;
@@ -46,7 +47,7 @@
         dispatch('play');
         setTimeout(() => {
           areButtonsVisible = false;
-        }, 200);
+        }, _buttonsTimeout);
         player.mute();
       })
       .catch(() => {
@@ -62,7 +63,7 @@
         dispatch('paused');
         setTimeout(() => {
           areButtonsVisible = false;
-        }, 200);
+        }, _buttonsTimeout);
       })
       .catch(() => {
         player.unMute();
@@ -74,7 +75,7 @@
 
     setTimeout(() => {
       areButtonsVisible = false;
-    }, 500);
+    }, _buttonsTimeout);
   };
 
   onMount(async () => {
