@@ -3,6 +3,10 @@
 @mixin btn {
   @apply rounded-md flex items-center gap-2 justify-center duration-300;
 
+  &.no-focus {
+    outline: none;
+  }
+
   &.xl {
     @apply py-[14px] px-5;
     @apply leading-normal md:text-lg font-normal;

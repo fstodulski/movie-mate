@@ -6,8 +6,10 @@
   import YouTubePlayer from 'youtube-player';
 
   import BackButton from './components/BackButton.svelte';
+  import PlayButton from './components/PlayButton.svelte';
   import ProgressBar from './components/ProgressBar.svelte';
   import ShareButton from './components/ShareButton.svelte';
+  import StopButton from './components/StopButton.svelte';
 
   const dispatch = createEventDispatcher();
 
@@ -17,6 +19,8 @@
   let currentTime: number;
   let progress = 0;
   let isVideoMuted = true;
+  let isPlaying = false;
+  let areButtonsVisible = true;
 
   const trailerSrs = $page.data.trailers.results.filter((video) =>
     video.name.toLowerCase().includes('trailer')
@@ -34,6 +38,45 @@
     });
   };
 
+  const startVideo = () => {
+    player
+      .playVideo()
+      .then(() => {
+        isPlaying = true;
+        dispatch('play');
+        setTimeout(() => {
+          areButtonsVisible = false;
+        }, 200);
+        player.mute();
+      })
+      .catch(() => {
+        player.unMute();
+      });
+  };
+
+  const stopVideo = () => {
+    player
+      .stopVideo()
+      .then(() => {
+        isPlaying = false;
+        dispatch('paused');
+        setTimeout(() => {
+          areButtonsVisible = false;
+        }, 200);
+      })
+      .catch(() => {
+        player.unMute();
+      });
+  };
+
+  const toggleControls = () => {
+    areButtonsVisible = true;
+
+    setTimeout(() => {
+      areButtonsVisible = false;
+    }, 500);
+  };
+
   onMount(async () => {
     player = YouTubePlayer('player', {
       videoId: trailerSrs[0].key,
@@ -48,16 +91,6 @@
         modestbranding: 1
       }
     });
-
-    player
-      .playVideo()
-      .then(() => {
-        dispatch('play');
-        player.mute();
-      })
-      .catch(() => {
-        player.unMute();
-      });
 
     player.on('stateChange', async (event) => {
       totalTime = await player.getDuration();
@@ -77,12 +110,23 @@
 
 <svelte:window bind:innerWidth={windowWidth} />
 
-<div class="flex h-[240px] w-full bg-background-dark-default-default">
+<div
+  on:click={toggleControls}
+  class="flex h-[240px] w-full bg-background-dark-default-default z-20"
+>
   <div class="flex flex-col pointer-events-none" id="player" />
 </div>
 
-<BackButton />
-<ShareButton />
+{#if areButtonsVisible}
+  <BackButton />
+
+  {#if isPlaying}
+    <StopButton on:click={stopVideo} />
+  {:else}
+    <PlayButton on:click={startVideo} />
+  {/if}
+  <ShareButton />
+{/if}
 
 <div class="absolute bottom-3 left-0 w-full px-4 flex items-center justify-between z-[52]">
   <span class="text-h200 text-text-light-strong">Trailer</span>
