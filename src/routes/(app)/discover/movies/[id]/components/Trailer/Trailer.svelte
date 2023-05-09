@@ -57,7 +57,7 @@
 
   const stopVideo = () => {
     player
-      .stopVideo()
+      .pauseVideo()
       .then(() => {
         isPlaying = false;
         dispatch('paused');
