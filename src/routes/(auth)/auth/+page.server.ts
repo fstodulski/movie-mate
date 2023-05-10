@@ -11,7 +11,7 @@ export const load: PageServerLoad = async (event) => {
 
   // if the user is already logged in return them to the account page
   if (session) {
-    throw redirect(303, '/feed');
+    throw redirect(303, APP_ROUTES.feed.index);
   }
 
   return { url: url.origin };
