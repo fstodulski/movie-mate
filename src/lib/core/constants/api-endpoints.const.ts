@@ -14,7 +14,8 @@ export const API_ENDPOINTS = {
     providers: '/movies/:id/providers'
   },
   watchlists: {
-    movieStatus: '/watchlists/movie-status/:movieId'
+    movieStatus: '/watchlists/movie-status/:movieId',
+    addMovie: '/watchlists/add-movie'
   },
   genres: {
     findAll: '/genres',

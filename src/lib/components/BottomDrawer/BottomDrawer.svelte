@@ -12,14 +12,14 @@
 </script>
 
 <div
-  class="fixed top-0 left-0 h-screen pointer-events-none w-screen bg-background-overlay-default/[0.80] z-10 opacity-0 duration-100"
+  class="fixed top-0 left-0 h-screen pointer-events-none w-screen bg-background-overlay-default/[0.80] z-40 opacity-0 duration-100"
   class:opacity-100={open}
 />
 
 <aside
   class:-bottom-full={!open}
   class:bottom-16={open}
-  class="fixed z-50 left-0 animation ease-in w-full rounded-tl-md rounded-tr-md bg-background-dark-strong-default p-4"
+  class="fixed z-50 left-0 animation ease-in w-full rounded-tl-md rounded-tr-md bg-background-dark-strong-default px-4 pt-4"
 >
   <div class="flex w-full mb-4">
     <button class="ml-auto" on:click={handleClose}>

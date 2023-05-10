@@ -129,7 +129,7 @@
   <ShareButton />
 {/if}
 
-<div class="absolute bottom-3 left-0 w-full px-4 flex items-center justify-between z-[52]">
+<div class="absolute bottom-3 left-0 w-full px-4 flex items-center justify-between z-10">
   <span class="text-h200 text-text-light-strong">Trailer</span>
 
   <div class="flex items-center gap-2">

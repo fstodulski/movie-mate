@@ -57,7 +57,7 @@
   {#each keys as key, index}
     {#if providers[key]}
       {#if !isEmpty(providers[key])}
-        <div class="flex w-full px-4 relative z-10">
+        <div class="flex w-full px-4 relative z-0">
           <div
             class="provider-label flex justify-center py-3 px-1 rounded-md {index === 0
               ? 'bg-background-dark-strong-alpha/[0.32]'
