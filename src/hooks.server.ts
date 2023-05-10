@@ -4,12 +4,10 @@ import { createSupabaseServerClient } from '@supabase/auth-helpers-sveltekit';
 import { AuthRepository } from '$lib/core/repositories/auth.repository';
 import { UsersRepository } from '$lib/core/repositories/users.repository';
 
-import { PUBLIC_SUPABASE_ANON_KEY, PUBLIC_SUPABASE_URI } from '$env/static/public';
-
 export const handle: Handle = async ({ event, resolve }) => {
   event.locals.supabase = createSupabaseServerClient({
-    supabaseUrl: PUBLIC_SUPABASE_URI,
-    supabaseKey: PUBLIC_SUPABASE_ANON_KEY,
+    supabaseUrl: import.meta.env.VITE_PUBLIC_SUPABASE_URI,
+    supabaseKey: import.meta.env.VITE_PUBLIC_SUPABASE_ANON_KEY,
     event
   });
 
