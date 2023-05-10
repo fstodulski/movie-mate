@@ -7,6 +7,7 @@
   import { APP_ROUTES } from '$lib/core/constants/app-routes.const';
 
   $: {
+    console.log(JSON.stringify($page.url.href));
     if ($page.url.href.includes('refresh_token')) {
       goto(APP_ROUTES.feed.index);
     }

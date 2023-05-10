@@ -41,7 +41,9 @@
     };
   };
 
-  $: isMovieOnWatchlist = $page.data.movieStatus.isOnWatchlist === MovieStatus.ON_WATCHLIST;
+  $: isMovieOnWatchlist = $page.data.movieStatus
+    ? $page.data.movieStatus.isOnWatchlist === MovieStatus.ON_WATCHLIST
+    : false;
   $: formAction = isMovieOnWatchlist ? '?/removeFromWatchlist' : '?/addToWatchlist';
 </script>
 
