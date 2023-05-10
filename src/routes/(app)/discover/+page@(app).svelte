@@ -1,8 +1,10 @@
 <script lang="ts">
+  import { page } from '$app/stores';
   import { Search2 } from '@steeze-ui/remix-icons';
   import { Icon } from '@steeze-ui/svelte-icon';
   import { Input } from 'flowbite-svelte';
 
+  import HttpToast from '$lib/components/Toast/HttpToast.svelte';
   import { APP_ROUTES } from '$lib/core/constants/app-routes.const';
 
   import Genres from './components/Genres/Genres.svelte';
@@ -22,3 +24,9 @@
 <main class="flex flex-col max-w-screen-sm mx-auto gap-4 px-4 overflow-auto">
   <Genres />
 </main>
+
+{#if $page.data.errors}
+  {#each $page.data.errors as error}
+    <HttpToast {...error} />
+  {/each}
+{/if}

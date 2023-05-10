@@ -3,7 +3,7 @@
 @mixin btn {
   @apply rounded-md flex items-center gap-2 justify-center duration-300;
 
-  &.no-focus {
+  &.no-focus:focus {
     outline: none;
   }
 

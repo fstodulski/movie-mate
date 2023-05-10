@@ -1,11 +1,8 @@
 import type { WretchError } from 'wretch';
 
-import type { ResponseModel } from '$lib/core/models/response.model';
-
-export const parseError = (e: WretchError): ResponseModel<unknown> => ({
-  data: {},
-  error: {
-    status: e.status,
+export const parseError = (e: WretchError): { statusCode: number; message: string } => {
+  return {
+    statusCode: e.json.statusCode,
     message: e.json.message
-  }
-});
+  };
+};

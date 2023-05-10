@@ -1,11 +1,10 @@
 <script lang="ts">
   import { createEventDispatcher, onMount } from 'svelte';
   import { page } from '$app/stores';
-  import { VolumeMute, VolumeUp } from '@steeze-ui/remix-icons';
-  import { Icon } from '@steeze-ui/svelte-icon';
   import YouTubePlayer from 'youtube-player';
 
   import BackButton from './components/BackButton.svelte';
+  import MuteButton from './components/MuteButton.svelte';
   import PlayButton from './components/PlayButton.svelte';
   import ProgressBar from './components/ProgressBar.svelte';
   import ShareButton from './components/ShareButton.svelte';
@@ -137,9 +136,8 @@
     <!--    <Button size="sm" class="!p-2" color="light">-->
     <!--      <Icon src={Fullscreen} size="16px" />-->
     <!--    </Button>-->
-    <button class="btn xs secondary icon" on:click={toggleMute}>
-      <Icon src={isVideoMuted ? VolumeMute : VolumeUp} size="16px" />
-    </button>
+
+    <MuteButton {isVideoMuted} {toggleMute} />
   </div>
 </div>
 

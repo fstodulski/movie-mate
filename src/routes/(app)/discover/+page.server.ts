@@ -1,14 +1,21 @@
 import { GenresRepository } from '$lib/core/repositories/genres.repository';
-import { handleError } from '$lib/server/utils/handle-error';
+import { parseError } from '$lib/core/utils/parse-error';
 
 import type { PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async (event) => {
-  const { data, error } = await GenresRepository.findAll();
+  try {
+    const { data, error } = await GenresRepository.findAll();
 
-  if (error) return handleError(error, event);
+    return {
+      genres: data
+    };
+  } catch (e) {
+    const error = parseError(e);
 
-  return {
-    genres: data
-  };
+    return {
+      errors: [error],
+      genres: []
+    };
+  }
 };
