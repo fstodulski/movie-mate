@@ -22,7 +22,17 @@ const addMovieToWatchlist = async (movieId: string) => {
     .json(responseHandler<any>);
 };
 
+const findAll = async () => {
+  const token = get(AuthStore)?.access_token;
+
+  return apiClient
+    .headers({ Authorization: `Bearer ${token}` })
+    .get(API_ENDPOINTS.watchlists.findAll)
+    .json(responseHandler<any>);
+};
+
 export const WatchlistRepository = {
   getMovieState,
+  findAll,
   addMovieToWatchlist
 };

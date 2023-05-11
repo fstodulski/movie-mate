@@ -6,11 +6,11 @@
   import { Icon } from '@steeze-ui/svelte-icon';
 
   import BottomDrawer from '$lib/components/BottomDrawer/BottomDrawer.svelte';
+  import SignInFirst from '$lib/components/SignInFirst/SignInFirst.svelte';
   import Toast from '$lib/components/Toast/Toast.svelte';
   import { MovieStatus } from '$lib/core/enums/watchlist.enum';
 
   import MovieAddedToWatchList from './components/MovieAddedToWatchList/MovieAddedToWatchList.svelte';
-  import SignInFirst from './components/SignInFirst/SignInFirst.svelte';
 
   let addedToWatchlistToastVisible = false;
   let isDrawerOpen = false;

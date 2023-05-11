@@ -16,7 +16,6 @@ export const POSTER_SIZES = z.enum(sizes.poster_sizes);
 export const PROFILE_SIZES = z.enum(sizes.profile_sizes);
 export const STILL_SIZES = z.enum(sizes.still_sizes);
 
-
 type BackdropSizes = z.infer<typeof BACKDROP_SIZES>;
 type LogoSizes = z.infer<typeof LOGO_SIZES>;
 type PosterSizes = z.infer<typeof POSTER_SIZES>;
