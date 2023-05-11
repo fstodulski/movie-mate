@@ -67,9 +67,7 @@
         {/if}
       </a>
     </Input>
-    <button class="btn tertiary xl" disabled type="button" href={APP_ROUTES.discover.index}
-      >Cancel</button
-    >
+    <a class="btn tertiary xl" href={APP_ROUTES.discover.index}> Cancel </a>
   </form>
 
   {#if isEmpty(name)}
