@@ -1,4 +1,4 @@
-<div class="w-full flex px-4 pt-4 pb-1">
+<div class="w-full flex pt-4 pb-1">
   <span class="text-h600 text-text-light-strong">
     <slot />
   </span>

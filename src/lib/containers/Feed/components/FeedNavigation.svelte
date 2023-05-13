@@ -18,7 +18,7 @@
   };
 </script>
 
-<div class="flex items-center overflow-x-auto gap-2 mb-4 scrollbar-hide py-2 pl-4">
+<div class="flex items-center overflow-x-auto gap-2 mb-4 scrollbar-hide py-2">
   {#each LINKS as link}
     <a
       href={link.href}

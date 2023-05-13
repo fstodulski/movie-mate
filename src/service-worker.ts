@@ -8,6 +8,7 @@ const CACHE = `cache-${version}`;
 const ASSETS = [...build, ...files];
 
 self.addEventListener('install', (event) => {
+  console.log(`[SW] Installing ${CACHE}`);
   const addFilesToCache = async () => {
     const cache = await caches.open(CACHE);
     await cache.addAll(ASSETS);
@@ -17,6 +18,7 @@ self.addEventListener('install', (event) => {
 });
 
 self.addEventListener('activate', (event) => {
+  console.log(`[SW] Activating ${CACHE}`);
   const deleteOldCaches = async () => {
     const keys = await caches.keys();
     for (const key of keys) {
@@ -47,7 +49,7 @@ self.addEventListener('fetch', (event) => {
       const response = await fetch(event.request);
 
       if (response.status === 200) {
-        cache.put(event.request, response.clone());
+        await cache.put(event.request, response.clone());
       }
 
       return response;

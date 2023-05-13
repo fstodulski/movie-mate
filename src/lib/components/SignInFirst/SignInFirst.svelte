@@ -16,6 +16,6 @@
 
   <svelte:fragment slot="footer">
     <span class="text-t300 text-text-light-default">Already have an account?</span>
-    <button class="btn tertiary xl">Log in</button>
+    <a class="btn tertiary xl" href={APP_ROUTES.auth.index}>Log in</a>
   </svelte:fragment>
 </EmptyStatePlaceholder>

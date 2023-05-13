@@ -7,8 +7,15 @@
   import EmptyStatePlaceholder from '$lib/components/EmptyStatePlaceholder/EmptyStatePlaceholder.svelte';
   import MovieBubble from '$lib/components/MovieBubble/MovieBubble.svelte';
   import SignInFirst from '$lib/components/SignInFirst/SignInFirst.svelte';
-  console.log($page.data.watchlist);
+
+  let innerHeight: number;
+
+  let listHeight: number;
+
+  $: listHeight = innerHeight - 200;
 </script>
+
+<svelte:window bind:innerHeight />
 
 {#if !$page.data.session}
   <SignInFirst />
@@ -34,10 +41,12 @@
   </EmptyStatePlaceholder>
 {/if}
 
-{#if $page.data.session && !isEmpty($page.data.watchlist)}
-  {#each $page.data.watchlist as watchlist}
-    {#each watchlist.movies as movie}
-      <MovieBubble {movie} />
+<div class="flex flex-col w-full overflow-y-auto gap-4">
+  {#if $page.data.session && !isEmpty($page.data.watchlist)}
+    {#each $page.data.watchlist as watchlist}
+      {#each watchlist.movies as movie}
+        <MovieBubble {movie} />
+      {/each}
     {/each}
-  {/each}
-{/if}
+  {/if}
+</div>

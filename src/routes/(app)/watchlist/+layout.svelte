@@ -28,12 +28,6 @@
 
 <StickyHeader>
   <PageTitle>Watchlist</PageTitle>
-</StickyHeader>
-
-<main
-  style="height: {clientHeight}px;"
-  class="flex flex-col max-w-screen-sm mx-auto gap-4 px-4 pt-2"
->
   <SegmentedControl>
     <SegmentButton active={toWatchPath}>
       <a href={APP_ROUTES.watchlist.toWatch}>To watch</a>
@@ -44,7 +38,9 @@
       <Icon src={CheckCircle} size="20px" />
     </SegmentButton>
   </SegmentedControl>
+</StickyHeader>
 
+<main class="flex flex-col max-w-screen-sm mx-auto gap-4 px-4 pt-2 overflow-y-auto h-full pb-20">
   <slot />
 </main>
 
