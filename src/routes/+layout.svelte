@@ -44,3 +44,7 @@
 </script>
 
 <slot />
+
+<div class="fixed bottom-20 w-full">
+  <button class="btn w-full primary xl" on:click={handleInstall}> Add PWA </button>
+</div>
