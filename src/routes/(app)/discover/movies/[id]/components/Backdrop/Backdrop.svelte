@@ -12,7 +12,7 @@
   $: movie = $page.data.movie;
 </script>
 
-<figure class="w-full relative">
+<figure class="w-full sticky top-0 md:relative z-10">
   <Trailer
     on:paused={() => (isMoviePaused = true)}
     on:end={() => (isMoviePlaying = false)}

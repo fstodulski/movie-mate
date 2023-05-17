@@ -7,6 +7,7 @@
   import EmptyStatePlaceholder from '$lib/components/EmptyStatePlaceholder/EmptyStatePlaceholder.svelte';
   import MovieBubble from '$lib/components/MovieBubble/MovieBubble.svelte';
   import SignInFirst from '$lib/components/SignInFirst/SignInFirst.svelte';
+  import { APP_ROUTES } from '$lib/core/constants/app-routes.const';
 
   let innerHeight: number;
 
@@ -45,7 +46,9 @@
   {#if $page.data.session && !isEmpty($page.data.watchlist)}
     {#each $page.data.watchlist as watchlist}
       {#each watchlist.movies as movie}
-        <MovieBubble {movie} />
+        <a href={APP_ROUTES.discover.movie.replace(':id', movie.tmdb_id)}>
+          <MovieBubble {movie} />
+        </a>
       {/each}
     {/each}
   {/if}
