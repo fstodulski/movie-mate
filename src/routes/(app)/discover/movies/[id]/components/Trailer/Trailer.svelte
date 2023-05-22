@@ -47,11 +47,8 @@
         setTimeout(() => {
           areButtonsVisible = false;
         }, _buttonsTimeout);
-        player.mute();
       })
-      .catch(() => {
-        player.unMute();
-      });
+      .catch(() => {});
   };
 
   const stopVideo = () => {
@@ -104,6 +101,10 @@
         }
       }, 100);
     });
+  });
+
+  onMount(() => {
+    startVideo();
   });
 
   $: progress = (currentTime / totalTime) * 100;

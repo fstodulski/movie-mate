@@ -20,7 +20,7 @@ export const APP_ROUTES = {
     toWatch: '/watchlist/to-watch',
     watched: '/watchlist/watched'
   },
-  profile: {
-    index: '/profile'
+  account: {
+    index: '/account'
   }
 } as const;

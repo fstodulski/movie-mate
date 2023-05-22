@@ -23,7 +23,7 @@
   />
   <img
     class:opacity-0={isMoviePlaying}
-    class="absolute top-0 pointer-events-none left-0 duration-300 h-full z-0"
+    class="absolute top-0 pointer-events-none w-full object-cover left-0 duration-300 h-full z-0"
     src={parsePoster(movie.backdrop_path, BACKDROP_SIZES.enum.original)}
     alt=""
   />

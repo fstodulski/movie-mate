@@ -35,7 +35,7 @@
             >{index + 1 < 10 ? 0 : ''}{index + 1}</span
           >
         </div>
-        <div class="flex flex-col gap-2">
+        <div class="flex flex-col gap-2 w-full">
           <figure class="w-full overflow-hidden rounded-md h-[196px]">
             <img
               class="w-full h-full object-cover"
