@@ -26,7 +26,7 @@
     </nav>
   {/if}
 
-  <nav class="flex flex-col w-full mt-12">
+  <nav class="flex flex-col w-full mt-8">
     <span class="text-h500 text-text-light-strong mb-4">Community</span>
     <NavigationListItem icon={Discord}>Community / Support</NavigationListItem>
     <NavigationListItem icon={Group}>About our team</NavigationListItem>
