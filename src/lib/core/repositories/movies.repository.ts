@@ -31,7 +31,7 @@ const movieCredits = async (id: string) => {
 
 const findByName = async (name: string) => {
   return await apiClient
-    .query({ name })
+    .query({ name, page: 1, limit: 10 })
     .get(API_ENDPOINTS.movies.byName)
     .json(responseHandler<PaginatedResponse<ByNameResponse>>);
 };
