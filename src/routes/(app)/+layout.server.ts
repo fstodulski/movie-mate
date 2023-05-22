@@ -13,6 +13,7 @@ export const load: ServerLoad = async ({ locals }) => {
 
   if (session) {
     try {
+      console.log(session);
       const { data } = await AuthRepository.login(session);
 
       AuthStore.setTokens(data);

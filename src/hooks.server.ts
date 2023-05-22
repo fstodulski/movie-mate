@@ -21,9 +21,15 @@ export const handle: Handle = async ({ event, resolve }) => {
   const session = await event.locals.getSession();
 
   if (session) {
-    const { data } = await AuthRepository.login(session);
-    const { data: userData, error: userError } = await UsersRepository.me(data.access_token);
-    event.locals.user = userData;
+    try {
+      const { data } = await AuthRepository.login(session);
+      const { data: userData, error: userError } = await UsersRepository.me(data.access_token);
+
+      event.locals.user = userData;
+    } catch (e) {
+      await event.locals.supabase.auth.signOut();
+      event.locals.user = null;
+    }
   }
 
   return resolve(event, {

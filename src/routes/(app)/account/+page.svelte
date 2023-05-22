@@ -28,7 +28,7 @@
   {/if}
 
   {#if userName}
-    <nav class="flex flex-col w-full mb-12">
+    <nav class="flex flex-col w-full">
       <NavigationListItem icon={Notification3}>Notifications</NavigationListItem>
       <NavigationListItem icon={LogoutBox}>Log out</NavigationListItem>
     </nav>

@@ -9,7 +9,7 @@ const login = async (session: Session) => {
     .url(API_ENDPOINTS.auth.signInWithGoogle)
     .post({
       email: session.user.email,
-      googleId: session.user.googleId
+      googleId: session.user.id
     })
     .json(responseHandler<any>);
 };

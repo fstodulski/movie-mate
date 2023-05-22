@@ -12,7 +12,7 @@ export const load: LayoutServerLoad = async (event) => {
   const session = await locals.getSession();
 
   if (!isNil(session)) {
-    throw redirect(303, APP_ROUTES.profile.index);
+    throw redirect(303, APP_ROUTES.account.index);
   }
 
   return {
