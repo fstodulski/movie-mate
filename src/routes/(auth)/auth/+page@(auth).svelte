@@ -1,8 +1,6 @@
 <script lang="ts">
-  import { enhance } from '$app/forms';
   import { goto } from '$app/navigation';
   import { page } from '$app/stores';
-  import { Button } from 'flowbite-svelte';
 
   import { APP_ROUTES } from '$lib/core/constants/app-routes.const';
 
@@ -13,8 +11,9 @@
   }
 </script>
 
-<div class="w-full min-h-screen flex justify-center items-center">
-  <form action="?/googleSignIn" method="POST" use:enhance>
-    <Button type="submit">Sign With Google</Button>
+<div class="w-full min-h-screen flex justify-center items-center gap-4 px-4 flex-col">
+  <h1 class="text-h700 text-text-light-strong">Sign in</h1>
+  <form action="?/googleSignIn" method="POST" class="w-full">
+    <button class="btn primary xl w-full" type="submit">Sign With Google</button>
   </form>
 </div>

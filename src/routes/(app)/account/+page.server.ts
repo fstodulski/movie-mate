@@ -12,13 +12,14 @@ export const load: PageServerLoad = async (event) => {
 };
 
 export const actions: Actions = {
-  signOut: async ({ locals }) => {
+  logOut: async ({ locals }) => {
+    console.log('gupa');
     const { error } = await locals.supabase.auth.signOut();
 
     if (error) {
       throw new Error(error.message);
     }
 
-    throw redirect(303, APP_ROUTES.auth.index);
+    throw redirect(303, APP_ROUTES.feed.index);
   }
 };

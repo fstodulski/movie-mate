@@ -1,36 +1,28 @@
 <script lang="ts">
   import { page } from '$app/stores';
-  import { Discord, Group, LogoutBox, Notification3, Patreon } from '@steeze-ui/remix-icons';
+  import { Discord, Group, Notification3, Patreon } from '@steeze-ui/remix-icons';
 
   import NavigationListItem from '$lib/components/NavigationListItem/NavigationListItem.svelte';
   import PageTitle from '$lib/components/PageTitle/PageTitle.svelte';
-  import { APP_ROUTES } from '$lib/core/constants/app-routes.const';
 
+  import LogOutButton from './components/LogOutButton/LogOutButton.svelte';
   import NoProfilePreview from './components/NoProfilePreview/NoProfilePreview.svelte';
   import ProfilePreview from './components/ProfilePreview/ProfilePreview.svelte';
-
-  let authUrl: string;
-
-  $: authUrl = $page.data.session ? '' : APP_ROUTES.auth.index;
-
-  let userName: string;
-
-  $: userName = $page.data.user?.email?.split('@')[0];
 </script>
 
 <main class="px-4 flex flex-col gap-4">
   <PageTitle>Account</PageTitle>
 
-  {#if userName}
+  {#if $page.data.session}
     <ProfilePreview />
   {:else}
     <NoProfilePreview />
   {/if}
 
-  {#if userName}
+  {#if $page.data.session}
     <nav class="flex flex-col w-full">
       <NavigationListItem icon={Notification3}>Notifications</NavigationListItem>
-      <NavigationListItem icon={LogoutBox}>Log out</NavigationListItem>
+      <LogOutButton />
     </nav>
   {/if}
 

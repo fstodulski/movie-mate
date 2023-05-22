@@ -6,7 +6,7 @@
   export let icon: IconSource;
 </script>
 
-<div class="flex w-full items-center py-2 gap-4">
+<div class="flex w-full items-center py-2 gap-4" on:click>
   <figure
     class="w-12 flex items-center justify-center h-12 rounded-md bg-background-dark-muted-alpha/[0.16]"
   >
