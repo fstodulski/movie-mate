@@ -48,10 +48,12 @@
 </script>
 
 <ins
-  class="bygoogle"
-  style="display:inline-block;width:360px;height:800px"
+  class="adsbygoogle"
+  style="display:block"
   data-ad-client="ca-pub-4553897102634434"
-  data-ad-slot="2193757109"
+  data-ad-slot="6181065582"
+  data-ad-format="auto"
+  data-full-width-responsive="true"
 />
 
 <slot />
