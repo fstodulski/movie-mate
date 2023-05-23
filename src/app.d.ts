@@ -2,6 +2,7 @@
 import type { Session, SupabaseClient } from '@supabase/supabase-js';
 
 declare global {
+  let adsbygoogle: Array<any>;
   namespace App {
     interface Locals {
       supabase: SupabaseClient;

@@ -39,18 +39,14 @@
       }
     });
 
+    adsbygoogle = (window.adsbygoogle || []).push({});
+
     return () => supabaseData.subscription.unsubscribe();
   });
 </script>
 
-<svelte:head>
-  <script>
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  </script>
-</svelte:head>
-
 <ins
-  class="adsbygoogle"
+  class="bygoogle"
   style="display:inline-block;width:360px;height:800px"
   data-ad-client="ca-pub-4553897102634434"
   data-ad-slot="2193757109"
