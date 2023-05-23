@@ -44,11 +44,16 @@
 </script>
 
 <svelte:head>
-  <script
-    async
-    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4553897102634434"
-    crossorigin="anonymous"
-  ></script>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
 </svelte:head>
+
+<ins
+  class="adsbygoogle"
+  style="display:inline-block;width:360px;height:800px"
+  data-ad-client="ca-pub-4553897102634434"
+  data-ad-slot="2193757109"
+/>
 
 <slot />
