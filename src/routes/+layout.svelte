@@ -39,7 +39,8 @@
       }
     });
 
-    adsbygoogle = (window.adsbygoogle || []).push({});
+    adsbygoogle = window.adsbygoogle || [];
+    adsbygoogle.push({});
 
     return () => supabaseData.subscription.unsubscribe();
   });
