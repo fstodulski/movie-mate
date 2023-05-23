@@ -9,6 +9,7 @@
   export let data: LayoutData;
 
   let deferredInstallEvent;
+  let adsbygoogle;
 
   $: ({ supabase, session } = data);
 
