@@ -19,14 +19,14 @@ export const load: PageServerLoad = async (event) => {
   try {
     const movie = await MoviesRepository.findOne(params.id);
     const trailers = await MoviesRepository.trailers(params.id);
-    const credits = await MoviesRepository.movieCredits(params.id);
+    const credits = MoviesRepository.movieCredits(params.id);
     const providers = await MoviesRepository.movieProviders(params.id);
     const movieStatus = session ? await WatchlistRepository.getMovieState(params.id) : null;
 
     return {
       movie: movie.data,
       trailers: trailers.data,
-      credits: credits.data,
+      credits,
       providers: providers.data,
       movieStatus: movieStatus?.data
     };

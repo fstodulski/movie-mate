@@ -3,8 +3,9 @@
   import { isNil } from 'ramda';
 
   import { toMovieDetailsUtils } from './to-movie-details.utils';
-
-  let movieData = toMovieDetailsUtils({ ...$page.data.movie, ...$page.data.credits });
+  export let credits;
+  // ...$page.data.credits
+  let movieData = toMovieDetailsUtils({ ...$page.data.movie, ...credits });
 </script>
 
 <section class="px-4 flex flex-col pt-8 gap-4">

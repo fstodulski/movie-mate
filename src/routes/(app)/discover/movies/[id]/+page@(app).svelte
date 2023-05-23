@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { page } from '$app/stores';
+
   import DownloadTheApp from '$lib/components/DownloadTheApp/DownloadTheApp.svelte';
 
   import Backdrop from './components/Backdrop/Backdrop.svelte';
@@ -18,7 +20,9 @@
     <Review />
     <StreamProviders />
     <Credits />
-    <MovieDetails />
+    {#await $page.data.credits then credits}
+      <MovieDetails credits={credits.data} />
+    {/await}
     <DownloadTheApp />
   </div>
 </div>

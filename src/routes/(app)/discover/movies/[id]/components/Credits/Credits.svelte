@@ -12,30 +12,32 @@
   </div>
 
   <div class="flex overflow-x-auto scrollbar-hide snap-x">
-    {#await $page.data.credits}
-      Loading
-    {:then}
-      {#if !isEmpty($page.data.credits.cast)}
-        {#each $page.data.credits.cast as cast}
-          <figure
-            class="h-[225px] ml-4 w-[138px] bg-background-dark-default-default rounded-md flex-1 grow flex-none overflow-hidden"
-          >
-            <img
-              class="h-[175px] w-full object-cover"
-              src={parsePoster(cast.profile_path, PROFILE_SIZES.enum.w185)}
-              alt=""
-            />
-            <figcaption class="flex flex-col p-2 gap-1/2">
-              <span class="text-t100 font-bold text-text-light-strong">
-                {cast.original_name}
-              </span>
-              <span class="text-t100 text-text-light-muted whitespace-nowrap text-ellipsis"
-                >{cast.character}</span
-              >
-            </figcaption>
-          </figure>
-        {/each}
-      {/if}
-    {/await}
+    {#if $page.data.credits}
+      {#await $page.data.credits}
+        Loading
+      {:then credits}
+        {#if !isEmpty(credits.data.cast)}
+          {#each credits.data.cast as cast}
+            <figure
+              class="h-[225px] ml-4 w-[138px] bg-background-dark-default-default rounded-md flex-1 grow flex-none overflow-hidden"
+            >
+              <img
+                class="h-[175px] w-full object-cover"
+                src={parsePoster(cast.profile_path, PROFILE_SIZES.enum.w185)}
+                alt=""
+              />
+              <figcaption class="flex flex-col p-2 gap-1/2">
+                <span class="text-t100 font-bold text-text-light-strong">
+                  {cast.original_name}
+                </span>
+                <span class="text-t100 text-text-light-muted whitespace-nowrap text-ellipsis"
+                  >{cast.character}</span
+                >
+              </figcaption>
+            </figure>
+          {/each}
+        {/if}
+      {/await}
+    {/if}
   </div>
 </section>
