@@ -48,7 +48,7 @@
 </script>
 
 <ins
-  class="adsbygoogle"
+  class="google"
   style="display:block"
   data-ad-client="ca-pub-4553897102634434"
   data-ad-slot="6181065582"
