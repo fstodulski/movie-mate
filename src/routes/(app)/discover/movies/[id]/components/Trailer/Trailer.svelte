@@ -22,7 +22,7 @@
   let isPlaying = false;
   let areButtonsVisible = true;
 
-  const trailerSrs = $page.data.trailers.results.filter((video) =>
+  const trailerSrs = $page.data.trailers.data.results.filter((video) =>
     video.name.toLowerCase().includes('trailer')
   );
 
@@ -42,6 +42,7 @@
     player
       .playVideo()
       .then(() => {
+        isVideoMuted = false;
         isPlaying = true;
         dispatch('play');
         setTimeout(() => {

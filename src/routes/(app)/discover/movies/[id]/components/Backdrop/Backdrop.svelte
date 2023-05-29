@@ -13,20 +13,22 @@
 </script>
 
 <figure class="w-full sticky top-0 md:relative z-10">
-  <Trailer
-    on:paused={() => (isMoviePaused = true)}
-    on:end={() => (isMoviePlaying = false)}
-    on:play={() => {
-      isMoviePlaying = true;
-      isMoviePaused = false;
-    }}
-  />
-  <img
-    class:opacity-0={isMoviePlaying}
-    class="absolute top-0 pointer-events-none w-full object-cover left-0 duration-300 h-full z-0"
-    src={parsePoster(movie.backdrop_path, BACKDROP_SIZES.enum.original)}
-    alt=""
-  />
+  {#await $page.data.trailers then trailers}
+    <Trailer
+      on:paused={() => (isMoviePaused = true)}
+      on:end={() => (isMoviePlaying = false)}
+      on:play={() => {
+        isMoviePlaying = true;
+        isMoviePaused = false;
+      }}
+    />
+    <img
+      class:opacity-0={isMoviePlaying}
+      class="absolute top-0 pointer-events-none w-full object-cover left-0 duration-300 h-full z-0"
+      src={parsePoster(movie.backdrop_path, BACKDROP_SIZES.enum.original)}
+      alt=""
+    />
+  {/await}
 
   <div
     class:opacity-0={isMoviePlaying}
