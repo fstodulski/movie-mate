@@ -17,14 +17,14 @@ export const load: PageServerLoad = async (event) => {
   if (!params.id) return redirect(302, APP_ROUTES.discover.search);
 
   try {
-    const movie = await MoviesRepository.findOne(params.id);
+    const movieResponse = await MoviesRepository.findOne(params.id);
     const trailers = MoviesRepository.trailers(params.id);
     const credits = MoviesRepository.movieCredits(params.id);
     const providers = await MoviesRepository.movieProviders(params.id);
     const movieStatus = session ? await WatchlistRepository.getMovieState(params.id) : null;
 
     return {
-      movie: movie.data,
+      movie: movieResponse.movie,
       trailers,
       credits,
       providers: providers.data,

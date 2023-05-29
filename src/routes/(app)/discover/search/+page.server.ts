@@ -1,7 +1,6 @@
 import type { Actions } from '@sveltejs/kit';
 
 import { MoviesRepository } from '$lib/core/repositories/movies.repository';
-import { handleError } from '$lib/server/utils/handle-error';
 
 import type { PageServerLoad } from './$types';
 
@@ -18,12 +17,10 @@ export const load: PageServerLoad = async (event) => {
       }
     };
 
-  const { data, error } = await MoviesRepository.findByName(query);
-
-  if (error) return handleError(error, event);
+  const moviesByName = await MoviesRepository.findByName(query);
 
   return {
-    movies: data
+    movies: moviesByName.movies
   };
 };
 
