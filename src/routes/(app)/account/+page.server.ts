@@ -13,7 +13,6 @@ export const load: PageServerLoad = async (event) => {
 
 export const actions: Actions = {
   logOut: async ({ locals }) => {
-    console.log('gupa');
     const { error } = await locals.supabase.auth.signOut();
 
     if (error) {

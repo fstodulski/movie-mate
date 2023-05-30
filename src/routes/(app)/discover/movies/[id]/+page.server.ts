@@ -44,8 +44,10 @@ export const actions: Actions = {
     if (!params.id) throw fail(StatusCodes.BAD_REQUEST);
 
     try {
-      await WatchlistRepository.addMovieToWatchlist(params.id);
+      const res = await WatchlistRepository.addMovieToWatchlist(params.id);
+      console.log(res);
     } catch (e) {
+      console.log(e);
       // return fail(StatusCodes.INTERNAL_SERVER_ERROR);
     }
   }

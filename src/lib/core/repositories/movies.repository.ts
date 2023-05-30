@@ -56,7 +56,6 @@ export const MoviesRepository = {
         .get(API_ENDPOINTS.movies.byName)
         .json(responseHandler<PaginatedResponse<ByNameResponse>>);
 
-      console.log(response);
       return {
         movies: response.data,
         error: null

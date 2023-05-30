@@ -12,7 +12,7 @@
 >
   <div class="w-full px-4">
     <div
-      class="rounded-md p-4 flex items-center gap-4 border border-border-default-muted-alpha/[0.32] bg-background-dark-default-default"
+      class="rounded-md p-4 flex items-center justify-between w-full gap-4 border border-border-default-muted-alpha/[0.32] bg-background-dark-default-default"
     >
       <slot />
 

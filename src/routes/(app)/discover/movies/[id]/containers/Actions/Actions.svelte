@@ -16,7 +16,6 @@
   let isDrawerOpen = false;
   let error: any = null;
   let isMovieOnWatchlist: boolean;
-  let formAction: string;
 
   const addToWatchlist = () => {
     addedToWatchlistToastVisible = true;
@@ -44,19 +43,22 @@
   $: isMovieOnWatchlist = $page.data.movieStatus
     ? $page.data.movieStatus.isOnWatchlist === MovieStatus.ON_WATCHLIST
     : false;
-  $: formAction = isMovieOnWatchlist ? '?/removeFromWatchlist' : '?/addToWatchlist';
 </script>
 
 <div class="flex flex-col gap-2 px-3 w-full justify-between">
-  <form action={formAction} method="POST" use:enhance={submit}>
-    <button class="btn primary md w-full" type="submit">
+  <form action="?/addToWatchlist" method="POST" use:enhance={submit}>
+    <button
+      class="btn primary md w-full"
+      type="submit"
+      class:pointer-events-none={isMovieOnWatchlist}
+    >
       <Icon
         size="20px"
         src={Bookmark}
-        class="text-text-action-caution"
+        class={isMovieOnWatchlist && 'text-text-action-caution'}
         theme={isMovieOnWatchlist && 'solid'}
       />
-      {isMovieOnWatchlist ? 'Remove from watchlist' : 'Add to watchlist'}
+      {isMovieOnWatchlist ? 'Want to watch' : 'Add to watchlist'}
     </button>
   </form>
   <button class="btn secondary md w-full">

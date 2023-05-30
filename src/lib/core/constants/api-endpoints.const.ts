@@ -16,7 +16,8 @@ export const API_ENDPOINTS = {
   watchlists: {
     findAll: '/watchlists',
     movieStatus: '/watchlists/movie-status/:movieId',
-    addMovie: '/watchlists/add-movie'
+    addMovie: '/watchlists/add-movie',
+    removeMovie: '/watchlists/remove-movie'
   },
   genres: {
     findAll: '/genres',
