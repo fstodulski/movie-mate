@@ -1,11 +1,8 @@
 import { API_ENDPOINTS } from '$lib/core/constants/api-endpoints.const';
 import { apiClient } from '$lib/core/providers/api-client.provider';
+import { parseError } from '$lib/core/utils/parse-error';
 import { responseHandler } from '$lib/core/utils/response-handler';
 import { parseUrl } from '$lib/server/utils/parse-url';
-
-const findAll = async () => {
-  return await apiClient.get(API_ENDPOINTS.genres.findAll).json(responseHandler<any>);
-};
 
 const findOne = async (id: string) => {
   return await apiClient
@@ -14,6 +11,21 @@ const findOne = async (id: string) => {
 };
 
 export const GenresRepository = {
-  findAll,
+  findAll: async () => {
+    try {
+      const response = await apiClient.get(API_ENDPOINTS.genres.findAll).json(responseHandler<any>);
+
+      return {
+        genres: response.data,
+        error: null
+      };
+    } catch (e) {
+      console.log(e);
+      return {
+        genres: null,
+        error: parseError(e)
+      };
+    }
+  },
   findOne
 };
