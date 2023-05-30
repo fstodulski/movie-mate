@@ -1,7 +1,5 @@
 <script lang="ts">
   import { page } from '$app/stores';
-
-  console.log($page.data);
 </script>
 
 <section class="p-4 bg-background-dark-muted-alpha/[0.16] gap-4 rounded-xl w-full flex flex-col">
