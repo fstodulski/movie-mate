@@ -47,14 +47,4 @@
   });
 </script>
 
-<ins
-  class="adsbygoogle"
-  style="display:block"
-  data-ad-client="ca-pub-4553897102634434"
-  data-ad-slot="6181065582"
-  data-adtest="on"
-  data-ad-format="auto"
-  data-full-width-responsive="true"
-/>
-
 <slot />
