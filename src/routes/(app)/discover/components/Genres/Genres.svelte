@@ -4,8 +4,6 @@
 
   import { APP_ROUTES } from '$lib/core/constants/app-routes.const';
   import { parsePoster, POSTER_SIZES } from '$lib/core/utils/poster';
-
-  console.log($page.data);
 </script>
 
 <section class="flex flex-col gap-4 mt-6">

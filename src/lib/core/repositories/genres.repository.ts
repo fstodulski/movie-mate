@@ -20,7 +20,6 @@ export const GenresRepository = {
         error: null
       };
     } catch (e) {
-      console.log(e);
       return {
         genres: null,
         error: parseError(e)
