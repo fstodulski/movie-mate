@@ -12,7 +12,7 @@
   <h2 class="text-h300 text-text-light-strong">Browse Everything</h2>
 
   <div class="grid grid-cols-2 gap-3 pb-20">
-    {#if !isEmpty($page.data.genres)}
+    {#if $page.data.genres && !isEmpty($page.data.genres)}
       {#each $page.data.genres as genre}
         <a href={APP_ROUTES.discover.genre.single.replace(':id', genre.tmdb_id)} c>
           <div
