@@ -45,11 +45,9 @@
 <div class="flex flex-col w-full overflow-y-auto gap-4">
   {#if $page.data.session && !isEmpty($page.data.watchlist)}
     {#each $page.data.watchlist as watchlist}
-      {#each watchlist.movies as movie}
-        <a href={APP_ROUTES.discover.movie.replace(':id', movie.tmdb_id)}>
-          <MovieBubble {movie} />
-        </a>
-      {/each}
+      <a href={APP_ROUTES.discover.movie.replace(':id', watchlist.movie.tmdb_id)}>
+        <MovieBubble movie={watchlist.movie} />
+      </a>
     {/each}
   {/if}
 </div>

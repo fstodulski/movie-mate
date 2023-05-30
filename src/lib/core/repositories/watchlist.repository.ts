@@ -24,17 +24,31 @@ const addMovieToWatchlist = async (movieId: string) => {
 };
 
 const findAll = async () => {
-  const token = get(AuthStore)?.access_token;
-
-  return apiClient
-    .headers({ Authorization: `Bearer ${token}` })
-    .get(API_ENDPOINTS.watchlists.findAll)
-    .json(responseHandler<any>);
+  return;
 };
 
 export const WatchlistRepository = {
   getMovieState,
-  findAll,
+  findAll: async () => {
+    const token = get(AuthStore)?.access_token;
+
+    try {
+      const response = await apiClient
+        .auth(`Bearer ${token}`)
+        .get(API_ENDPOINTS.watchlists.findAll)
+        .json(responseHandler<any>);
+
+      return {
+        watchlists: response.data,
+        error: null
+      };
+    } catch (e) {
+      return {
+        watchlists: null,
+        error: parseError(e)
+      };
+    }
+  },
   addMovieToWatchlist,
   removeMovieFromWatchlist: async (movieId: string, watchlistId: string) => {
     try {

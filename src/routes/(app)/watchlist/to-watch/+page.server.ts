@@ -9,10 +9,10 @@ export const load: PageServerLoad = async (event) => {
   if (!session) return;
 
   try {
-    const watchlist = await WatchlistRepository.findAll();
+    const { watchlists } = await WatchlistRepository.findAll();
 
     return {
-      watchlist: [...watchlist.data.myWatchlists, ...watchlist.data.sharedWithMe]
+      watchlist: [...watchlists.myWatchlists, ...watchlists.sharedWithMe]
     };
   } catch (e) {
     console.log(e);
