@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { page } from '$app/stores';
   import { Notification3 } from '@steeze-ui/remix-icons';
   import { Icon } from '@steeze-ui/svelte-icon';
   import { Select } from 'flowbite-svelte';
@@ -7,11 +6,15 @@
 
   import BottomDrawer from '$lib/components/BottomDrawer/BottomDrawer.svelte';
   import EmptyStatePlaceholder from '$lib/components/EmptyStatePlaceholder/EmptyStatePlaceholder.svelte';
+  import type { Movie } from '$lib/core/models/movie.model';
   import type { Provider } from '$lib/core/models/provider.model';
   import { groupBy } from '$lib/core/utils/group-by';
   import { LOGO_SIZES, parsePoster } from '$lib/core/utils/poster';
 
-  export let data: Array<Provider>;
+  export let data: {
+    movie: Partial<Movie>;
+    providers: Array<Provider>;
+  };
 
   let selected: any;
   let providers: any;
@@ -36,8 +39,8 @@
   const keys = ['Stream', 'Rent', 'Buy'];
 
   const _getProviders = () => {
-    if (data && !isEmpty(data)) {
-      return groupBy(data, 'type');
+    if (data && !isEmpty(data.providers)) {
+      return groupBy(data.providers, 'type');
     }
     return keys.map((key) => ({ [key]: [] }));
   };
@@ -103,7 +106,7 @@
     <svelte:fragment slot="subtitle"
       >Get notified when
       <span class="font-bold">
-        {$page.data.movie.original_title}
+        {data.movie.original_title}
       </span>
       becomes available on any platform.
     </svelte:fragment>

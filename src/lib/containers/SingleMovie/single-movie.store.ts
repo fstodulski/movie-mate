@@ -32,16 +32,16 @@ const _fetchMovie = async (id: string) => {
   });
 
   const { movie } = await MoviesRepository.findOne(id);
-  const trailers = MoviesRepository.trailers(id);
+  const trailers = await MoviesRepository.trailers(id);
   const credits = await MoviesRepository.movieCredits(id);
   const providers = await MoviesRepository.movieProviders(id);
 
   _updateStore({
     isLoading: false,
     movie,
-    trailers,
-    credits: credits.data,
-    providers: providers.data
+    trailers: trailers.trailers.results,
+    providers: providers.providers,
+    credits: credits.credits
   });
 };
 

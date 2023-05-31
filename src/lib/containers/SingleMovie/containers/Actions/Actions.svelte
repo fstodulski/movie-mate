@@ -8,10 +8,14 @@
   import SignInFirst from '$lib/components/SignInFirst/SignInFirst.svelte';
   import Toast from '$lib/components/Toast/Toast.svelte';
   import { MovieStatus } from '$lib/core/enums/watchlist.enum';
+  import type { Movie } from '$lib/core/models/movie.model';
 
   import MovieAddedToWatchList from './components/MovieAddedToWatchList/MovieAddedToWatchList.svelte';
 
-  export let data;
+  export let data: {
+    movie: Partial<Movie>;
+    movieStatus: any;
+  };
 
   let addedToWatchlistToastVisible = false;
   let isDrawerOpen = false;
@@ -40,7 +44,7 @@
       await update();
     };
   };
-  $: isMovieOnWatchlist = data ? data === MovieStatus.ON_WATCHLIST : false;
+  $: isMovieOnWatchlist = data.movieStatus ? data.movieStatus === MovieStatus.ON_WATCHLIST : false;
 </script>
 
 <div class="flex flex-col gap-2 px-3 w-full justify-between">
@@ -75,5 +79,5 @@
     addedToWatchlistToastVisible = false;
   }}
 >
-  <MovieAddedToWatchList />
+  <MovieAddedToWatchList data={data.movie} />
 </Toast>

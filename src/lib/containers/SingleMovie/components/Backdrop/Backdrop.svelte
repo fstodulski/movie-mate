@@ -9,7 +9,6 @@
     trailers: Array<Trailer>;
   };
 
-  let movie: any;
   let trailers: any;
   let isMoviePlaying = false;
   let isMoviePaused = false;

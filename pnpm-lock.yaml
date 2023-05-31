@@ -34,6 +34,9 @@ dependencies:
   ramda:
     specifier: ^0.28.0
     version: 0.28.0
+  svelte-gestures:
+    specifier: ^1.5.2
+    version: 1.5.2
   tailwind-scrollbar-hide:
     specifier: ^1.1.7
     version: 1.1.7
@@ -6401,6 +6404,10 @@ packages:
       - stylus
       - sugarss
     dev: true
+
+  /svelte-gestures@1.5.2:
+    resolution: {integrity: sha512-bXGFqpNAAYCM4XsxjaHMAoPQC3IRjrgGS+Sm/pE1ZftYu9gGRWvDF8g6cwl2b751R2kN1SwNEd6XV7zVh9mcew==}
+    dev: false
 
   /svelte-hmr@0.15.1(svelte@3.58.0):
     resolution: {integrity: sha512-BiKB4RZ8YSwRKCNVdNxK/GfY+r4Kjgp9jCLEy0DuqAKfmQtpL38cQK3afdpjw4sqSs4PLi3jIPJIFp259NkZtA==}

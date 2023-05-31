@@ -10,13 +10,13 @@ export const load: ServerLoad = async (event) => {
   if (!params.id) return;
 
   const genre = await GenresRepository.findOne(params.id);
-  const movies = await MoviesRepository.moviesByGenre(params.id);
+  const { movies } = await MoviesRepository.moviesByGenre(params.id);
 
   if (genre.error) return handleError(genre.error, event);
   if (movies.error) return handleError(movies.error, event);
 
   return {
     genre: genre.data,
-    movies: movies.data
+    movies
   };
 };

@@ -5,7 +5,6 @@
   import type { Movie } from '$lib/core/models/movie.model';
 
   import { toMovieDetailsUtils } from './to-movie-details.utils';
-  // ...$page.data.credits
 
   export let data: {
     movie: Partial<Movie>;

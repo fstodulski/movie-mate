@@ -6,7 +6,9 @@
 
   import ReleasedDateAndRating from '$lib/components/Movie/ReleasedDateAndRating.svelte';
   import SingleMovieDrawer from '$lib/components/SingleMovieDrawer/SingleMovieDrawer.svelte';
-  import { APP_ROUTES } from '$lib/core/constants/app-routes.const.js';
+  import { singleMovieStore } from '$lib/containers/SingleMovie/single-movie.store';
+  import SingleMovie from '$lib/containers/SingleMovie/SingleMovie.svelte';
+  import { APP_ROUTES } from '$lib/core/constants/app-routes.const';
   import { parseUrl } from '$lib/core/utils/parse-url';
   import { BACKDROP_SIZES, parsePoster } from '$lib/core/utils/poster';
   import { isGoogleBot } from '$lib/directives/is-google-bot';
@@ -31,9 +33,11 @@
     movieId = null;
   };
 
-  const handleOpen = (id: string) => {
+  const handleOpen = async (id: string) => {
     isOpenDrawer = true;
     movieId = id;
+
+    await singleMovieStore.fetchMovie(id);
   };
 </script>
 
@@ -71,9 +75,10 @@
               <span class="text-t100 text-text-light-muted">Watch on</span>
             </div>
 
-            <button class="flex items-center text-t100 text-text-light-strong gap-2"
-              ><Icon src={Bookmark} size="16px" />Add to watchlist</button
-            >
+            <button class="flex items-center text-t100 text-text-light-strong gap-2">
+              <Icon src={Bookmark} size="16px" />
+              Add to watchlist
+            </button>
           </div>
 
           <article class="flex flex-col">
@@ -87,4 +92,23 @@
   </div>
 </IntersectionObserver>
 
-<SingleMovieDrawer open={isOpenDrawer} on:close={handleClose} />
+{#if isOpenDrawer}
+  <SingleMovieDrawer open={isOpenDrawer} on:close={handleClose}>
+    {@const movie = $singleMovieStore.movie}
+    {@const trailers = $singleMovieStore.trailers}
+    {@const providers = $singleMovieStore.providers}
+    {@const credits = $singleMovieStore.credits}
+
+    {#if movie}
+      <SingleMovie
+        data={{
+          movie,
+          movieStatue: null,
+          credits,
+          providers,
+          trailers
+        }}
+      />
+    {/if}
+  </SingleMovieDrawer>
+{/if}
