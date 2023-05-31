@@ -18,7 +18,7 @@
 
 <aside
   class:-bottom-full={!open}
-  class:bottom-16={open}
+  class:bottom-0={open}
   class="fixed z-50 left-0 animation ease-in w-full rounded-tl-md rounded-tr-md bg-background-dark-strong-default px-4 pt-4"
 >
   <div class="flex w-full mb-4">

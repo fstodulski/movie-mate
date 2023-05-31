@@ -18,7 +18,6 @@
       trailers: $page.data.trailers
     }}
   />
-
   <div class="flex flex-col w-full py-3">
     <Metadata data={$page.data.movie} />
     <Actions data={$page.data.movieStatus} />

@@ -40,7 +40,6 @@
       await update();
     };
   };
-  console.log(data);
   $: isMovieOnWatchlist = data ? data === MovieStatus.ON_WATCHLIST : false;
 </script>
 

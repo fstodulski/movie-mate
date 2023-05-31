@@ -10,7 +10,7 @@ export const toMovieDetailsUtils = (data: {
 }) => {
   return {
     rating: `TMDB ${data.movie.vote_average} (${data.movie.vote_count} votes)`,
-    genres: data.movie.genres.map((genre) => genre.name).join(', '),
+    genres: data.movie?.genres?.map((genre) => genre.name).join(', '),
     duration: `${data.movie?.runtime} min`,
     director: data.credits.crew.find((crew) => crew.job === 'Director')?.name,
     screenPlay: data.credits.crew.find((crew) => crew.job === 'Screenplay')?.name,
