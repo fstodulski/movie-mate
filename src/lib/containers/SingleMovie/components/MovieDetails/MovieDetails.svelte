@@ -1,11 +1,21 @@
 <script lang="ts">
-  import { page } from '$app/stores';
   import { isNil } from 'ramda';
 
+  import type { Credit } from '$lib/core/models/credit.model';
+  import type { Movie } from '$lib/core/models/movie.model';
+
   import { toMovieDetailsUtils } from './to-movie-details.utils';
-  export let credits;
   // ...$page.data.credits
-  let movieData = toMovieDetailsUtils({ ...$page.data.movie, ...credits });
+
+  export let data: {
+    movie: Partial<Movie>;
+    credits: {
+      cast: Credit[];
+      crew: Credit[];
+    };
+  };
+
+  let movieData = toMovieDetailsUtils(data);
 </script>
 
 <section class="px-4 flex flex-col pt-8 gap-4">

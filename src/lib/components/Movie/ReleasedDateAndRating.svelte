@@ -1,11 +1,13 @@
 <script lang="ts">
-  export let movie;
+  import type { Movie } from '$lib/core/models/movie.model';
+
+  export let data: Partial<Movie>;
 </script>
 
 <div class="flex text-t100 text-text-light-muted gap-1">
-  <span>{new Date(movie.release_date).getFullYear()}</span>
-  {#if movie.vote_avarage}
+  <span>{new Date(data.release_date).getFullYear()}</span>
+  {#if data.vote_avarage}
     |
-    <span>TMDB {movie.vote_average} </span>
+    <span>TMDB {data.vote_average} </span>
   {/if}
 </div>

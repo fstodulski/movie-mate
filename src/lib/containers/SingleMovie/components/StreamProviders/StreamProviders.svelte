@@ -7,8 +7,11 @@
 
   import BottomDrawer from '$lib/components/BottomDrawer/BottomDrawer.svelte';
   import EmptyStatePlaceholder from '$lib/components/EmptyStatePlaceholder/EmptyStatePlaceholder.svelte';
+  import type { Provider } from '$lib/core/models/provider.model';
   import { groupBy } from '$lib/core/utils/group-by';
   import { LOGO_SIZES, parsePoster } from '$lib/core/utils/poster';
+
+  export let data: Array<Provider>;
 
   let selected: any;
   let providers: any;
@@ -33,8 +36,8 @@
   const keys = ['Stream', 'Rent', 'Buy'];
 
   const _getProviders = () => {
-    if ($page.data.providers && !isEmpty($page.data.providers)) {
-      return groupBy($page.data.providers as Array<any>, 'type');
+    if (data && !isEmpty(data)) {
+      return groupBy(data, 'type');
     }
     return keys.map((key) => ({ [key]: [] }));
   };
@@ -94,7 +97,7 @@
   {/each}
 </div>
 
-{#if isEmpty($page.data.providers)}
+{#if isEmpty(data)}
   <EmptyStatePlaceholder css="px-4">
     <svelte:fragment slot="title">Is it possible no one is streaming it?</svelte:fragment>
     <svelte:fragment slot="subtitle"

@@ -6,8 +6,8 @@
 </script>
 
 <aside
-  class:-bottom-12={!isOpen}
-  class:bottom-20={isOpen}
+  class:-bottom-48={!isOpen}
+  class:bottom-8={isOpen}
   class="fixed left-1/2 ease-in-out -translate-x-1/2 duration-300 w-full z-50"
 >
   <div class="w-full px-4">

@@ -5,8 +5,11 @@
   import { Icon } from '@steeze-ui/svelte-icon';
 
   import ReleasedDateAndRating from '$lib/components/Movie/ReleasedDateAndRating.svelte';
+  import SingleMovieDrawer from '$lib/components/SingleMovieDrawer/SingleMovieDrawer.svelte';
   import { APP_ROUTES } from '$lib/core/constants/app-routes.const.js';
+  import { parseUrl } from '$lib/core/utils/parse-url';
   import { BACKDROP_SIZES, parsePoster } from '$lib/core/utils/poster';
+  import { isGoogleBot } from '$lib/directives/is-google-bot';
 
   export let movies;
   export let icon: IconSource;
@@ -14,10 +17,23 @@
   export let titleId: string;
   export let iconCSS: string;
 
+  let movieId: string | null = null;
+  let isOpenDrawer = false;
+
   let element;
 
   const onIntersect = () => {
     // goto(`#${titleId}`);
+  };
+
+  const handleClose = () => {
+    isOpenDrawer = false;
+    movieId = null;
+  };
+
+  const handleOpen = (id: string) => {
+    isOpenDrawer = true;
+    movieId = id;
   };
 </script>
 
@@ -29,7 +45,13 @@
 
   <div class="flex flex-col w-full px-4 gap-5 pb-10">
     {#each movies as movie, index}
-      <a class="flex items-start gap-4" href={APP_ROUTES.discover.movie.replace(':id', movie.id)}>
+      <a
+        class="flex items-start gap-4"
+        use:isGoogleBot={{
+          link: parseUrl(APP_ROUTES.discover.movie, { id: movie.id }),
+          onClick: () => handleOpen(movie.id)
+        }}
+      >
         <div class="flex flex-col">
           <span class="font-bold text-h700 text-text-light-strong"
             >{index + 1 < 10 ? 0 : ''}{index + 1}</span
@@ -56,7 +78,7 @@
 
           <article class="flex flex-col">
             <h3 class="text-h300 text-text-light-strong">{movie.original_title}</h3>
-            <ReleasedDateAndRating {movie} />
+            <ReleasedDateAndRating data={movie} />
             <p class="text-t100 text-text-light-default line-clamp-2">{movie.overview}</p>
           </article>
         </div>
@@ -64,3 +86,5 @@
     {/each}
   </div>
 </IntersectionObserver>
+
+<SingleMovieDrawer open={isOpenDrawer} on:close={handleClose} />

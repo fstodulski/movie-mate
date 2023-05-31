@@ -19,9 +19,6 @@
   $: clientHeight = innerHeight - 60;
   $: toWatchPath = $page.route.id === '/(app)/watchlist/to-watch';
   $: watched = $page.route.id === '/(app)/watchlist/watched';
-  $: {
-    console.log(toWatchPath, watched);
-  }
 </script>
 
 <svelte:window bind:innerHeight />

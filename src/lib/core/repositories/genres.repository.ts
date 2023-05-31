@@ -1,8 +1,8 @@
 import { API_ENDPOINTS } from '$lib/core/constants/api-endpoints.const';
 import { apiClient } from '$lib/core/providers/api-client.provider';
 import { parseError } from '$lib/core/utils/parse-error';
+import { parseUrl } from '$lib/core/utils/parse-url';
 import { responseHandler } from '$lib/core/utils/response-handler';
-import { parseUrl } from '$lib/server/utils/parse-url';
 
 const findOne = async (id: string) => {
   return await apiClient

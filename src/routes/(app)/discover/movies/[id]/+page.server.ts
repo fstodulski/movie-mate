@@ -17,17 +17,17 @@ export const load: PageServerLoad = async (event) => {
   if (!params.id) return redirect(302, APP_ROUTES.discover.search);
 
   try {
-    const movieResponse = await MoviesRepository.findOne(params.id);
-    const trailers = MoviesRepository.trailers(params.id);
-    const credits = MoviesRepository.movieCredits(params.id);
-    const providers = await MoviesRepository.movieProviders(params.id);
+    const { movie } = await MoviesRepository.findOne(params.id);
+    const { trailers } = await MoviesRepository.trailers(params.id);
+    const { credits } = await MoviesRepository.movieCredits(params.id);
+    const { providers } = await MoviesRepository.movieProviders(params.id);
     const movieStatus = session ? await WatchlistRepository.getMovieState(params.id) : null;
 
     return {
-      movie: movieResponse.movie,
-      trailers,
+      movie,
+      trailers: trailers.results,
       credits,
-      providers: providers.data,
+      providers,
       movieStatus: movieStatus?.data
     };
   } catch (e) {

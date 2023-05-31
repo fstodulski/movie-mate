@@ -1,7 +1,6 @@
 <script lang="ts">
   import type { SubmitFunction } from '$app/forms';
   import { enhance } from '$app/forms';
-  import { page } from '$app/stores';
   import { Bookmark, CheckboxCircle } from '@steeze-ui/remix-icons';
   import { Icon } from '@steeze-ui/svelte-icon';
 
@@ -11,6 +10,8 @@
   import { MovieStatus } from '$lib/core/enums/watchlist.enum';
 
   import MovieAddedToWatchList from './components/MovieAddedToWatchList/MovieAddedToWatchList.svelte';
+
+  export let data;
 
   let addedToWatchlistToastVisible = false;
   let isDrawerOpen = false;
@@ -39,10 +40,8 @@
       await update();
     };
   };
-
-  $: isMovieOnWatchlist = $page.data.movieStatus
-    ? $page.data.movieStatus.isOnWatchlist === MovieStatus.ON_WATCHLIST
-    : false;
+  console.log(data);
+  $: isMovieOnWatchlist = data ? data === MovieStatus.ON_WATCHLIST : false;
 </script>
 
 <div class="flex flex-col gap-2 px-3 w-full justify-between">

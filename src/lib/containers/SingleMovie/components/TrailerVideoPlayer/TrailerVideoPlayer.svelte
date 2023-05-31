@@ -1,6 +1,5 @@
 <script lang="ts">
   import { createEventDispatcher, onMount } from 'svelte';
-  import { page } from '$app/stores';
   import YouTubePlayer from 'youtube-player';
 
   import BackButton from './components/BackButton.svelte';
@@ -13,6 +12,10 @@
   const dispatch = createEventDispatcher();
   const _buttonsTimeout = 3000;
 
+  export let data: {
+    src: string;
+  };
+
   let windowWidth: number;
   let player;
   let totalTime: number;
@@ -21,10 +24,6 @@
   let isVideoMuted = true;
   let isPlaying = false;
   let areButtonsVisible = true;
-
-  const trailerSrs = $page.data.trailers.data.results.filter((video) =>
-    video.name.toLowerCase().includes('trailer')
-  );
 
   const toggleMute = () => {
     player.isMuted().then((muted) => {
@@ -77,7 +76,7 @@
 
   onMount(async () => {
     player = YouTubePlayer('player', {
-      videoId: trailerSrs[0].key,
+      videoId: data.src,
       width: windowWidth,
       height: 240,
       playerVars: {
@@ -120,9 +119,9 @@
   <div class="flex flex-col pointer-events-none" id="player" />
 </div>
 
-{#if areButtonsVisible}
-  <BackButton />
+<BackButton />
 
+{#if areButtonsVisible}
   {#if isPlaying}
     <StopButton on:click={stopVideo} />
   {:else}
