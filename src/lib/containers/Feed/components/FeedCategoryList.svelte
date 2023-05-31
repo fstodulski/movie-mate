@@ -31,6 +31,7 @@
   const handleClose = () => {
     isOpenDrawer = false;
     movieId = null;
+    singleMovieStore.resetStore();
   };
 
   const handleOpen = async (id: string) => {

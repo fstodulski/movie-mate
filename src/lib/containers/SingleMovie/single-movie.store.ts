@@ -45,7 +45,12 @@ const _fetchMovie = async (id: string) => {
   });
 };
 
+const _resetStore = () => {
+  _updateStore(INITIAL_STATE);
+};
+
 export const singleMovieStore = {
   subscribe: _singleMovieStore.subscribe,
-  fetchMovie: _fetchMovie
+  fetchMovie: _fetchMovie,
+  resetStore: _resetStore
 };
