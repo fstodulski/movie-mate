@@ -5,6 +5,7 @@
   let startY = 0;
   let currentY = 0;
   let roadY = 0;
+  let isGettingBack = false;
   let isDragging = false;
   let isClosing = false;
   let height = 0;
@@ -15,7 +16,6 @@
     if (event.touches.length === 1) {
       startY = event.touches[0].clientY;
       currentY = startY;
-      console.log(currentY);
       isDragging = true;
       isClosing = false;
     }
@@ -39,6 +39,7 @@
         isClosing = true;
       } else {
         roadY = 0;
+        isGettingBack = true;
       }
     }
   }
@@ -56,7 +57,7 @@
 
 <aside
   in:fly={{ y: height, duration: 1000 }}
-  out:fly={{ y: height * 1.2, duration: 300 }}
+  out:fly={{ y: height * 1.2, duration: 1000 }}
   class="fixed z-[101] max-h-[98%] overflow-y-scroll bottom-0 left-0 animation ease-in w-full rounded-tl-md rounded-tr-md bg-background-dark-muted-default"
   style="transform: translateY({roadY}px);"
   class:closing={isClosing}

@@ -5,13 +5,10 @@
   import { Icon } from '@steeze-ui/svelte-icon';
 
   import ReleasedDateAndRating from '$lib/components/Movie/ReleasedDateAndRating.svelte';
-  import SwipableDrawer from '$lib/components/SwipableDrawer/SwipableDrawer.svelte';
   import { singleMovieStore } from '$lib/containers/SingleMovie/single-movie.store';
-  import SingleMovie from '$lib/containers/SingleMovie/SingleMovie.svelte';
   import { APP_ROUTES } from '$lib/core/constants/app-routes.const';
   import { parseUrl } from '$lib/core/utils/parse-url';
   import { BACKDROP_SIZES, parsePoster } from '$lib/core/utils/poster';
-  import { isGoogleBot } from '$lib/directives/is-google-bot';
 
   export let movies;
   export let icon: IconSource;
@@ -52,10 +49,7 @@
     {#each movies as movie, index}
       <a
         class="flex items-start gap-4"
-        use:isGoogleBot={{
-          link: parseUrl(APP_ROUTES.discover.movie, { id: movie.id }),
-          onClick: () => handleOpen(movie.id)
-        }}
+        href={parseUrl(APP_ROUTES.discover.movie, { id: movie.id })}
       >
         <div class="flex flex-col">
           <span class="font-bold text-h700 text-text-light-strong"
@@ -92,23 +86,3 @@
     {/each}
   </div>
 </IntersectionObserver>
-
-{#if isOpenDrawer}
-  {@const movie = $singleMovieStore.movie}
-  {@const trailers = $singleMovieStore.trailers}
-  {@const providers = $singleMovieStore.providers}
-  {@const credits = $singleMovieStore.credits}
-  {#if movie}
-    <SwipableDrawer on:close={handleClose}>
-      <SingleMovie
-        data={{
-          movie,
-          movieStatue: null,
-          credits,
-          providers,
-          trailers
-        }}
-      />
-    </SwipableDrawer>
-  {/if}
-{/if}
