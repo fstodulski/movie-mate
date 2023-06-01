@@ -5,7 +5,7 @@
   import { Icon } from '@steeze-ui/svelte-icon';
 
   import ReleasedDateAndRating from '$lib/components/Movie/ReleasedDateAndRating.svelte';
-  import SingleMovieDrawer from '$lib/components/SingleMovieDrawer/SingleMovieDrawer.svelte';
+  import SwipableDrawer from '$lib/components/SwipableDrawer/SwipableDrawer.svelte';
   import { singleMovieStore } from '$lib/containers/SingleMovie/single-movie.store';
   import SingleMovie from '$lib/containers/SingleMovie/SingleMovie.svelte';
   import { APP_ROUTES } from '$lib/core/constants/app-routes.const';
@@ -94,13 +94,12 @@
 </IntersectionObserver>
 
 {#if isOpenDrawer}
-  <SingleMovieDrawer open={isOpenDrawer} on:close={handleClose}>
-    {@const movie = $singleMovieStore.movie}
-    {@const trailers = $singleMovieStore.trailers}
-    {@const providers = $singleMovieStore.providers}
-    {@const credits = $singleMovieStore.credits}
-
-    {#if movie}
+  {@const movie = $singleMovieStore.movie}
+  {@const trailers = $singleMovieStore.trailers}
+  {@const providers = $singleMovieStore.providers}
+  {@const credits = $singleMovieStore.credits}
+  {#if movie}
+    <SwipableDrawer on:close={handleClose}>
       <SingleMovie
         data={{
           movie,
@@ -110,6 +109,6 @@
           trailers
         }}
       />
-    {/if}
-  </SingleMovieDrawer>
+    </SwipableDrawer>
+  {/if}
 {/if}
