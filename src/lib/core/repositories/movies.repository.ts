@@ -25,10 +25,10 @@ export const MoviesRepository = {
       };
     }
   },
-  findByName: async (name: string) => {
+  findByName: async (name: string, page = 1) => {
     try {
       const response = await apiClient
-        .query({ name, page: 1, limit: 10 })
+        .query({ name, page, limit: 10 })
         .get(API_ENDPOINTS.movies.byName)
         .json(responseHandler<PaginatedResponse<ByNameResponse>>);
 

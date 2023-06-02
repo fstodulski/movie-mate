@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { onDestroy, onMount } from 'svelte';
+  import { onMount } from 'svelte';
   import { fly } from 'svelte/transition';
   import { browser } from '$app/environment';
   import { page } from '$app/stores';
@@ -12,14 +12,12 @@
 
   import PastSearches from './components/PastSearches/PastSearches.svelte';
   import SearchResultsBox from './components/SearchResultsBox/SearchResultsBox.svelte';
+  import { searchMovieStore } from './search-movie.store';
 
   let innerHeight: number;
   let clientHeight: number;
 
-  $: clientHeight = innerHeight - 100;
-
   let history: Array<any> = [];
-
   let name = '';
 
   const clearInput = () => {
@@ -30,27 +28,22 @@
     name = query;
   };
 
-  onMount(() => {
-    if ($page.data.movies.results.length > 0) {
-      name = $page.url.searchParams.get('query');
-    }
-
+  onMount(async () => {
     if (browser) {
+      const query = $page.url.searchParams.get('query');
+      name = query;
+
+      await searchMovieStore.fetchMovies(query);
     }
   });
 
-  onDestroy(() => {});
+  $: clientHeight = innerHeight - 100;
 </script>
 
 <svelte:window bind:innerHeight />
 
 <aside class="fixed top-0 left-0 w-full h-screen bg-bg-default-muted-default z-50 px-4 py-4">
-  <form
-    method="GET"
-    action="?/search"
-    in:fly={{ y: 50, duration: 400 }}
-    class="flex w-full gap-2 items-center pb-4"
-  >
+  <div in:fly={{ y: 50, duration: 400 }} class="flex w-full gap-2 items-center pb-4">
     <Input
       id="search"
       type="text"
@@ -68,13 +61,13 @@
       </a>
     </Input>
     <a class="btn tertiary xl" href={APP_ROUTES.discover.index}> Cancel </a>
-  </form>
+  </div>
 
   {#if isEmpty(name)}
     <PastSearches />
   {/if}
 
-  {#if !isEmpty($page.data.movies.results)}
+  {#if !isEmpty($searchMovieStore.movies)}
     <SearchResultsBox />
   {/if}
 

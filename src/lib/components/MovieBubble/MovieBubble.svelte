@@ -13,7 +13,7 @@
   <article class="flex flex-col flex-1 py-2 px-3 items-stretch">
     <div class="flex-col gap-1">
       <span class="text-t100 text-text-light-strong">{movie.title}</span>
-      <ReleasedDateAndRating {movie} />
+      <ReleasedDateAndRating data={movie} />
       <p class="text-t100 text-text-light-default line-clamp-2">{movie.overview}</p>
     </div>
 

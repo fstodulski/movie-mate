@@ -46,6 +46,8 @@
   };
 
   $: providers = _getProviders();
+
+  console.log(data);
 </script>
 
 <div class="flex w-full items-start justify-between px-4 pt-8 mb-4">
@@ -100,7 +102,7 @@
   {/each}
 </div>
 
-{#if isEmpty(data)}
+{#if isEmpty(data.providers)}
   <EmptyStatePlaceholder css="px-4">
     <svelte:fragment slot="title">Is it possible no one is streaming it?</svelte:fragment>
     <svelte:fragment slot="subtitle"
