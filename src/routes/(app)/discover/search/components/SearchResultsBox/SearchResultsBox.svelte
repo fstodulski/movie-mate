@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { page } from '$app/stores';
   import { isEmpty } from 'ramda';
 
   import MovieBubble from '$lib/components/MovieBubble/MovieBubble.svelte';
@@ -12,8 +11,6 @@
 
   import { searchMovieStore } from '../../search-movie.store';
 
-  let query: string;
-
   const addMovieToPastSearch = async (movie: any) => {
     const movies = serializeLocalstorage(_pastSearches, []);
     const newMovies = uniqArray(
@@ -24,12 +21,8 @@
   };
 
   const fetchMore = async () => {
-    searchMovieStore.incrementPage();
-
-    await searchMovieStore.fetchMovies(query);
+    await searchMovieStore.loadMore();
   };
-
-  $: query = $page.url.searchParams.get('query');
 </script>
 
 <section
@@ -41,7 +34,7 @@
 >
   <div class="flex mt-2 mb-4">
     <span class="text-h300 text-text-light-muted">
-      Search results for: <span class="text-text-light-strong">{query}</span>
+      Search results for: <span class="text-text-light-strong">{$searchMovieStore.query}</span>
     </span>
   </div>
 

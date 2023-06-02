@@ -5,12 +5,14 @@ import { MoviesRepository } from '$lib/core/repositories/movies.repository';
 type SearchMovieStore = {
   isLoading: boolean;
   page: number;
+  query?: string;
   movies: any[];
 };
 
 const INITIAL_STATE: SearchMovieStore = {
   isLoading: false,
   page: 1,
+  query: '',
   movies: []
 };
 
@@ -24,11 +26,11 @@ const _incrementPage = () => {
   _updateSearchMovieStore({ page: get(_searchMovieStore).page + 1 });
 };
 
-const _fetchMovies = async (query: string) => {
-  _updateSearchMovieStore({ isLoading: true });
+const _loadMore = async () => {
+  _incrementPage();
+  const { query, page } = get(_searchMovieStore);
 
-  const currentPage = get(_searchMovieStore).page;
-  const { movies } = await MoviesRepository.findByName(query, currentPage);
+  const { movies } = await MoviesRepository.findByName(query, page);
 
   _updateSearchMovieStore({
     isLoading: false,
@@ -36,8 +38,23 @@ const _fetchMovies = async (query: string) => {
   });
 };
 
+const _fetchMovies = async (name?: string) => {
+  if (name) _updateSearchMovieStore({ query: name });
+
+  _updateSearchMovieStore({ isLoading: true });
+
+  const { query, page } = get(_searchMovieStore);
+  const { movies } = await MoviesRepository.findByName(query, page);
+
+  _updateSearchMovieStore({
+    isLoading: false,
+    movies: movies.results
+  });
+};
+
 export const searchMovieStore = {
   subscribe: _searchMovieStore.subscribe,
   fetchMovies: _fetchMovies,
-  incrementPage: _incrementPage
+  incrementPage: _incrementPage,
+  loadMore: _loadMore
 };

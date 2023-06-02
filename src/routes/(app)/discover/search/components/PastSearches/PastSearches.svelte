@@ -43,7 +43,7 @@
               </figure>
               <div class="flex flex-col gap-1">
                 <span class="text-h400 text-text-light-strong">{movie.title}</span>
-                <ReleasedDateAndRating {movie} />
+                <ReleasedDateAndRating data={movie} />
               </div>
               <button on:click={() => removeMovie(movie)} class="ml-auto">
                 <Icon src={Close} size="20px" class="text-text-light-strong" />

@@ -2,7 +2,6 @@
   import { onMount } from 'svelte';
   import { fly } from 'svelte/transition';
   import { browser } from '$app/environment';
-  import { page } from '$app/stores';
   import { Close, Search2 } from '@steeze-ui/remix-icons';
   import { Icon } from '@steeze-ui/svelte-icon';
   import { Input } from 'flowbite-svelte';
@@ -17,25 +16,18 @@
   let innerHeight: number;
   let clientHeight: number;
 
-  let history: Array<any> = [];
   let name = '';
 
   const clearInput = () => {
     name = '';
   };
 
-  const select = async (query: string) => {
-    name = query;
-  };
-
-  onMount(async () => {
+  const fetchMovies = async () => {
     if (browser) {
-      const query = $page.url.searchParams.get('query');
-      name = query;
-
-      await searchMovieStore.fetchMovies(query);
+      await searchMovieStore.fetchMovies(name);
     }
-  });
+  };
+  onMount(async () => {});
 
   $: clientHeight = innerHeight - 100;
 </script>
@@ -48,6 +40,7 @@
       id="search"
       type="text"
       name="query"
+      on:change={fetchMovies}
       bind:value={name}
       class="grow"
       placeholder="Movie name"
@@ -69,13 +62,5 @@
 
   {#if !isEmpty($searchMovieStore.movies)}
     <SearchResultsBox />
-  {/if}
-
-  {#if !name}
-    <div class="flex flex-col w-full mt-2 gap-3">
-      {#each history as query}
-        <span class="py-2 bg-gray-300 px-1 rounded-md" on:click={() => select(query)}>{query}</span>
-      {/each}
-    </div>
   {/if}
 </aside>
