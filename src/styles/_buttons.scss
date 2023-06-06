@@ -1,0 +1,90 @@
+@import 'typography';
+
+@mixin btn {
+  @apply rounded-md flex items-center gap-2 justify-center duration-300;
+
+  &.no-focus:focus {
+    outline: none;
+  }
+
+  &.xl {
+    @apply py-[14px] px-5;
+    @apply leading-normal md:text-lg font-normal;
+    @apply text-base;
+
+    &.icon {
+      @apply p-4 #{!important};
+    }
+  }
+
+  &.md {
+    @apply py-2 px-4;
+    @apply leading-normal md:text-base font-normal;
+    @apply text-sm;
+
+    &.icon {
+      @apply p-[10px] #{!important};
+    }
+  }
+
+  &.xs {
+    @apply py-[6px] px-3;
+    @apply text-xs leading-normal md:text-sm md:font-semibold;
+
+    &.icon {
+      @apply p-2 #{!important};
+    }
+  }
+
+  &.primary {
+    @apply bg-background-light-default-default text-text-dark-strong;
+
+    &:hover:not(:disabled) {
+      @apply bg-background-light-muted-default;
+    }
+
+    &:focus {
+      @apply bg-background-light-faded-default;
+    }
+
+    &:disabled {
+      @apply bg-background-light-faded-default;
+    }
+  }
+
+  &.secondary {
+    @apply bg-background-dark-default-alpha/[0.22] border border-border-default-muted-alpha/[0.32] text-text-light-strong;
+
+    &:hover:not(:disabled) {
+      @apply bg-background-dark-strong-default/[0.32];
+    }
+
+    &:focus {
+      @apply bg-background-dark-muted-default/[0.16];
+    }
+
+    &:disabled {
+      @apply bg-background-dark-muted-default/[0.16];
+    }
+  }
+
+  &.tertiary {
+    @apply bg-transparent text-text-light-strong;
+
+    &:hover:not(:disabled) {
+      @apply bg-background-dark-default-alpha/[0.22];
+    }
+
+    &:focus {
+      @apply bg-background-dark-muted-alpha/[0.16];
+    }
+
+    &:disabled {
+      @apply opacity-50 cursor-not-allowed;
+    }
+  }
+}
+
+.btn {
+  @include btn();
+}

@@ -4,19 +4,19 @@ export const LINKS = [
   {
     icon: Fire,
     label: 'Everyone watch',
-    css: 'text-bg-action-error-strong',
+    css: 'text-text-action-error',
     href: `#everyone-watch`
   },
   {
     icon: Trophy,
     label: 'Top 10 movies',
-    css: 'text-bg-action-caution-strong',
+    css: 'text-text-action-caution',
     href: `#top-10-movies`
   },
   {
     icon: Timer2,
     label: 'Upcoming',
-    css: 'text-bg-action-success-strong',
+    css: 'text-text-action-success',
     href: `#upcoming`
   }
 ] as const;

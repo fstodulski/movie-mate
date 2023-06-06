@@ -1,12 +1,13 @@
 import type { Handle } from '@sveltejs/kit';
 import { createSupabaseServerClient } from '@supabase/auth-helpers-sveltekit';
 
-import { PUBLIC_SUPABASE_ANON_KEY, PUBLIC_SUPABASE_URI } from '$env/static/public';
+import { AuthRepository } from '$lib/core/repositories/auth.repository';
+import { UsersRepository } from '$lib/core/repositories/users.repository';
 
-export const auth: Handle = async ({ event, resolve }) => {
+export const handle: Handle = async ({ event, resolve }) => {
   event.locals.supabase = createSupabaseServerClient({
-    supabaseUrl: PUBLIC_SUPABASE_URI,
-    supabaseKey: PUBLIC_SUPABASE_ANON_KEY,
+    supabaseUrl: import.meta.env.VITE_PUBLIC_SUPABASE_URI,
+    supabaseKey: import.meta.env.VITE_PUBLIC_SUPABASE_ANON_KEY,
     event
   });
 
@@ -17,11 +18,23 @@ export const auth: Handle = async ({ event, resolve }) => {
     return session;
   };
 
+  const session = await event.locals.getSession();
+
+  if (session) {
+    try {
+      const { data } = await AuthRepository.login(session);
+      const { data: userData, error: userError } = await UsersRepository.me(data.access_token);
+
+      event.locals.user = userData;
+    } catch (e) {
+      await event.locals.supabase.auth.signOut();
+      event.locals.user = null;
+    }
+  }
+
   return resolve(event, {
     filterSerializedResponseHeaders(name) {
       return name === 'content-range';
     }
   });
 };
-
-export const handle = auth;

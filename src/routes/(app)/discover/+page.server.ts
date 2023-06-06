@@ -1,12 +1,20 @@
-import { API_ENDPOINTS } from '$lib/core/constants/api-endpoints.const';
-import { ApiServerProvider } from '$lib/server/providers/api-server.provider';
+import { GenresRepository } from '$lib/core/repositories/genres.repository';
+import { parseError } from '$lib/core/utils/parse-error';
 
 import type { PageServerLoad } from './$types';
 
-export const load = (async () => {
-  const res = await ApiServerProvider.get(API_ENDPOINTS.api.genres.findAll);
+export const load: PageServerLoad = async (event) => {
+  try {
+    const { genres, error } = await GenresRepository.findAll();
 
-  return {
-    genres: res || []
-  };
-}) satisfies PageServerLoad;
+    return {
+      genres: genres,
+      error
+    };
+  } catch (e) {
+    return {
+      genres: [],
+      error: parseError(e)
+    };
+  }
+};

@@ -3,8 +3,14 @@
   import TopBar from '$lib/containers/TopBar/TopBar.svelte';
 </script>
 
+<svelte:head>
+  <script
+    async
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4553897102634434"
+    crossorigin="anonymous"
+  ></script>
+</svelte:head>
+
 <TopBar />
-<main>
-  <slot />
-</main>
+<slot />
 <AppNavigation />

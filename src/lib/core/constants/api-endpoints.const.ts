@@ -7,9 +7,24 @@ export const API_ENDPOINTS = {
   },
   movies: {
     byId: '/movies/:id',
-    videos: '/movies/:id/videos',
+    videos: '/movies/:id/trailers',
     byName: '/movies/by-name',
-    credits: '/movies/:id/credits'
+    credits: '/movies/:id/credits',
+    byGenre: '/movies/by-genre/:id',
+    providers: '/movies/:id/providers'
+  },
+  watchlists: {
+    findAll: '/watchlists',
+    movieStatus: '/watchlists/movie-status/:movieId',
+    addMovie: '/watchlists/add-movie',
+    removeMovie: '/watchlists/remove-movie'
+  },
+  genres: {
+    findAll: '/genres',
+    findOne: '/genres/:id'
+  },
+  feed: {
+    index: '/feed'
   },
   api: {
     auth: '/auth',
@@ -17,15 +32,11 @@ export const API_ENDPOINTS = {
     genres: {
       findAll: '/genres'
     },
-    feed: {
-      index: '/feed'
-    },
     discovery: {
       moviesInGenre: '/discover/movies-in-genre/:id',
       genres: '/discover/genres',
       search: '/movie/search'
     },
-
     movieToProvider: {
       byId: '/movie-to-provider/by-movie-id/:id'
     },

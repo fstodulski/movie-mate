@@ -3,13 +3,28 @@ import { redirect } from '@sveltejs/kit';
 
 import { APP_ROUTES } from '$lib/core/constants/app-routes.const';
 
+import type { PageServerLoad } from './$types';
+
+export const load: PageServerLoad = async (event) => {
+  const { locals, url } = event;
+  const session = await locals.getSession();
+
+  // if the user is already logged in return them to the account page
+  if (session) {
+    throw redirect(303, APP_ROUTES.feed.index);
+  }
+
+  return { url: url.origin };
+};
+
 export const actions: Actions = {
   googleSignIn: async (event) => {
+    const redirectTo = `${import.meta.env.VITE_PUBLIC_HOST_URL}${APP_ROUTES.feed.index}`;
+
     const { data, error } = await event.locals.supabase.auth.signInWithOAuth({
       provider: 'google',
       options: {
-        scopes: 'openid profile email',
-        redirectTo: `https://127.0.0.1:5173${APP_ROUTES.profile.index}`
+        redirectTo
       }
     });
 

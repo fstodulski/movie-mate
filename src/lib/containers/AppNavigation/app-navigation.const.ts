@@ -32,7 +32,7 @@ export const AppNavigationConst: Array<Link> = [
   },
   {
     icon: AccountCircle,
-    label: 'Profile',
-    link: APP_ROUTES.profile.index
+    label: 'Account',
+    link: APP_ROUTES.account.index
   }
 ];

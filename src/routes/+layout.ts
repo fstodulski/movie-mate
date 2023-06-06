@@ -5,8 +5,6 @@ import { createSupabaseLoadClient } from '@supabase/auth-helpers-sveltekit';
 
 import type { LayoutLoad } from './$types';
 
-import { PUBLIC_SUPABASE_ANON_KEY, PUBLIC_SUPABASE_URI } from '$env/static/public';
-
 !dev &&
   init({
     dsn: process.env.PUBLIC_SENTRY,
@@ -22,8 +20,8 @@ export const load: LayoutLoad = async ({ fetch, data, depends }) => {
   depends('supabase:auth');
 
   const supabase = createSupabaseLoadClient({
-    supabaseUrl: PUBLIC_SUPABASE_URI,
-    supabaseKey: PUBLIC_SUPABASE_ANON_KEY,
+    supabaseUrl: import.meta.env.VITE_PUBLIC_SUPABASE_URI,
+    supabaseKey: import.meta.env.VITE_PUBLIC_SUPABASE_ANON_KEY,
     event: { fetch },
     serverSession: data.session
   });

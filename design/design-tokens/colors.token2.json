@@ -1,324 +1,323 @@
 {
-    "color": {
-        "$type": "color",
-        "core": {
-            "$description": "Core set of colors that can be inherited from by other sets",
-            "base": {
-                "white": {
-                    "$value": "#FFFFFF"
-                },
-
-            },
-            "neutral":{
-                "default":{
-                    "900":{
-                        "$value": "#111928"
-                    },
-
-                    "50":{
-                        "$value": "#F9FAFB"
-                    }
-                },
-                "lighten":{
-                    "900":{
-                        "$value": "#6B9DFA29"
-                    },
-
-                    "50":{
-                        "$value": "#FBFCFEFC"
-                    }
-                },
-                "darken":{
-                    "900":{
-                        "$value": "#020B1CAN"
-                    },
-
-                    "50":{
-                        "$value": "#37597B08"
-                    }
-                }
-            },
-            "blue":{
-                "900":{
-                    "$value": "#233876"
-                },
-
-                "50":{
-                    "$value": "#EBF5FF"
-                }
-            },
-            "red":{
-                "900":{
-                    "$value": "#771D1D"
-                },
-
-                "50":{
-                    "$value": "#FDF2F2"
-                }
-            },
-            "green":{
-                "900":{
-                    "$value": "#014737"
-                },
-
-                "50":{
-                    "$value": "#F3FAF7"
-                }
-            },
-            "yellow":{
-                "900":{
-                    "$value": "#633112"
-                },
-
-                "50": {
-                    "$value": "#FDFDEA"
-                }
-            }
-        },
-        "text":{
-            "$description": "Colors for text & icons",
-            "dark":{
-                "muted":{
-                    "$description": "On light bg:Disabled text, placeholders, etc.",
-                    "$value": "{color.core.neutral.default.400}"
-                },
-                "default":{
-                    "$description": "On light bg:Paragraphs, captions, etc.",
-                    "$value": "{color.core.neutral.default.500}"
-                },
-                "strong":{
-                    "$description": "On light bg:Headlines, active component labels, etc.",
-                    "$value": "{color.core.neutral.default.900}"
-                }
-            },
-            "light":{
-                "muted":{
-                    "$description": "On dark bg:Disabled text, placeholders, etc.",
-                    "$value": "{color.core.neutral.default.400}"
-                },
-                "default":{
-                    "$description": "On dark bg:Paragraphs, captions, etc.",
-                    "$value": "{color.core.neutral.default.300}"
-                },
-                "strong":{
-                    "$description": "On dark bg:Headlines, active component labels, etc.",
-                    "$value": "{color.core.neutral.default.50}"
-                }
-            },
-            "action":{
-                "primary":{
-                    "$description": "Accent, links etc.",
-                    "$value": "{color.core.blue.400}"
-                },
-                "error":{
-                    "$description": "Errors, destructive action labels etc.",
-                    "$value": "{color.core.red.500}"
-                },
-                "success":{
-                    "$description": "Success, positive text, etc.",
-                    "$value": "{color.core.green.400}"
-                },
-                "caution":{
-                    "$description": "Warnings, cautionary text, etc.",
-                    "$value": "{color.core.yellow.400}"
-                }
-            }
-        },
-        "border":{
-            "$description": "Colors for component borders and dividers",
-            "default":{
-                "muted":{
-                    "default":{
-                        "$value": "{color.core.neutral.default.700}"
-                    },
-                    "alpha":{
-                        "$description": "Dividers, separators, etc.",
-                        "$value": "{color.core.neutral.lighten.700}"
-                    }
-                },
-                "default":{
-                    "default":{
-                        "$value": "{color.core.neutral.default.600}"
-                    },
-                    "alpha":{
-                        "$description": "Component borders on default state",
-                        "$value": "{color.core.neutral.lighten.600}"
-                    }
-                },
-                "strong":{
-                    "default":{
-                        "$value": "{color.core.neutral.default.500}"
-                    },
-                    "alpha":{
-                        "$description": "Component borders on hover state",
-                        "$value": "{color.core.neutral.lighten.500}"
-                    }
-                }
-            },
-            "action":{
-                "primary":{
-                    "$description": "Accent, active states etc.",
-                    "$value": "{color.core.blue.600}"
-                },
-                "error":{
-                    "$description": "Errors, alerts etc.",
-                    "$value": "{color.core.red.500}"
-                }
-            }
-        },
-        "background":{
-            "$description": "Colors for component backgrounds",
-            "dark":{
-                "muted":{
-                    "default":{
-                        "$description":"Base level section, cards, etc.",
-                        "$value": "{color.core.neutral.default.900}"
-                    },
-                    "alpha":{
-                        "$description":"Component backgrounds on hover states",
-                        "$value": "{color.core.neutral.lighten.900}"
-                    }
-                },
-                "default":{
-                    "default":{
-                        "$description":"1st level section, cards, etc.",
-                        "$value":"{color.core.neutral.default.800}"
-                    },
-                    "alpha":{
-                        "$description":"Component backgrounds on hover states",
-                        "$value":"{color.core.neutral.lighten.800}"
-                    }
-                },
-                "strong":{
-                    "default":{
-                        "$description":"Dropdowns, modals, 2nd level cards etc.",
-                        "$value":"{color.core.neutral.default.700}"
-                    },
-                    "alpha":{
-                        "$description":"Component backgrounds on hover states",
-                        "$value":"{color.core.neutral.lighten.700}"
-                    }
-                },
-                "elevated":{
-                    "default":{
-                        "$description":"Components on strong backgrounds",
-                        "$value":"{color.core.neutral.default.600}"
-                    },
-                    "alpha":{
-                        "$description":"Component backgrounds on hover states",
-                        "$value":"{color.core.neutral.lighten.600}"
-                    }
-                }
-            },
-            "light":{
-                "default":{
-                    "default":{
-                        "$description":"All background for light elements",
-                        "$value":"{color.core.neutral.default.50}"
-                    },
-                    "alpha":{
-                        "$value":"{color.core.neutral.darken.50}"
-                    }
-                },
-                "muted":{
-                    "default":{
-                        "$description":"Deeper background for light elements",
-                        "$value":"{color.core.neutral.default.300}"
-                    },
-                    "alpha":{
-                        "$value":"{color.core.neutral.darken.300}"
-                    }
-                },
-                "faded":{
-                    "default":{
-                        "$description":"Background for disabled light elements",
-                        "$value":"{color.core.neutral.default.400}"
-                    },
-                    "alpha":{
-                        "$value":"{color.core.neutral.darken.400}"
-                    }
-                }
-            },
-            "overlay":{
-                "default":{
-                    "$description":"Overlay behind dialogs, side sheets, etc.",
-                    "$value": "{color.core.neutral.darken.700}"
-                }
-            },
-            "action":{
-                "primary":{
-                    "muted":{
-                        "$description":"Component backgrounds on pressed states",
-                        "$value":"{color.core.blue.800}"
-                    },
-                    "default":{
-                        "$description":"Component backgrounds on default states, callouts, etc.",
-                        "$value":"{color.core.blue.700}"
-                    },
-                    "strong":{
-                        "$description":"Light component backgrounds",
-                        "$value":"{color.core.blue.600}"
-                    },
-                    "light":{
-                        "$description":"Light container backgrounds",
-                        "$value":"{color.core.blue.100}"
-                    }
-                },
-                "error":{
-                    "muted":{
-                        "$description":"Component backgrounds on pressed states",
-                        "$value":"{color.core.red.800}"
-                    },
-                    "default":{
-                        "$description":"Component backgrounds on default states, callouts, etc.",
-                        "$value":"{color.core.red.700}"
-                    },
-                    "strong":{
-                        "$description":"Light component backgrounds",
-                        "$value":"{color.core.red.600}"
-                    },
-                    "light":{
-                        "$description":"Light container backgrounds",
-                        "$value":"{color.core.red.100}"
-                    }
-                },
-                "success":{
-                    "muted":{
-                        "$description":"Component backgrounds on pressed states",
-                        "$value":"{color.core.green.800}"
-                    },
-                    "default":{
-                        "$description":"Component backgrounds on default states, callouts, etc.",
-                        "$value":"{color.core.green.700}"
-                    },
-                    "strong":{
-                        "$description":"Light component backgrounds",
-                        "$value":"{color.core.green.600}"
-                    },
-                    "light":{
-                        "$description":"Light container backgrounds",
-                        "$value":"{color.core.green.100}"
-                    }
-                },
-                "caution":{
-                    "muted":{
-                        "$description":"Component backgrounds on pressed states",
-                        "$value":"{color.core.yellow.800}"
-                    },
-                    "default":{
-                        "$description":"Component backgrounds on default states, callouts, etc.",
-                        "$value":"{color.core.yellow.700}"
-                    },
-                    "strong":{
-                        "$description":"Light component backgrounds",
-                        "$value":"{color.core.yellow.600}"
-                    },
-                    "light":{
-                        "$description":"Light container backgrounds",
-                        "$value":"{color.core.yellow.100}"
-                    }
-                }
-            }
+  "color": {
+    "$type": "color",
+    "core": {
+      "$description": "Core set of colors that can be inherited from by other sets",
+      "base": {
+        "white": {
+          "$value": "#FFFFFF"
         }
+      },
+      "neutral": {
+        "default": {
+          "900": {
+            "$value": "#111928"
+          },
+
+          "50": {
+            "$value": "#F9FAFB"
+          }
+        },
+        "lighten": {
+          "900": {
+            "$value": "#6B9DFA29"
+          },
+
+          "50": {
+            "$value": "#FBFCFEFC"
+          }
+        },
+        "darken": {
+          "900": {
+            "$value": "#020B1CAN"
+          },
+
+          "50": {
+            "$value": "#37597B08"
+          }
+        }
+      },
+      "blue": {
+        "900": {
+          "$value": "#233876"
+        },
+
+        "50": {
+          "$value": "#EBF5FF"
+        }
+      },
+      "red": {
+        "900": {
+          "$value": "#771D1D"
+        },
+
+        "50": {
+          "$value": "#FDF2F2"
+        }
+      },
+      "green": {
+        "900": {
+          "$value": "#014737"
+        },
+
+        "50": {
+          "$value": "#F3FAF7"
+        }
+      },
+      "yellow": {
+        "900": {
+          "$value": "#633112"
+        },
+
+        "50": {
+          "$value": "#FDFDEA"
+        }
+      }
+    },
+    "text": {
+      "$description": "Colors for text & icons",
+      "dark": {
+        "muted": {
+          "$description": "On light bg:Disabled text, placeholders, etc.",
+          "$value": "{color.core.neutral.default.400}"
+        },
+        "default": {
+          "$description": "On light bg:Paragraphs, captions, etc.",
+          "$value": "{color.core.neutral.default.500}"
+        },
+        "strong": {
+          "$description": "On light bg:Headlines, active component labels, etc.",
+          "$value": "{color.core.neutral.default.900}"
+        }
+      },
+      "light": {
+        "muted": {
+          "$description": "On dark bg:Disabled text, placeholders, etc.",
+          "$value": "{color.core.neutral.default.400}"
+        },
+        "default": {
+          "$description": "On dark bg:Paragraphs, captions, etc.",
+          "$value": "{color.core.neutral.default.300}"
+        },
+        "strong": {
+          "$description": "On dark bg:Headlines, active component labels, etc.",
+          "$value": "{color.core.neutral.default.50}"
+        }
+      },
+      "action": {
+        "primary": {
+          "$description": "Accent, links etc.",
+          "$value": "{color.core.blue.400}"
+        },
+        "error": {
+          "$description": "Errors, destructive action labels etc.",
+          "$value": "{color.core.red.500}"
+        },
+        "success": {
+          "$description": "Success, positive text, etc.",
+          "$value": "{color.core.green.400}"
+        },
+        "caution": {
+          "$description": "Warnings, cautionary text, etc.",
+          "$value": "{color.core.yellow.400}"
+        }
+      }
+    },
+    "border": {
+      "$description": "Colors for component borders and dividers",
+      "default": {
+        "muted": {
+          "default": {
+            "$value": "{color.core.neutral.default.700}"
+          },
+          "alpha": {
+            "$description": "Dividers, separators, etc.",
+            "$value": "{color.core.neutral.lighten.700}"
+          }
+        },
+        "default": {
+          "default": {
+            "$value": "{color.core.neutral.default.600}"
+          },
+          "alpha": {
+            "$description": "Component borders on default state",
+            "$value": "{color.core.neutral.lighten.600}"
+          }
+        },
+        "strong": {
+          "default": {
+            "$value": "{color.core.neutral.default.500}"
+          },
+          "alpha": {
+            "$description": "Component borders on hover state",
+            "$value": "{color.core.neutral.lighten.500}"
+          }
+        }
+      },
+      "action": {
+        "primary": {
+          "$description": "Accent, active states etc.",
+          "$value": "{color.core.blue.600}"
+        },
+        "error": {
+          "$description": "Errors, alerts etc.",
+          "$value": "{color.core.red.500}"
+        }
+      }
+    },
+    "background": {
+      "$description": "Colors for component backgrounds",
+      "dark": {
+        "muted": {
+          "default": {
+            "$description": "Base level section, cards, etc.",
+            "$value": "{color.core.neutral.default.900}"
+          },
+          "alpha": {
+            "$description": "Component backgrounds on hover states",
+            "$value": "{color.core.neutral.lighten.900}"
+          }
+        },
+        "default": {
+          "default": {
+            "$description": "1st level section, cards, etc.",
+            "$value": "{color.core.neutral.default.800}"
+          },
+          "alpha": {
+            "$description": "Component backgrounds on hover states",
+            "$value": "{color.core.neutral.lighten.800}"
+          }
+        },
+        "strong": {
+          "default": {
+            "$description": "Dropdowns, modals, 2nd level cards etc.",
+            "$value": "{color.core.neutral.default.700}"
+          },
+          "alpha": {
+            "$description": "Component backgrounds on hover states",
+            "$value": "{color.core.neutral.lighten.700}"
+          }
+        },
+        "elevated": {
+          "default": {
+            "$description": "Components on strong backgrounds",
+            "$value": "{color.core.neutral.default.600}"
+          },
+          "alpha": {
+            "$description": "Component backgrounds on hover states",
+            "$value": "{color.core.neutral.lighten.600}"
+          }
+        }
+      },
+      "light": {
+        "default": {
+          "default": {
+            "$description": "All background for light elements",
+            "$value": "{color.core.neutral.default.50}"
+          },
+          "alpha": {
+            "$value": "{color.core.neutral.darken.50}"
+          }
+        },
+        "muted": {
+          "default": {
+            "$description": "Deeper background for light elements",
+            "$value": "{color.core.neutral.default.300}"
+          },
+          "alpha": {
+            "$value": "{color.core.neutral.darken.300}"
+          }
+        },
+        "faded": {
+          "default": {
+            "$description": "Background for disabled light elements",
+            "$value": "{color.core.neutral.default.400}"
+          },
+          "alpha": {
+            "$value": "{color.core.neutral.darken.400}"
+          }
+        }
+      },
+      "overlay": {
+        "default": {
+          "$description": "Overlay behind dialogs, side sheets, etc.",
+          "$value": "{color.core.neutral.darken.700}"
+        }
+      },
+      "action": {
+        "primary": {
+          "muted": {
+            "$description": "Component backgrounds on pressed states",
+            "$value": "{color.core.blue.800}"
+          },
+          "default": {
+            "$description": "Component backgrounds on default states, callouts, etc.",
+            "$value": "{color.core.blue.700}"
+          },
+          "strong": {
+            "$description": "Light component backgrounds",
+            "$value": "{color.core.blue.600}"
+          },
+          "light": {
+            "$description": "Light container backgrounds",
+            "$value": "{color.core.blue.100}"
+          }
+        },
+        "error": {
+          "muted": {
+            "$description": "Component backgrounds on pressed states",
+            "$value": "{color.core.red.800}"
+          },
+          "default": {
+            "$description": "Component backgrounds on default states, callouts, etc.",
+            "$value": "{color.core.red.700}"
+          },
+          "strong": {
+            "$description": "Light component backgrounds",
+            "$value": "{color.core.red.600}"
+          },
+          "light": {
+            "$description": "Light container backgrounds",
+            "$value": "{color.core.red.100}"
+          }
+        },
+        "success": {
+          "muted": {
+            "$description": "Component backgrounds on pressed states",
+            "$value": "{color.core.green.800}"
+          },
+          "default": {
+            "$description": "Component backgrounds on default states, callouts, etc.",
+            "$value": "{color.core.green.700}"
+          },
+          "strong": {
+            "$description": "Light component backgrounds",
+            "$value": "{color.core.green.600}"
+          },
+          "light": {
+            "$description": "Light container backgrounds",
+            "$value": "{color.core.green.100}"
+          }
+        },
+        "caution": {
+          "muted": {
+            "$description": "Component backgrounds on pressed states",
+            "$value": "{color.core.yellow.800}"
+          },
+          "default": {
+            "$description": "Component backgrounds on default states, callouts, etc.",
+            "$value": "{color.core.yellow.700}"
+          },
+          "strong": {
+            "$description": "Light component backgrounds",
+            "$value": "{color.core.yellow.600}"
+          },
+          "light": {
+            "$description": "Light container backgrounds",
+            "$value": "{color.core.yellow.100}"
+          }
+        }
+      }
     }
+  }
 }

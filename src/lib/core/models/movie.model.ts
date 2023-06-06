@@ -1,0 +1,20 @@
+export type Movie = {
+  id: string;
+  tmdb_id: number | null;
+  adult: boolean | null;
+  backdrop_path: string | null;
+  original_language: string | null;
+  original_title: string | null;
+  overview: string | null;
+  popularity: number | null;
+  genres: any[] | null;
+  poster_path: string | null;
+  release_date: string | null;
+  title: string | null;
+  video: boolean | null;
+  runtime: number | null;
+  vote_average: number | null;
+  vote_count: number | null;
+  created_at: Date;
+  updated_at: Date;
+};

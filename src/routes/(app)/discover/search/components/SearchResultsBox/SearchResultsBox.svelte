@@ -1,59 +1,54 @@
 <script lang="ts">
-  import { page } from '$app/stores';
+  import { isEmpty } from 'ramda';
 
-  import ReleasedDateAndRating from '$lib/components/Movie/ReleasedDateAndRating.svelte';
+  import MovieBubble from '$lib/components/MovieBubble/MovieBubble.svelte';
   import { APP_ROUTES } from '$lib/core/constants/app-routes.const';
   import { _pastSearches } from '$lib/core/constants/keys.const';
   import { saveToLocalStorage } from '$lib/core/utils/localstore';
-  import { parsePoster, POSTER_SIZES } from '$lib/core/utils/poster';
   import { serializeLocalstorage } from '$lib/core/utils/serialize-localstorage';
+  import { uniqArray } from '$lib/core/utils/uniq-array';
+  import { infiniteScroll } from '$lib/directives/infinite-scroll';
+
+  import { searchMovieStore } from '../../search-movie.store';
 
   const addMovieToPastSearch = async (movie: any) => {
     const movies = serializeLocalstorage(_pastSearches, []);
-    saveToLocalStorage(_pastSearches, [...new Set([...movies, movie])]);
+    const newMovies = uniqArray(
+      [...movies, { ...movie, queryDate: new Date().getUTCDate() }],
+      'id'
+    );
+    saveToLocalStorage(_pastSearches, newMovies);
   };
 
-  let query: string;
-  $: query = $page.url.searchParams.get('query');
+  const fetchMore = async () => {
+    await searchMovieStore.loadMore();
+  };
 </script>
 
-<section class="scroll-area pb-4">
+<section
+  class="scroll-area pb-4"
+  use:infiniteScroll={{
+    threshold: 10,
+    callback: fetchMore
+  }}
+>
   <div class="flex mt-2 mb-4">
-    <span class="text-h300 text-text-default-muted">
-      Search results for: <span class="text-text-default-strong">{query}</span>
+    <span class="text-h300 text-text-light-muted">
+      Search results for: <span class="text-text-light-strong">{$searchMovieStore.query}</span>
     </span>
   </div>
 
   <div class="flex flex-col gap-4">
-    {#each $page.data.movies.results as movie}
-      <a
-        href={APP_ROUTES.discover.movie.replace(':id', movie.id)}
-        on:click={() => addMovieToPastSearch(movie)}
-      >
-        <div class="flex w-full bg-bg-default-default-default rounded-xl overflow-hidden border">
-          <figure class="basis-[88px]">
-            <img
-              class="w-full"
-              src={parsePoster(movie.poster_path, POSTER_SIZES.enum.w342)}
-              alt=""
-            />
-          </figure>
-
-          <article class="flex flex-col flex-1 py-2 px-3 items-stretch">
-            <div class="flex-col gap-1">
-              <span class="text-t100 text-text-default-strong">{movie.title}</span>
-              <ReleasedDateAndRating {movie} />
-              <p class="text-t100 text-text-default-default line-clamp-2">{movie.overview}</p>
-            </div>
-
-            <div class="mt-auto flex items-center gap-2 ">
-              <span class="text-t100 text-text-default-muted">Watch on:</span>
-              <div class="w-5 h-5 bg-red-50" />
-            </div>
-          </article>
-        </div>
-      </a>
-    {/each}
+    {#if !isEmpty($searchMovieStore.movies)}
+      {#each $searchMovieStore.movies as movie}
+        <a
+          href={APP_ROUTES.discover.movie.replace(':id', movie.tmdb_id)}
+          on:click={() => addMovieToPastSearch(movie)}
+        >
+          <MovieBubble {movie} />
+        </a>
+      {/each}
+    {/if}
   </div>
 </section>
 

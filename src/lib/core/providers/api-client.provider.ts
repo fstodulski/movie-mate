@@ -1,6 +1,5 @@
 import wretch from 'wretch';
-
-import { parseError } from '../utils/parse-error';
+import QueryStringAddon from 'wretch/addons/queryString';
 
 const BASE_URL = import.meta.env.VITE_API_ENDPOINT;
 
@@ -10,10 +9,4 @@ export const apiClient = wretch(BASE_URL)
     'Content-Type': 'application/json',
     Accept: 'application/json'
   })
-  .resolve((_) =>
-    _.forbidden(parseError)
-      .unauthorized(parseError)
-      .internalError(parseError)
-      .badRequest(parseError)
-      .notFound(parseError)
-  );
+  .addon(QueryStringAddon);

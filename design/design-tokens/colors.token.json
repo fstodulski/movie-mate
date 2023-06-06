@@ -1,487 +1,487 @@
 {
-    "color": {
-        "$type": "color",
-        "core": {
-            "$description": "Core set of colors that can be inherited from by other sets",
-            "base": {
-                "white": {
-                    "$value": "#FFFFFF"
-                },
-                "black": {
-                    "$value": "#000000"
-                }
-            },
-            "neutral":{
-                "default":{
-                    "900":{
-                        "$value": "#111928"
-                    },
-                    "800":{
-                        "$value": "#1F2A37"
-                    },
-                    "700":{
-                        "$value": "#374151"
-                    },
-                    "600":{
-                        "$value": "#4B5563"
-                    },
-                    "500":{
-                        "$value": "#6B7280"
-                    },
-                    "400":{
-                        "$value": "#9CA3AF"
-                    },
-                    "300":{
-                        "$value": "#D1D5DB"
-                    },
-                    "200":{
-                        "$value": "#E5E7EB"
-                    },
-                    "100":{
-                        "$value": "#F3F4F6"
-                    },
-                    "50":{
-                        "$value": "#F9FAFB"
-                    }
-                },
-                "lighten":{
-                    "900":{
-                        "$value": "#6B9DFA29"
-                    },
-                    "800":{
-                        "$value": "#8EC1FA38"
-                    },
-                    "700":{
-                        "$value": "#AACAFD52"
-                    },
-                    "600":{
-                        "$value": "#C3DBFE63"
-                    },
-                    "500":{
-                        "$value": "#D0DEFB82"
-                    },
-                    "400":{
-                        "$value": "#E1EBFEB0"
-                    },
-                    "300":{
-                        "$value": "#F5F9FFDB"
-                    },
-                    "200":{
-                        "$value": "#F7F8FDED"
-                    },
-                    "100":{
-                        "$value": "#FBFCFEF7"
-                    },
-                    "50":{
-                        "$value": "#FBFCFEFC"
-                    }
-                },
-                "darken":{
-                    "900":{
-                        "$value": "#020B1CAN"
-                    },
-                    "800":{
-                        "$value": "#000E1FE0"
-                    },
-                    "700":{
-                        "$value": "#020E22C9"
-                    },
-                    "600":{
-                        "$value": "#011023B5"
-                    },
-                    "500":{
-                        "$value": "#04112A96"
-                    },
-                    "400":{
-                        "$value": "#01133263"
-                    },
-                    "300":{
-                        "$value": "#0D23441C"
-                    },
-                    "200":{
-                        "$value": "#1325491C"
-                    },
-                    "100":{
-                        "$value": "#0F244D0D"
-                    },
-                    "50":{
-                        "$value": "#37597B08"
-                    }
-                }
-            },
-            "blue":{
-                "900":{
-                    "$value": "#233876"
-                },
-                "800":{
-                    "$value": "#1E429F"
-                },
-                "700":{
-                    "$value": "#1A56DB"
-                },
-                "600":{
-                    "$value": "#1C64F2"
-                },
-                "500":{
-                    "$value": "#3F83F8"
-                },
-                "400":{
-                    "$value": "#76A9FA"
-                },
-                "300":{
-                    "$value": "#A4CAFE"
-                },
-                "200":{
-                    "$value": "#C3DDFD"
-                },
-                "100":{
-                    "$value": "#E1EFFE"
-                },
-                "50":{
-                    "$value": "#EBF5FF"
-                }
-            },
-            "red":{
-                "900":{
-                    "$value": "#771D1D"
-                },
-                "800":{
-                    "$value": "#9B1C1C"
-                },
-                "700":{
-                    "$value": "#C81E1E"
-                },
-                "600":{
-                    "$value": "#E02424"
-                },
-                "500":{
-                    "$value": "#F05252"
-                },
-                "400":{
-                    "$value": "#F98080"
-                },
-                "300":{
-                    "$value": "#F8B4B4"
-                },
-                "200":{
-                    "$value": "#FBD5D5"
-                },
-                "100":{
-                    "$value": "#FDE8E8"
-                },
-                "50":{
-                    "$value": "#FDF2F2"
-                }
-            },
-            "green":{
-                "900":{
-                    "$value": "#014737"
-                },
-                "800":{
-                    "$value": "#03543F"
-                },
-                "700":{
-                    "$value": "#046C4E"
-                },
-                "600": {
-                    "$value": "#057A55"
-                },
-                "500": {
-                    "$value": "#0E9F6E"
-                },
-                "400":{
-                    "$value": "#31C48D"
-                },
-                "300":{
-                    "$value": "#84E1BC"
-                },
-                "200":{
-                    "$value": "#BCF0DA"
-                },
-                "100":{
-                    "$value": "#DEF7EC"
-                },
-                "50":{
-                    "$value": "#F3FAF7"
-                }
-            },
-            "yellow":{
-                "900":{
-                    "$value": "#633112"
-                },
-                "800": {
-                    "$value": "#723B13"
-                },
-                "700": {
-                    "$value": "#8E4B10"
-                },
-                "600":{
-                    "$value": "#9F580A"
-                },
-                "500":{
-                    "$value": "#C27803"
-                },
-                "400":{
-                    "$value": "#E3A008"
-                },
-                "300": {
-                    "$value": "#FACA15"
-                },
-                "200": {
-                    "$value": "#FCE96A"
-                },
-                "100": {
-                    "$value": "#FDF6B2"
-                },
-                "50": {
-                    "$value": "#FDFDEA"
-                }
-            }
+  "color": {
+    "$type": "color",
+    "core": {
+      "$description": "Core set of colors that can be inherited from by other sets",
+      "base": {
+        "white": {
+          "$value": "#FFFFFF"
         },
-        "text":{
-            "$description": "Colors for text & icons",
-            "dark":{
-                "muted":{
-                    "$description": "On light bg:Disabled text, placeholders, etc.",
-                    "$value": "{color.core.neutral.default.400}"
-                },
-                "default":{
-                    "$description": "On light bg:Paragraphs, captions, etc.",
-                    "$value": "{color.core.neutral.default.500}"
-                },
-                "strong":{
-                    "$description": "On light bg:Headlines, active component labels, etc.",
-                    "$value": "{color.core.neutral.default.900}"
-                }
-            },
-            "light":{
-                "muted":{
-                    "$description": "On dark bg:Disabled text, placeholders, etc.",
-                    "$value": "{color.core.neutral.default.400}"
-                },
-                "default":{
-                    "$description": "On dark bg:Paragraphs, captions, etc.",
-                    "$value": "{color.core.neutral.default.300}"
-                },
-                "strong":{
-                    "$description": "On dark bg:Headlines, active component labels, etc.",
-                    "$value": "{color.core.neutral.default.50}"
-                }
-            },
-            "action":{
-                "primary":{
-                    "$description": "Accent, links etc.",
-                    "$value": "{color.core.blue.400}"
-                },
-                "error":{
-                    "$description": "Errors, destructive action labels etc.",
-                    "$value": "{color.core.red.500}"
-                },
-                "success":{
-                    "$description": "Success, positive text, etc.",
-                    "$value": "{color.core.green.400}"
-                },
-                "caution":{
-                    "$description": "Warnings, cautionary text, etc.",
-                    "$value": "{color.core.yellow.400}"
-                }
-            }
-        },
-        "border":{
-            "$description": "Colors for component borders and dividers",
-            "default":{
-                "muted":{
-                    "default":{
-                        "$value": "{color.core.neutral.default.700}"
-                    },
-                    "alpha":{
-                        "$description": "Dividers, separators, etc.",
-                        "$value": "{color.core.neutral.lighten.700}"
-                    }
-                },
-                "default":{
-                    "default":{
-                        "$value": "{color.core.neutral.default.600}"
-                    },
-                    "alpha":{
-                        "$description": "Component borders on default state",
-                        "$value": "{color.core.neutral.lighten.600}"
-                    }
-                },
-                "strong":{
-                    "default":{
-                        "$value": "{color.core.neutral.default.500}"
-                    },
-                    "alpha":{
-                        "$description": "Component borders on hover state",
-                        "$value": "{color.core.neutral.lighten.500}"
-                    }
-                }
-            },
-            "action":{
-                "primary":{
-                    "$description": "Accent, active states etc.",
-                    "$value": "{color.core.blue.600}"
-                },
-                "error":{
-                    "$description": "Errors, alerts etc.",
-                    "$value": "{color.core.red.500}"
-                }
-            }
-        },
-        "background":{
-            "$description": "Colors for component backgrounds",
-            "dark":{
-                "muted":{
-                    "default":{
-                        "$description":"Base level section, cards, etc.",
-                        "$value": "{color.core.neutral.default.900}"
-                    },
-                    "alpha":{
-                        "$description":"Component backgrounds on hover states",
-                        "$value": "{color.core.neutral.lighten.900}"
-                    }
-                },
-                "default":{
-                    "default":{
-                        "$description":"1st level section, cards, etc.",
-                        "$value":"{color.core.neutral.default.800}"
-                    },
-                    "alpha":{
-                        "$description":"Component backgrounds on hover states",
-                        "$value":"{color.core.neutral.lighten.800}"
-                    }
-                },
-                "strong":{
-                    "default":{
-                        "$description":"Dropdowns, modals, 2nd level cards etc.",
-                        "$value":"{color.core.neutral.default.700}"
-                    },
-                    "alpha":{
-                        "$description":"Component backgrounds on hover states",
-                        "$value":"{color.core.neutral.lighten.700}"
-                    }
-                },
-                "elevated":{
-                    "default":{
-                        "$description":"Components on strong backgrounds",
-                        "$value":"{color.core.neutral.default.600}"
-                    },
-                    "alpha":{
-                        "$description":"Component backgrounds on hover states",
-                        "$value":"{color.core.neutral.lighten.600}"
-                    }
-                }
-            },
-            "light":{
-                "default":{
-                    "default":{
-                        "$description":"All background for light elements",
-                        "$value":"{color.core.neutral.default.50}"
-                    },
-                    "alpha":{
-                        "$value":"{color.core.neutral.darken.50}"
-                    }
-                },
-                "muted":{
-                    "default":{
-                        "$description":"Deeper background for light elements",
-                        "$value":"{color.core.neutral.default.300}"
-                    },
-                    "alpha":{
-                        "$value":"{color.core.neutral.darken.300}"
-                    }
-                },
-                "faded":{
-                    "default":{
-                        "$description":"Background for disabled light elements",
-                        "$value":"{color.core.neutral.default.400}"
-                    },
-                    "alpha":{
-                        "$value":"{color.core.neutral.darken.400}"
-                    }
-                }
-            },
-            "overlay":{
-                "default":{
-                    "$description":"Overlay behind dialogs, side sheets, etc.",
-                    "$value": "{color.core.neutral.darken.700}"
-                }
-            },
-            "action":{
-                "primary":{
-                    "muted":{
-                        "$description":"Component backgrounds on pressed states",
-                        "$value":"{color.core.blue.800}"
-                    },
-                    "default":{
-                        "$description":"Component backgrounds on default states, callouts, etc.",
-                        "$value":"{color.core.blue.700}"
-                    },
-                    "strong":{
-                        "$description":"Light component backgrounds",
-                        "$value":"{color.core.blue.600}"
-                    },
-                    "light":{
-                        "$description":"Light container backgrounds",
-                        "$value":"{color.core.blue.100}"
-                    }
-                },
-                "error":{
-                    "muted":{
-                        "$description":"Component backgrounds on pressed states",
-                        "$value":"{color.core.red.800}"
-                    },
-                    "default":{
-                        "$description":"Component backgrounds on default states, callouts, etc.",
-                        "$value":"{color.core.red.700}"
-                    },
-                    "strong":{
-                        "$description":"Light component backgrounds",
-                        "$value":"{color.core.red.600}"
-                    },
-                    "light":{
-                        "$description":"Light container backgrounds",
-                        "$value":"{color.core.red.100}"
-                    }
-                },
-                "success":{
-                    "muted":{
-                        "$description":"Component backgrounds on pressed states",
-                        "$value":"{color.core.green.800}"
-                    },
-                    "default":{
-                        "$description":"Component backgrounds on default states, callouts, etc.",
-                        "$value":"{color.core.green.700}"
-                    },
-                    "strong":{
-                        "$description":"Light component backgrounds",
-                        "$value":"{color.core.green.600}"
-                    },
-                    "light":{
-                        "$description":"Light container backgrounds",
-                        "$value":"{color.core.green.100}"
-                    }
-                },
-                "caution":{
-                    "muted":{
-                        "$description":"Component backgrounds on pressed states",
-                        "$value":"{color.core.yellow.800}"
-                    },
-                    "default":{
-                        "$description":"Component backgrounds on default states, callouts, etc.",
-                        "$value":"{color.core.yellow.700}"
-                    },
-                    "strong":{
-                        "$description":"Light component backgrounds",
-                        "$value":"{color.core.yellow.600}"
-                    },
-                    "light":{
-                        "$description":"Light container backgrounds",
-                        "$value":"{color.core.yellow.100}"
-                    }
-                }
-            }
+        "black": {
+          "$value": "#000000"
         }
+      },
+      "neutral": {
+        "default": {
+          "900": {
+            "$value": "#111928"
+          },
+          "800": {
+            "$value": "#1F2A37"
+          },
+          "700": {
+            "$value": "#374151"
+          },
+          "600": {
+            "$value": "#4B5563"
+          },
+          "500": {
+            "$value": "#6B7280"
+          },
+          "400": {
+            "$value": "#9CA3AF"
+          },
+          "300": {
+            "$value": "#D1D5DB"
+          },
+          "200": {
+            "$value": "#E5E7EB"
+          },
+          "100": {
+            "$value": "#F3F4F6"
+          },
+          "50": {
+            "$value": "#F9FAFB"
+          }
+        },
+        "lighten": {
+          "900": {
+            "$value": "#6B9DFA29"
+          },
+          "800": {
+            "$value": "#8EC1FA38"
+          },
+          "700": {
+            "$value": "#AACAFD52"
+          },
+          "600": {
+            "$value": "#C3DBFE63"
+          },
+          "500": {
+            "$value": "#D0DEFB82"
+          },
+          "400": {
+            "$value": "#E1EBFEB0"
+          },
+          "300": {
+            "$value": "#F5F9FFDB"
+          },
+          "200": {
+            "$value": "#F7F8FDED"
+          },
+          "100": {
+            "$value": "#FBFCFEF7"
+          },
+          "50": {
+            "$value": "#FBFCFEFC"
+          }
+        },
+        "darken": {
+          "900": {
+            "$value": "#020B1CAN"
+          },
+          "800": {
+            "$value": "#000E1FE0"
+          },
+          "700": {
+            "$value": "#020E22C9"
+          },
+          "600": {
+            "$value": "#011023B5"
+          },
+          "500": {
+            "$value": "#04112A96"
+          },
+          "400": {
+            "$value": "#01133263"
+          },
+          "300": {
+            "$value": "#0D23441C"
+          },
+          "200": {
+            "$value": "#1325491C"
+          },
+          "100": {
+            "$value": "#0F244D0D"
+          },
+          "50": {
+            "$value": "#37597B08"
+          }
+        }
+      },
+      "blue": {
+        "900": {
+          "$value": "#233876"
+        },
+        "800": {
+          "$value": "#1E429F"
+        },
+        "700": {
+          "$value": "#1A56DB"
+        },
+        "600": {
+          "$value": "#1C64F2"
+        },
+        "500": {
+          "$value": "#3F83F8"
+        },
+        "400": {
+          "$value": "#76A9FA"
+        },
+        "300": {
+          "$value": "#A4CAFE"
+        },
+        "200": {
+          "$value": "#C3DDFD"
+        },
+        "100": {
+          "$value": "#E1EFFE"
+        },
+        "50": {
+          "$value": "#EBF5FF"
+        }
+      },
+      "red": {
+        "900": {
+          "$value": "#771D1D"
+        },
+        "800": {
+          "$value": "#9B1C1C"
+        },
+        "700": {
+          "$value": "#C81E1E"
+        },
+        "600": {
+          "$value": "#E02424"
+        },
+        "500": {
+          "$value": "#F05252"
+        },
+        "400": {
+          "$value": "#F98080"
+        },
+        "300": {
+          "$value": "#F8B4B4"
+        },
+        "200": {
+          "$value": "#FBD5D5"
+        },
+        "100": {
+          "$value": "#FDE8E8"
+        },
+        "50": {
+          "$value": "#FDF2F2"
+        }
+      },
+      "green": {
+        "900": {
+          "$value": "#014737"
+        },
+        "800": {
+          "$value": "#03543F"
+        },
+        "700": {
+          "$value": "#046C4E"
+        },
+        "600": {
+          "$value": "#057A55"
+        },
+        "500": {
+          "$value": "#0E9F6E"
+        },
+        "400": {
+          "$value": "#31C48D"
+        },
+        "300": {
+          "$value": "#84E1BC"
+        },
+        "200": {
+          "$value": "#BCF0DA"
+        },
+        "100": {
+          "$value": "#DEF7EC"
+        },
+        "50": {
+          "$value": "#F3FAF7"
+        }
+      },
+      "yellow": {
+        "900": {
+          "$value": "#633112"
+        },
+        "800": {
+          "$value": "#723B13"
+        },
+        "700": {
+          "$value": "#8E4B10"
+        },
+        "600": {
+          "$value": "#9F580A"
+        },
+        "500": {
+          "$value": "#C27803"
+        },
+        "400": {
+          "$value": "#E3A008"
+        },
+        "300": {
+          "$value": "#FACA15"
+        },
+        "200": {
+          "$value": "#FCE96A"
+        },
+        "100": {
+          "$value": "#FDF6B2"
+        },
+        "50": {
+          "$value": "#FDFDEA"
+        }
+      }
+    },
+    "text": {
+      "$description": "Colors for text & icons",
+      "dark": {
+        "muted": {
+          "$description": "On light bg:Disabled text, placeholders, etc.",
+          "$value": "{color.core.neutral.default.400}"
+        },
+        "default": {
+          "$description": "On light bg:Paragraphs, captions, etc.",
+          "$value": "{color.core.neutral.default.500}"
+        },
+        "strong": {
+          "$description": "On light bg:Headlines, active component labels, etc.",
+          "$value": "{color.core.neutral.default.900}"
+        }
+      },
+      "light": {
+        "muted": {
+          "$description": "On dark bg:Disabled text, placeholders, etc.",
+          "$value": "{color.core.neutral.default.400}"
+        },
+        "default": {
+          "$description": "On dark bg:Paragraphs, captions, etc.",
+          "$value": "{color.core.neutral.default.300}"
+        },
+        "strong": {
+          "$description": "On dark bg:Headlines, active component labels, etc.",
+          "$value": "{color.core.neutral.default.50}"
+        }
+      },
+      "action": {
+        "primary": {
+          "$description": "Accent, links etc.",
+          "$value": "{color.core.blue.400}"
+        },
+        "error": {
+          "$description": "Errors, destructive action labels etc.",
+          "$value": "{color.core.red.500}"
+        },
+        "success": {
+          "$description": "Success, positive text, etc.",
+          "$value": "{color.core.green.400}"
+        },
+        "caution": {
+          "$description": "Warnings, cautionary text, etc.",
+          "$value": "{color.core.yellow.400}"
+        }
+      }
+    },
+    "border": {
+      "$description": "Colors for component borders and dividers",
+      "default": {
+        "muted": {
+          "default": {
+            "$value": "{color.core.neutral.default.700}"
+          },
+          "alpha": {
+            "$description": "Dividers, separators, etc.",
+            "$value": "{color.core.neutral.lighten.700}"
+          }
+        },
+        "default": {
+          "default": {
+            "$value": "{color.core.neutral.default.600}"
+          },
+          "alpha": {
+            "$description": "Component borders on default state",
+            "$value": "{color.core.neutral.lighten.600}"
+          }
+        },
+        "strong": {
+          "default": {
+            "$value": "{color.core.neutral.default.500}"
+          },
+          "alpha": {
+            "$description": "Component borders on hover state",
+            "$value": "{color.core.neutral.lighten.500}"
+          }
+        }
+      },
+      "action": {
+        "primary": {
+          "$description": "Accent, active states etc.",
+          "$value": "{color.core.blue.600}"
+        },
+        "error": {
+          "$description": "Errors, alerts etc.",
+          "$value": "{color.core.red.500}"
+        }
+      }
+    },
+    "background": {
+      "$description": "Colors for component backgrounds",
+      "dark": {
+        "muted": {
+          "default": {
+            "$description": "Base level section, cards, etc.",
+            "$value": "{color.core.neutral.default.900}"
+          },
+          "alpha": {
+            "$description": "Component backgrounds on hover states",
+            "$value": "{color.core.neutral.lighten.900}"
+          }
+        },
+        "default": {
+          "default": {
+            "$description": "1st level section, cards, etc.",
+            "$value": "{color.core.neutral.default.800}"
+          },
+          "alpha": {
+            "$description": "Component backgrounds on hover states",
+            "$value": "{color.core.neutral.lighten.800}"
+          }
+        },
+        "strong": {
+          "default": {
+            "$description": "Dropdowns, modals, 2nd level cards etc.",
+            "$value": "{color.core.neutral.default.700}"
+          },
+          "alpha": {
+            "$description": "Component backgrounds on hover states",
+            "$value": "{color.core.neutral.lighten.700}"
+          }
+        },
+        "elevated": {
+          "default": {
+            "$description": "Components on strong backgrounds",
+            "$value": "{color.core.neutral.default.600}"
+          },
+          "alpha": {
+            "$description": "Component backgrounds on hover states",
+            "$value": "{color.core.neutral.lighten.600}"
+          }
+        }
+      },
+      "light": {
+        "default": {
+          "default": {
+            "$description": "All background for light elements",
+            "$value": "{color.core.neutral.default.50}"
+          },
+          "alpha": {
+            "$value": "{color.core.neutral.darken.50}"
+          }
+        },
+        "muted": {
+          "default": {
+            "$description": "Deeper background for light elements",
+            "$value": "{color.core.neutral.default.300}"
+          },
+          "alpha": {
+            "$value": "{color.core.neutral.darken.300}"
+          }
+        },
+        "faded": {
+          "default": {
+            "$description": "Background for disabled light elements",
+            "$value": "{color.core.neutral.default.400}"
+          },
+          "alpha": {
+            "$value": "{color.core.neutral.darken.400}"
+          }
+        }
+      },
+      "overlay": {
+        "default": {
+          "$description": "Overlay behind dialogs, side sheets, etc.",
+          "$value": "{color.core.neutral.darken.700}"
+        }
+      },
+      "action": {
+        "primary": {
+          "muted": {
+            "$description": "Component backgrounds on pressed states",
+            "$value": "{color.core.blue.800}"
+          },
+          "default": {
+            "$description": "Component backgrounds on default states, callouts, etc.",
+            "$value": "{color.core.blue.700}"
+          },
+          "strong": {
+            "$description": "Light component backgrounds",
+            "$value": "{color.core.blue.600}"
+          },
+          "light": {
+            "$description": "Light container backgrounds",
+            "$value": "{color.core.blue.100}"
+          }
+        },
+        "error": {
+          "muted": {
+            "$description": "Component backgrounds on pressed states",
+            "$value": "{color.core.red.800}"
+          },
+          "default": {
+            "$description": "Component backgrounds on default states, callouts, etc.",
+            "$value": "{color.core.red.700}"
+          },
+          "strong": {
+            "$description": "Light component backgrounds",
+            "$value": "{color.core.red.600}"
+          },
+          "light": {
+            "$description": "Light container backgrounds",
+            "$value": "{color.core.red.100}"
+          }
+        },
+        "success": {
+          "muted": {
+            "$description": "Component backgrounds on pressed states",
+            "$value": "{color.core.green.800}"
+          },
+          "default": {
+            "$description": "Component backgrounds on default states, callouts, etc.",
+            "$value": "{color.core.green.700}"
+          },
+          "strong": {
+            "$description": "Light component backgrounds",
+            "$value": "{color.core.green.600}"
+          },
+          "light": {
+            "$description": "Light container backgrounds",
+            "$value": "{color.core.green.100}"
+          }
+        },
+        "caution": {
+          "muted": {
+            "$description": "Component backgrounds on pressed states",
+            "$value": "{color.core.yellow.800}"
+          },
+          "default": {
+            "$description": "Component backgrounds on default states, callouts, etc.",
+            "$value": "{color.core.yellow.700}"
+          },
+          "strong": {
+            "$description": "Light component backgrounds",
+            "$value": "{color.core.yellow.600}"
+          },
+          "light": {
+            "$description": "Light container backgrounds",
+            "$value": "{color.core.yellow.100}"
+          }
+        }
+      }
     }
+  }
 }

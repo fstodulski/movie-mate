@@ -2,15 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
-@import 'typography.scss';
+@import 'typography';
+@import 'border';
+@import '_buttons';
 
 body,
 html {
   @apply bg-background-dark-muted-default;
+  font-family: 'Inter', sans-serif;
   scroll-behavior: auto;
 }
 
 @media screen and (prefers-reduced-motion: reduce) {
   html {
   }
+}
+
+input {
+  @apply bg-background-dark-muted-alpha/[0.16] text-text-light-default border-border-default-muted-alpha/[0.32] #{!important};
 }
