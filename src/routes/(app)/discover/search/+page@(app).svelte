@@ -35,7 +35,7 @@
 <svelte:window bind:innerHeight />
 
 <aside class="fixed top-0 left-0 w-full h-screen bg-bg-default-muted-default z-50 px-4 py-4">
-  <div in:fly={{ y: 50, duration: 400 }} class="flex w-full gap-2 items-center pb-4">
+  <div in:fly|global={{ y: 50, duration: 400 }} class="flex w-full gap-2 items-center pb-4">
     <Input
       id="search"
       type="text"

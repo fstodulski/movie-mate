@@ -56,8 +56,8 @@
 <svelte:window bind:innerHeight={height} />
 
 <aside
-  in:fly={{ y: height, duration: 1000 }}
-  out:fly={{ y: height * 1.2, duration: 1000 }}
+  in:fly|global={{ y: height, duration: 1000 }}
+  out:fly|global={{ y: height * 1.2, duration: 1000 }}
   class="fixed z-[101] max-h-[98%] overflow-y-scroll bottom-0 left-0 animation ease-in w-full rounded-tl-md rounded-tr-md bg-background-dark-muted-default"
   style="transform: translateY({roadY}px);"
   class:closing={isClosing}
