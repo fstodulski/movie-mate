@@ -12,6 +12,9 @@ export type Movie = {
   release_date: string | null;
   title: string | null;
   video: boolean | null;
+  status: string | null;
+  budget: number | null;
+  revenue: number | null;
   runtime: number | null;
   vote_average: number | null;
   vote_count: number | null;

@@ -112,6 +112,9 @@ module.exports = {
             }
           }
         },
+        placeholder: {
+          default: '#1F2A37',
+        },
         core: {
           neutral: {
             default: {

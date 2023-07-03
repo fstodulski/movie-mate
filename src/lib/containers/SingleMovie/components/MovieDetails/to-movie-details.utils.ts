@@ -14,8 +14,8 @@ export const toMovieDetailsUtils = (data: {
     duration: `${data.movie?.runtime} min`,
     director: data.credits.crew.find((crew) => crew.job === 'Director')?.name,
     screenPlay: data.credits.crew.find((crew) => crew.job === 'Screenplay')?.name,
-    status: data.movie?.status ? data.movie.status.toUpperCase() : 'N/A',
-    ['original lang.']: data.movie?.original_language.toUpperCase(),
+    status: data.movie?.status ? data.movie.status?.toUpperCase() : 'N/A',
+    ['original lang.']: data.movie?.original_language?.toUpperCase(),
     budget: data.movie.budget ? `$${data.movie.budget}` : 'N/A',
     revenue: data.movie.revenue ? `$${data.movie.revenue}` : 'N/A'
   };
