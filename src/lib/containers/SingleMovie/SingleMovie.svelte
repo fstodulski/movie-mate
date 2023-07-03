@@ -5,6 +5,7 @@
   import Metadata from '$lib/containers/SingleMovie/components/Metadata/Metadata.svelte';
   import MovieDetails from '$lib/containers/SingleMovie/components/MovieDetails/MovieDetails.svelte';
   import Review from '$lib/containers/SingleMovie/components/Review/Review.svelte';
+  import Actions from '$lib/containers/SingleMovie/containers/Actions/Actions.svelte';
   import StreamProviders from '$lib/containers/SingleMovie/containers/StreamProviders/StreamProviders.svelte';
   // import Credits from '$lib/containers/SingleMovie/components/Credits/Credits.svelte';
   // import MovieDetails from '$lib/containers/SingleMovie/components/MovieDetails/MovieDetails.svelte';
@@ -43,12 +44,12 @@
         Error
       {/if}
     {/await}
-    <!--    <Actions-->
-    <!--      data={{-->
-    <!--        movie: data.movie,-->
-    <!--        movieStatus: data.movieStatus-->
-    <!--      }}-->
-    <!--    />-->
+    <Actions
+      data={{
+        movie: data.movie,
+        movieStatus: data.movieStatus
+      }}
+    />
     <Review data={data.movie} />
     <StreamProviders
       data={{

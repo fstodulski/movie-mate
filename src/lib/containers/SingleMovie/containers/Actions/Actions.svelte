@@ -13,8 +13,8 @@
   import MovieAddedToWatchList from './components/MovieAddedToWatchList/MovieAddedToWatchList.svelte';
 
   export let data: {
-    movie: Partial<Movie>;
-    movieStatus: any;
+    movie: Promise<Partial<Movie>>;
+    movieStatus: Promise<MovieStatus>;
   };
 
   let addedToWatchlistToastVisible = false;
@@ -44,30 +44,33 @@
       await update();
     };
   };
-  $: isMovieOnWatchlist = data.movieStatus ? data.movieStatus === MovieStatus.ON_WATCHLIST : false;
 </script>
 
-<div class="flex flex-col gap-2 px-3 w-full justify-between">
-  <form action="?/addToWatchlist" method="POST" use:enhance={submit}>
-    <button
-      class="btn primary md w-full"
-      type="submit"
-      class:pointer-events-none={isMovieOnWatchlist}
-    >
-      <Icon
-        size="20px"
-        src={Bookmark}
-        class={isMovieOnWatchlist && 'text-text-action-caution'}
-        theme={isMovieOnWatchlist && 'solid'}
-      />
-      {isMovieOnWatchlist ? 'Want to watch' : 'Add to watchlist'}
+{#await data.movieStatus then movieStatus}
+  {@const isMovieOnWatchlist = movieStatus === MovieStatus.ON_WATCHLIST}
+
+  <div class="flex flex-col gap-2 px-3 w-full justify-between">
+    <form action="?/addToWatchlist" method="POST" use:enhance={submit}>
+      <button
+        class="btn primary md w-full"
+        type="submit"
+        class:pointer-events-none={isMovieOnWatchlist}
+      >
+        <Icon
+          size="20px"
+          src={Bookmark}
+          class={isMovieOnWatchlist && 'text-text-action-caution'}
+          theme={isMovieOnWatchlist && 'solid'}
+        />
+        {isMovieOnWatchlist ? 'Want to watch' : 'Add to watchlist'}
+      </button>
+    </form>
+    <button class="btn secondary md w-full">
+      <Icon size="20px" src={CheckboxCircle} />
+      Mark as watched
     </button>
-  </form>
-  <button class="btn secondary md w-full">
-    <Icon size="20px" src={CheckboxCircle} />
-    Mark as watched
-  </button>
-</div>
+  </div>
+{/await}
 
 <BottomDrawer open={isDrawerOpen} on:close={() => (isDrawerOpen = false)}>
   <SignInFirst />
@@ -79,5 +82,7 @@
     addedToWatchlistToastVisible = false;
   }}
 >
-  <MovieAddedToWatchList data={data.movie} />
+  {#await data.movie then movie}
+    <MovieAddedToWatchList data={movie} />
+  {/await}
 </Toast>
