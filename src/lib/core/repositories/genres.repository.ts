@@ -12,20 +12,11 @@ const findOne = async (id: string) => {
 
 export const GenresRepository = {
   findAll: async () => {
-    try {
-      const response = await apiClient.get(API_ENDPOINTS.genres.findAll).json(responseHandler<any>);
-
-      return {
-        genres: response.data,
-        error: null
-      };
-    } catch (e) {
-      console.log(e);
-      return {
-        genres: null,
-        error: parseError(e)
-      };
-    }
+    return apiClient
+      .get(API_ENDPOINTS.genres.findAll)
+      .json(responseHandler<any>)
+      .then((res) => ({ genres: res.data, error: null }))
+      .catch((e) => ({ genres: [], error: parseError(e) }));
   },
   findOne
 };

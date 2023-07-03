@@ -9,31 +9,33 @@
   export let upcoming: Array<any>;
 </script>
 
-{#if !isEmpty(popular)}
-  <FeedCategoryList
-    movies={popular}
-    icon={Fire}
-    title="Everyone watch"
-    titleId="everyone-watch"
-    iconCSS="text-text-action-error"
-  />
-{/if}
+<section class="w-full flex flex-col mb-12">
+  {#if !isEmpty(popular)}
+    <FeedCategoryList
+      movies={popular}
+      icon={Fire}
+      title="Everyone watch"
+      titleId="everyone-watch"
+      iconCSS="text-text-action-error"
+    />
+  {/if}
 
-{#if !isEmpty(top)}
-  <FeedCategoryList
-    movies={top}
-    icon={Trophy}
-    title="Top 10 movies"
-    titleId="top-10-movies"
-    iconCSS="text-text-action-caution"
-  />
-{/if}
-{#if !isEmpty(upcoming)}
-  <FeedCategoryList
-    movies={upcoming}
-    icon={Trophy}
-    title="Upcoming"
-    titleId="upcoming"
-    iconCSS="text-text-action-success"
-  />
-{/if}
+  {#if !isEmpty(top)}
+    <FeedCategoryList
+      movies={top}
+      icon={Trophy}
+      title="Top 10 movies"
+      titleId="top-10-movies"
+      iconCSS="text-text-action-caution"
+    />
+  {/if}
+  {#if !isEmpty(upcoming)}
+    <FeedCategoryList
+      movies={upcoming}
+      icon={Trophy}
+      title="Upcoming"
+      titleId="upcoming"
+      iconCSS="text-text-action-success"
+    />
+  {/if}
+</section>

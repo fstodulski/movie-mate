@@ -5,11 +5,10 @@ import type { PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async (event) => {
   try {
-    const { genres, error } = await GenresRepository.findAll();
+    const genres = GenresRepository.findAll();
 
     return {
-      genres: genres,
-      error
+      genres
     };
   } catch (e) {
     return {
