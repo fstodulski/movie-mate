@@ -1,6 +1,6 @@
 <script lang="ts">
-  import type { SuperValidated } from 'sveltekit-superforms';
-  import { superForm } from 'sveltekit-superforms/client';
+  import { onMount } from 'svelte';
+  import { page } from '$app/stores';
   import { Close, Search2 } from '@steeze-ui/remix-icons';
   import { Icon } from '@steeze-ui/svelte-icon';
   import { Input } from 'flowbite-svelte';
@@ -8,32 +8,51 @@
 
   import { APP_ROUTES } from '$lib/core/constants/app-routes.const';
 
-  import type { SearchMovieForm } from './search-movie.form';
-
-  export let formData: SuperValidated<SearchMovieForm>;
-
-  const { form, constraints, errors, enhance } = superForm(formData, {});
-
   let timer;
+  let name = '';
+  let htmlForm: HTMLFormElement;
 
-  $: form.subscribe((res) => {
-    clearTimeout(timer);
-    timer = setTimeout(() => {}, 1000);
+  const onInputChange = (event) => {
+    const value = event.target.value;
+
+    if (value.length >= 3) {
+      clearTimeout(timer);
+      timer = setTimeout(() => {
+        htmlForm.requestSubmit();
+      }, 1000);
+    }
+  };
+
+  const _prefillName = () => {
+    const query = $page.url.searchParams.get('name');
+
+    if (query) {
+      name = query;
+    }
+  };
+
+  onMount(() => {
+    _prefillName();
   });
 </script>
 
-<form action="" method="post" use:enhance>
+<form action="?/searchMovie" method="get" bind:this={htmlForm}>
+  {#await $page.data.movies then { movies }}
+    <input class="hidden" type="number" name="limit" value={movies.limit} />
+    <input class="hidden" type="number" name="page" value={movies.page} />
+  {/await}
   <Input
-    {...$constraints.name}
-    bind:value={$form.name}
+    name="name"
     type="text"
+    bind:value={name}
+    on:input={onInputChange}
     class="grow"
     placeholder="Movie name"
   >
     <Icon slot="left" src={Search2} size="20px" />
 
     <a slot="right" type="reset" href={APP_ROUTES.discover.search}>
-      {#if !isEmpty($form.name)}
+      {#if !isEmpty(name)}
         <Icon src={Close} size="20px" />
       {/if}
     </a>

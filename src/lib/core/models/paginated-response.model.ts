@@ -1,6 +1,8 @@
 export type PaginatedResponse<TResults> = {
+  query?: string;
   page: number;
   results: Array<TResults>;
-  total_pages: number;
-  total_results: number;
+  limit: number;
+  total_pages?: number;
+  total_results?: number;
 };

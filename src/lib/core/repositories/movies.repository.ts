@@ -14,23 +14,13 @@ export const MoviesRepository = {
       .then((res) => ({ movie: res.data, error: null }))
       .catch((e) => ({ movie: null, error: parseError(e) }));
   },
-  findByName: async (name: string, page = 1) => {
-    try {
-      const response = await apiClient
-        .query({ name, page, limit: 10 })
-        .get(API_ENDPOINTS.movies.byName)
-        .json(responseHandler<PaginatedResponse<ByNameResponse>>);
-
-      return {
-        movies: response.data,
-        error: null
-      };
-    } catch (e) {
-      return {
-        movies: [],
-        error: parseError(e)
-      };
-    }
+  findByName: async (name: string, page = 1, limit = 10) => {
+    return await apiClient
+      .query({ name, page, limit })
+      .get(API_ENDPOINTS.movies.byName)
+      .json(responseHandler<PaginatedResponse<ByNameResponse>>)
+      .then((res) => ({ movies: res.data, error: null }))
+      .catch((e) => ({ movies: null, error: parseError(e) }));
   },
   trailers: async (id: string) => {
     return await apiClient

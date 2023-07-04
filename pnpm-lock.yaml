@@ -148,6 +148,9 @@ devDependencies:
   svelte-intersection-observer:
     specifier: ^0.10.0
     version: 0.10.0
+  svelte-legos:
+    specifier: ^0.2.1
+    version: 0.2.1(svelte@4.0.1)
   sveltekit-superforms:
     specifier: ^1.1.3
     version: 1.1.3(@sveltejs/kit@1.21.0)(svelte@4.0.1)(zod@3.21.4)
@@ -1667,6 +1670,7 @@ packages:
 
   /@jridgewell/source-map@0.3.4:
     resolution: {integrity: sha512-KE/SxsDqNs3rrWwFHcRh15ZLVFrI0YoZtgAdIyIq9k5hUNmiWRXXThPomIxHuL20sLdgzbDFyvkUMna14bvtrw==}
+    deprecated: the version has a bug with typescript type resolution
     dev: true
 
   /@jridgewell/sourcemap-codec@1.4.14:
@@ -3085,6 +3089,10 @@ packages:
 
   /caniuse-lite@1.0.30001511:
     resolution: {integrity: sha512-NaWPJawcoedlghN4P7bDNeADD7K+rZaY6V8ZcME7PkEZo/nfOg+lnrUgRWiKbNxcQ4/toFKSxnS4WdbyPZnKkw==}
+    dev: true
+
+  /canvas-confetti@1.6.0:
+    resolution: {integrity: sha512-ej+w/m8Jzpv9Z7W7uJZer14Ke8P2ogsjg4ZMGIuq4iqUOqY2Jq8BNW42iGmNfRwREaaEfFIczLuZZiEVSYNHAA==}
     dev: true
 
   /chai@4.3.7:
@@ -5522,6 +5530,15 @@ packages:
     engines: {node: ^14.13.1 || >=16.0.0}
     dev: true
 
+  /prism-svelte@0.5.0:
+    resolution: {integrity: sha512-db91Bf3pRGKDPz1lAqLFSJXeW13mulUJxhycysFpfXV5MIK7RgWWK2E5aPAa71s8TCzQUXxF5JOV42/iOs6QkA==}
+    dev: true
+
+  /prismjs@1.29.0:
+    resolution: {integrity: sha512-Kx/1w86q/epKcmte75LNrEoT+lX8pBpavuAbvJWRXar7Hz8jrtF+e3vY751p0R8H9HdArwaCTNDDzHg/ScJK1Q==}
+    engines: {node: '>=6'}
+    dev: true
+
   /process-nextick-args@2.0.1:
     resolution: {integrity: sha512-3ouUOpQhtgrbOa17J7+uxOTpITYWaGP7/AhoR3+A+/1e9skrzelGi/dXzEYyvbxubEF6Wn2ypscTKiKJFFn1ag==}
     dev: true
@@ -6247,6 +6264,17 @@ packages:
 
   /svelte-intersection-observer@0.10.0:
     resolution: {integrity: sha512-GdOTMSrRpoBciMe+NbocsHOBvqKJ5OiL5H8Jz4mBoDGHba9VOI4oGeXAmMOmh8mi5gq95+0b0DVI+6alcQ7TCA==}
+    dev: true
+
+  /svelte-legos@0.2.1(svelte@4.0.1):
+    resolution: {integrity: sha512-M7IncWP2e8FaHzQN1DSzxLSoq/6aQYWZ93REZam9bYlvLEjdPGWLAYdpPNnnZtXlHco+o3zrgYTdwsyyS9beUQ==}
+    peerDependencies:
+      svelte: ^3.54.0
+    dependencies:
+      canvas-confetti: 1.6.0
+      prism-svelte: 0.5.0
+      prismjs: 1.29.0
+      svelte: 4.0.1
     dev: true
 
   /svelte-preprocess@5.0.4(@babel/core@7.22.5)(postcss@8.4.24)(sass@1.63.6)(svelte@4.0.1)(typescript@5.1.6):

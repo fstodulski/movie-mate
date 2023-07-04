@@ -10,6 +10,9 @@
   import { searchMovieStore } from './search-movie.store';
 
   export let data: PageData;
+
+  searchMovieStore.setInitial(data.movies.movies);
+
   let innerHeight: number;
   let clientHeight: number;
 
@@ -28,7 +31,7 @@
   <!--    <PastSearches />-->
   <!--{/if}-->
 
-  {#if !isEmpty($searchMovieStore.movies)}
-    <SearchResultsBox />
+  {#if !isEmpty($searchMovieStore)}
+    <SearchResultsBox movies={$searchMovieStore} />
   {/if}
 </aside>
