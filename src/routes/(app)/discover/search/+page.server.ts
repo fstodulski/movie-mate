@@ -9,11 +9,7 @@ export const load: PageServerLoad = async (event) => {
   const limit = ((await event.url.searchParams.get('limit')) as string) || '10';
   const page = ((await event.url.searchParams.get('page')) as string) || '1';
 
-  const movies = await MoviesRepository.findByName(
-    nameParam as string,
-    parseInt(page),
-    parseInt(limit)
-  );
+  const movies = await MoviesRepository.findByName(nameParam as string, +page, +limit);
 
   return {
     movies

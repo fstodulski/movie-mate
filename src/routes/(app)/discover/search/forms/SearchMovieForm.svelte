@@ -1,5 +1,6 @@
 <script lang="ts">
   import { onMount } from 'svelte';
+  import { browser } from '$app/environment';
   import { page } from '$app/stores';
   import { Close, Search2 } from '@steeze-ui/remix-icons';
   import { Icon } from '@steeze-ui/svelte-icon';
@@ -7,6 +8,8 @@
   import { isEmpty } from 'ramda';
 
   import { APP_ROUTES } from '$lib/core/constants/app-routes.const';
+
+  import { searchMovieStore } from '../search-movie.store';
 
   let timer;
   let name = '';
@@ -18,7 +21,11 @@
     if (value.length >= 3) {
       clearTimeout(timer);
       timer = setTimeout(() => {
-        htmlForm.requestSubmit();
+        if (!browser) {
+          htmlForm.requestSubmit();
+        } else {
+          searchMovieStore.fetchMovies(value);
+        }
       }, 1000);
     }
   };
